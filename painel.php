@@ -261,7 +261,15 @@ $con3= mysqli_query($conn, $consultaeS);
     <label for="exampleFormControlTextarea1">Mensagem</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
   </div>
-     <button type="submit" class="btn btn-primary"><?php mail('$_Post[email]', 'sise', '$_Post[message]', '');?></button>
+     <button type="submit" class="btn btn-primary">
+     <?php 
+     	$headers  = 'MIME-Version: 1.0' . "\r\n";
+         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+         $headers .= 'From: igorlamoia@hotmail.com';
+     mail('vitorianapo9@gmail.com', 'Sise', '$_POST[message]', $headers);
+     ?>
+     Enviar
+     </button>
 </form>
 				
 
