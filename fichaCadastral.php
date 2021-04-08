@@ -49,23 +49,6 @@ $pdf->Cell($w[3], 5, 'C�digo do Cliente', 'LTR', 1, 'R', 1);
 
 $pdf->SetFont('Times', '', 10);
 $pdf->SetFillColor(192,192,192);
-$w = array(37,5,5,17,5,26,5,5,17,5,26,37);
-$pdf->Cell($w[0], 5, '', 'LR', 0, 'C', 1);
-$pdf->SetFont('Times', '', 9);
-$pdf->Cell($w[1], 5, '', 'L', 0, 'L', 1);
-$pdf->Cell($w[2], 5, '', 1, 0, 'L', 1); //CHECKOUT
-$pdf->Cell($w[3], 5, '  Abertura   ', 0, 0, 'L',1);
-$pdf->Cell($w[4], 5, '', 1, 0, 'L', 1);  //CHECKOUT
-$pdf->Cell($w[5], 5, '  Atualiza��o   ', 0, 0, 'L', 1);
-$pdf->Cell($w[6], 5, '', 'L', 0, 'L', 1);
-$pdf->Cell($w[7], 5, '', 1, 0, 'L', 1); //CHECKOUT
-$pdf->Cell($w[8], 5, '  Tomador      ', 0, 0, 'L', 1);
-$pdf->Cell($w[9], 5, '', 1, 0, 'L', 1); //CHECKOUT
-$pdf->Cell($w[10], 5, '  Avalista   ', 0, 0, 'L', 1);
-$pdf->Cell($w[11], 5, '', 'LR', 1, 'C', 1);
-
-$pdf->SetFont('Times', '', 10);
-$pdf->SetFillColor(192,192,192);
 $w = array(37, 58, 58, 37);
 $pdf->Cell($w[0], 3, '', 'BLR', 0, 'L', 1);
 $pdf->Cell($w[1], 3, '', 'LBR', 0, 'L', 1);
@@ -73,9 +56,6 @@ $pdf->Cell($w[2], 3, '', 'LBR', 0, 'L', 1);
 $pdf->Cell($w[3], 3, '', 'LBR', 1, 'L', 1);
 $pdf->Ln();
 $pdf->Ln();
-//$pdf->ln();
-//$pdf->ln();
-//$pdf->ln();
 
 $pdf->SetFont('Times', 'B', 11);
 $w = array(190);
