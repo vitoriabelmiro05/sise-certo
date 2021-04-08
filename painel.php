@@ -144,7 +144,8 @@ $con3= mysqli_query($conn, $consultaeS);
  <p>
 <br>
 <br>
-                <button  class="btn btn-success">Solicitar Indicação de Professor </button>
+            <a class="btn btn-primary" href="geraDeclaracao.php" role="button">Gerar Declaração</a>
+                
 
                  </div>
 
