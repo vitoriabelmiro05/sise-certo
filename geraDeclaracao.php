@@ -12,7 +12,7 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM estagio; ";
+$consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
@@ -49,11 +49,27 @@ $pdf->Cell(0, 5, 'DECLACAÇÃO Nº 25/2020', 0, 1, 'C', 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->ln();
 $pdf->SetX(30);
-$pdf->MultiCell(150, 5, 'Declaramos para os devidos fins que o professor(a) ' . $dado["nome_orientador"] . ' orientou os alunos abaixo relacionados em seus respectivos estágios:', 0, 'J', 0);
+$pdf->MultiCell(150, 5, 'Declaramos para os devidos fins que o(a) aluno(a) ' . $dado["nome_aluno"] . ' participou dos respectivos estágios:', 0, 'J', 0);
 
 $pdf->ln();
 $pdf->ln();
 $pdf->ln();
+
+while($dado = $con3 -> fetch_array() ){
+
+    $id= $dado["idestagio"];
+
+
+    $pdf->Cell($w[0], 5, ''. $dado["nome_aluno"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($w[0], 5, ' '. $dado["matricula"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($w[0], 5, ' '. $dado["nome_orientador"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($w[0], 5, ''. $dado["nome_empresa"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($w[0], 5, '' .$dado["inicio_estagio"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($w[0], 5, '' . $dado["fim_estagio"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($w[0], 5, '' . $dado["carga_horaria"] .'', 'TLR', 0, 'L', 0);   
+    
+   }
+
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->SetFillColor(192,192,192);
