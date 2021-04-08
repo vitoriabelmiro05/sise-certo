@@ -55,20 +55,6 @@ $pdf->ln();
 $pdf->ln();
 $pdf->ln();
 
-while($dado = $con3 -> fetch_array() ){
-
-    $id= $dado["idestagio"];
-
-
-    $pdf->Cell($w[0], 5, ''. $dado["nome_aluno"] .'', 'TLR', 0, 'L', 0);
-    $pdf->Cell($w[0], 5, ' '. $dado["matricula"] .'', 'TLR', 0, 'L', 0);
-    $pdf->Cell($w[0], 5, ' '. $dado["nome_orientador"] .'', 'TLR', 0, 'L', 0);
-    $pdf->Cell($w[0], 5, ''. $dado["nome_empresa"] .'', 'TLR', 0, 'L', 0);
-    $pdf->Cell($w[0], 5, '' .$dado["inicio_estagio"] .'', 'TLR', 0, 'L', 0);
-    $pdf->Cell($w[0], 5, '' . $dado["fim_estagio"] .'', 'TLR', 0, 'L', 0);
-    $pdf->Cell($w[0], 5, '' . $dado["carga_horaria"] .'', 'TLR', 0, 'L', 0);   
-    
-   }
 
 
 $pdf->SetFont('Arial', 'B', 12);
@@ -88,12 +74,19 @@ $pdf->Cell($tamanho, 5, 'SEMINÁRIO', 'TR', 1, 'L', 0);
 
 $pdf->SetFont('Arial', '', 8);
 //Aqui entra o while
-$pdf->Cell($tamanho, 5, 'ALUNA X', 'TLR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, 'EMPRESA Y', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, 'De 20/20 a 19/03', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, '*', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, 'ENGENHARIA DE COMPUTACAO', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, '***', 'TR', 1, 'L', 0);
+while($dado = $con3 -> fetch_array() ){
+
+    $id= $dado["idestagio"];
+
+
+    $pdf->Cell($tamanho, 5, ''. $dado["nome_aluno"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($tamanho, 5, ' '. $dado["matricula"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($tamanho, 5, ' '. $dado["nome_orientador"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($tamanho, 5, ''. $dado["nome_empresa"] .'', 'TLR', 0, 'L', 0);
+    $pdf->Cell($tamanho, 5, '' .$dado["inicio_estagio"] . ' a '. $dado["fim_estagio"], 'TLR', 0, 'L', 0);
+    $pdf->Cell($tamanho, 5, '' . $dado["carga_horaria"] .'', 'TLR', 1, 'L', 0);   
+    
+   }
 
 $pdf->Cell(190, 5, '', 'T', 1, 'L', 0);
 
