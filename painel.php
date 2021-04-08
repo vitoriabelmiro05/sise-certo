@@ -262,8 +262,7 @@ $con3= mysqli_query($conn, $consultaeS);
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
   </div>
   <a href="email.php"><button type="button" class="btn btn-primary">ENVIAR</button></a>
-     Enviar
-     </button> </a> -->
+     </button> </a>
 </form>
 
 
