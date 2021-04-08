@@ -57,65 +57,32 @@ $pdf->ln();
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->SetFillColor(192,192,192);
-$w = array(37, 58, 58, 37);
-$pdf->Cell($w[0], 5, 'Uso exclusivo ', 'TLR', 0, 'C', 1);
-$pdf->Cell($w[1], 5, '', 'LTR', 0, 'L', 1);
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[2], 5, 'Tipo de Cliente ', 'TLR', 0, 'R', 1);
-$pdf->Cell($w[3], 5, 'Cï¿½digo do Cliente', 'LTR', 1, 'R', 1);
 
 $pdf->SetFont('Arial', '', 10);
 $pdf->SetFillColor(192,192,192);
-$w = array(37, 58, 58, 37);
-$pdf->Cell($w[0], 3, '', 'BLR', 0, 'L', 1);
-$pdf->Cell($w[1], 3, '', 'LBR', 0, 'L', 1);
-$pdf->Cell($w[2], 3, '', 'LBR', 0, 'L', 1);
-$pdf->Cell($w[3], 3, '', 'LBR', 1, 'L', 1);
-$pdf->Ln();
-$pdf->Ln();
 
-$pdf->SetFont('Arial', 'B', 11);
-$w = array(190);
-$pdf->Cell($w[0], 5, utf8_encode('DADOS PESSOAIS '), 0, 1, 'L', 0);
-$w = array(140,50);
+$tamanho = 190/6;
 $pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[0], 5, 'Nome Completo:', 'TLR', 0, 'L', 0);
-$pdf->Cell($w[1], 5, 'CPF:', 'TR', 1, 'L', 0);
+$pdf->Cell($tamanho, 5, 'NOME:', 'TLR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'EMPRESA:', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'PERÍODO ESTÁGIO:', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'CH TOTAL CUMPRIDA NO ESTÁGIO', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'CURSO', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'SEMINÁRIO', 'TR', 1, 'L', 0);
 
-$w = array(95,95);
 $pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[0], 5, 'Nome do pai:', 'TLR', 0, 'L', 0);
-$pdf->Cell($w[1], 5, 'Nome do mï¿½e:', 'TR', 1, 'L', 0);
+//Aqui entra o while
+$pdf->Cell($tamanho, 5, 'ALUNA X', 'TLR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'EMPRESA Y', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'De 20/20 a 19/03', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, '*', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'ENGENHARIA DE COMPUTACAO', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, '***', 'TR', 1, 'L', 0);
 
-$w = array(45,50,95);
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[0], 5, 'Data de Nascimento:', 'TLR', 0, 'L', 0);
-$pdf->Cell($w[1], 5, 'Nacionalidade:', 'TR', 0, 'L', 0);
-$pdf->Cell($w[2], 5, 'Naturalidade: (municï¿½pio)', 'TR', 1, 'L', 0);
-
-$w = array(45,50,95);
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[0], 5, 'Sexo:', 'TLR', 0, 'L', 0);
-$pdf->Cell($w[1], 5, 'Estado Civil:', 'TR', 0, 'L', 0);
-$pdf->Cell($w[2], 5, 'Nome do cï¿½njuge ou companheiro(a): Avalista', 'TR', 1, 'L', 0);
-
-$w = array(45,50,95);
-$pdf->Cell($w[0], 2, '', 'LR', 0, 'L', 0);
-$pdf->Cell($w[1], 2, '', 'R', 0, 'L', 0);
-$pdf->Cell($w[2], 2, '', 'R', 1, 'L', 0);
-
-$w = array(3,5,16,5,16,50,95);
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[0], 5, '','L', 0, 'L', 0);
-$pdf->SetFont('Arial', '', 15);
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[2], 5,  ' Masculino', 0, 0, 'L', 0);
-$pdf->SetFont('Arial', '', 15);
-$pdf->SetFont('Arial', '', 8);
-$pdf->Cell($w[4], 5,  ' Feminino', 0, 0, 'L', 0);
+$pdf->Cell(190, 5, '', 'T', 1, 'L', 0);
 
 $pdf->Ln();
-$pdf->MultiCell(190, 5, 'lorem aoijdjadiosjidsaijdsajiadjijadijasdijdsaidsajidsjaisadjisajiasdjisajdiasjdidasjdiasjdasdasijdaisjdiasjsadidsjaidsajiojidasjdasSe eu quebro linha aqui, quebra linha no pdf Primeiro Largura, depois altura (no MultiCell tanto faz depois o que tem q escrever, se vai colocar bora,texto alinhado L esquerda, C centralizado, J justificado, e no fim bota 0 pra n ter cor', 1, 'C', 0);
+// $pdf->MultiCell(190, 5, 'lorem aoijdjadiosjidsaijdsajiadjijadijasdijdsaidsajidsjaisadjisajiasdjisajdiasjdidasjdiasjdasdasijdaisjdiasjsadidsjaidsajiojidasjdasSe eu quebro linha aqui, quebra linha no pdf Primeiro Largura, depois altura (no MultiCell tanto faz depois o que tem q escrever, se vai colocar bora,texto alinhado L esquerda, C centralizado, J justificado, e no fim bota 0 pra n ter cor', 1, 'C', 0);
 
 
 $pdf->Output('fichaCadastral' . '.pdf', 'I'); //I exibe na prï¿½pria aba e 'D', forï¿½a um download
