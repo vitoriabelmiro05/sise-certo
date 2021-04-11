@@ -4,10 +4,12 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
+$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
+$query4= "SELECT * FROM estagio; ";
+$con4= mysqli_query($conn, $query4);
 ?>
 <DOCTYPE HTLM>
     <html lang="pt-br">
@@ -60,7 +62,7 @@ $con3= mysqli_query($conn, $consultaeS);
                     </li>
 
 					<li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#indica">Indicar Professor Orientador</a>
+                        <a class="nav-link js-scroll-trigger" href="#indica">Estágios Cadastrados</a>
                     </li>
 
 
@@ -95,47 +97,45 @@ $con3= mysqli_query($conn, $consultaeS);
 
 </ul><br>
 
-					 <h3>Estágios Cadastrados </h3>
+					 <h3>Usuarios Cadastrados </h3>
 					<table class="table table-striped">
   <thead>
     <tr>
 
-      <th scope="col">Nome do Aluno</th>
-      <th scope="col">Matricula</th>
-	  <th scope="col">Professor Orientador</th>
-	   <th scope="col">Nome Empresa</th>
-      <th scope="col">Início Estágio</th>
-	  <th scope="col">Fim Estágio</th>
-
-	  <th scope="col">Carga horária</th>
+      <th scope="col">NOME</th>
+      <th scope="col">EMAIL</th>
+	  <th scope="col">SENHA</th>
+	   <th scope="col">RG</th>
+      <th scope="col">CPF</th>
+	  <th scope="col">TELEFONE</th>
+      <th scope="col">FUNÇÃO</th>
+      
 
 			   <?php if ($con3-> num_rows> 0 ) {
      while($dado = $con3 -> fetch_array() ){
 
-                         $id= $dado["idestagio"];
-
+                         
+       
 
                             echo "<tr>";
-                            echo "<td>" . $dado["nome_aluno"] . "</td>";
-							echo "<td>" . $dado["matricula"] . "</td>";
-                            echo "<td>" . $dado["nome_orientador"] . "</td>";
-                            echo "<td>" . $dado["nome_empresa"] . "</td>";
-                            echo "<td>" . $dado["inicio_estagio"] . "</td>";
-							 echo "<td>" . $dado["fim_estagio"] . "</td>";
-							  echo "<td>" . $dado["carga_horaria"] . "</td>";
+                            echo "<td>" . $dado["nome"] . "</td>";
+							echo "<td>" . $dado["email"] . "</td>";
+                            echo "<td>" . $dado["senha"] . "</td>";
+                            echo "<td>" . $dado["rg"] . "</td>";
+                            echo "<td>" . $dado["cpf"] . "</td>";
+							 echo "<td>" . $dado["telefone"] . "</td>";
+							  echo "<td>" . $dado["funcao"] . "</td>";
+                               
+                              ?>
+                           
+                           <td><a class="btn btn-primary"role="button" href="edita.php" >EDITAR</a></td>; 
+                              <?php
 
+                              echo "</tr>";
+                         }
+ }
 
-                           echo "</tr>";
-                        }
-
-
-
-                    } 
-
-
-
-
-                ?>
+ ?>  
 
   </thead>
 
@@ -236,39 +236,59 @@ $con3= mysqli_query($conn, $consultaeS);
 
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
                 <div class="w-100">
-                    <h3 class="mb-5 " >Indicar Professor Orientador</h3>
-                    <form action="email" method="post">
+                <h3>Estágios Cadastrados </h3>
+					<table class="table table-striped">
+  <thead>
+    <tr>
 
-  <div class="form-group">
+      <th scope="col">Nome do Aluno</th>
+      <th scope="col">Matricula</th>
+	  <th scope="col">Professor Orientador</th>
+	   <th scope="col">Nome Empresa</th>
+      <th scope="col">Início Estágio</th>
+	  <th scope="col">Fim Estágio</th>
 
-    <select  type="email"class="form-control" id="exampleFormControlSelect1" name="email">
-      <option>vitorianapo9@gmail.com</option>
-      <!-- <option>coordenaçãoele@gmail.com</option>
-      <option>coordenaçãomec@gmail.com</option> -->
-	   <option>camilalindamachado9@gmail.com</option>
+	  <th scope="col">Carga horária</th>
 
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Assunto</label>
-    <select  type="email"class="form-control" id="exampleFormControlSelect1" name="name">
-      <option>Indicação de orientador</option>
-      <!-- <option>Gabriella Barbosa</option>
-      <option>Tatiana Barbosa</option> -->
+			   <?php if ($con4-> num_rows> 0 ) {
+     while($dado = $con4 -> fetch_array() ){
 
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Mensagem</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
-  </div>
-  <a href="email.php"><button type="button" class="btn btn-primary">ENVIAR</button></a>
-     </button> </a>
-</form>
+                         $id= $dado["idestagio"];
 
 
-                </div>
+                            echo "<tr>";
+                            echo "<td>" . $dado["nome_aluno"] . "</td>";
+							echo "<td>" . $dado["matricula"] . "</td>";
+                            echo "<td>" . $dado["nome_orientador"] . "</td>";
+                            echo "<td>" . $dado["nome_empresa"] . "</td>";
+                            echo "<td>" . $dado["inicio_estagio"] . "</td>";
+							 echo "<td>" . $dado["fim_estagio"] . "</td>";
+							  echo "<td>" . $dado["carga_horaria"] . "</td>";
 
+
+                           echo "</tr>";
+                        }
+
+
+
+                    } 
+
+
+
+
+                ?>
+
+  </thead>
+
+</table>
+ <p>
+ <p>
+<br>
+<br>
+           
+                
+
+                 </div>
             </section>
 
 

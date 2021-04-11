@@ -44,7 +44,7 @@ $row = mysqli_fetch_row($result_status);
 <div class="caixa">
         <?php
 if($row[0] == '1'){
-    header("Location: painel.php");
+    header("Location: verifica_usuario.php");
     
 }else if($row[0] == '0'){
     
