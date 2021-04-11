@@ -126,7 +126,7 @@ $con4= mysqli_query($conn, $query4);
 
                          ?>
                         <td><a href="editar.php?cpf=<?php echo $dado["cpf"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
-                         </tr>
+                         
        
  <?php
             echo "</tr>";
@@ -262,8 +262,10 @@ $con4= mysqli_query($conn, $query4);
                             echo "<td>" . $dado["inicio_estagio"] . "</td>";
 							 echo "<td>" . $dado["fim_estagio"] . "</td>";
 							  echo "<td>" . $dado["carga_horaria"] . "</td>";
+                              ?>
+                               <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
 
-
+<?php
                            echo "</tr>";
                         }
 
