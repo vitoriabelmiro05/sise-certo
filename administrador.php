@@ -111,29 +111,27 @@ $con4= mysqli_query($conn, $query4);
       <th scope="col">FUNÇÃO</th>
       
 
-			   <?php if ($con3-> num_rows> 0 ) {
+      <?php if ($con3-> num_rows> 0 ) {
      while($dado = $con3 -> fetch_array() ){
 
-                         
+                         echo "<tr>";
+                         echo "<td>" . $dado["nome"] . "</td>";
+                         echo "<td>" . $dado["email"] . "</td>";
+                         echo "<td>" . $dado["senha"] . "</td>";
+                         echo "<td>" . $dado["rg"] . "</td>";
+                         echo "<td>" . $dado["cpf"] . "</td>";
+                          echo "<td>" . $dado["telefone"] . "</td>";
+                           echo "<td>" . $dado["funcao"] . "</td>";
+                            
+
+                         ?>
+                        <td><a href="editar.php?cpf=<?php echo $dado["cpf"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
+                         </tr>
        
-
-                            echo "<tr>";
-                            echo "<td>" . $dado["nome"] . "</td>";
-							echo "<td>" . $dado["email"] . "</td>";
-                            echo "<td>" . $dado["senha"] . "</td>";
-                            echo "<td>" . $dado["rg"] . "</td>";
-                            echo "<td>" . $dado["cpf"] . "</td>";
-							 echo "<td>" . $dado["telefone"] . "</td>";
-							  echo "<td>" . $dado["funcao"] . "</td>";
-                               
-                              ?>
-                           
-                           <td><a class="btn btn-primary"role="button" href="edita.php" >EDITAR</a></td>; 
-                              <?php
-
-                              echo "</tr>";
-                         }
- }
+ <?php
+            echo "</tr>";
+  }
+}
 
  ?>  
 
@@ -281,30 +279,12 @@ $con4= mysqli_query($conn, $query4);
   </thead>
 
 </table>
- <p>
- <p>
+ 
 <br>
 <br>
-           
-                
-
                  </div>
             </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </body>
 </html>
-</DOCTYPE HTLM>
+</DOCTYPE HTML>

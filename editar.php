@@ -12,12 +12,9 @@
 session_start();
 
 include('conexao.php');
-$cpf= filter_input(INPUT_GET, "cpf");
-$nome= filter_input(INPUT_GET, "nome");
-$email= filter_input(INPUT_GET, "email");
-$senha= filter_input(INPUT_GET, "senha");
-$rg= filter_input(INPUT_GET, "rg");
-$telefone= filter_input(INPUT_GET, "telefone");
+
+$cpf= $_GET["cpf"];
+
 $consulta= "SELECT * FROM usuario WHERE cpf = '$cpf'; ";
 $con= mysqli_query($conn, $consulta);
 
@@ -28,7 +25,7 @@ $con= mysqli_query($conn, $consulta);
     <div id= "conteudo">
         <h1>Alterar dados</h1>
         <p>
-            <form action="alterar.php">
+            <form action="admin_altera.php" method="POST">
             <?php while($dado = $con -> fetch_array() ){?>
                 
                 Nome: <input type="text" name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
