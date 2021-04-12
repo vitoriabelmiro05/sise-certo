@@ -10,7 +10,7 @@ $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
 $query4= "SELECT * FROM estagio; ";
 $con4= mysqli_query($conn, $query4);
-$consul= "SELECT nome_orientador FROM estagio; ";
+$consul= "SELECT * FROM usuario where funcao = 'professor'; ";
 $cons=mysqli_query($conn, $consul);
 ?>
 <DOCTYPE HTLM>
@@ -221,15 +221,12 @@ $cons=mysqli_query($conn, $consul);
 						 <div class="form-group">
                         
                              <select id="NOMEO" name="NOMEO">
-                             
-      <option  value="NOMEO">Professor<?php if ($cons-> num_rows> 0 ) {
-     while($dado = $cons -> fetch_array() ){
-         echo $dado["nome_orientador"]; } }?></option>
-    </select>
-                                           
-                                                     </div>
+                                <?php if ($cons-> num_rows> 0 ) {
+                                    while($dado = $cons -> fetch_array() ){?>
+                                   <option  value=<?php echo $dado["nome"]?>><?php echo "Professor (a) ".$dado["nome"]; } }?></option>
+                            </select>
 
-
+                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                          <br>
 
