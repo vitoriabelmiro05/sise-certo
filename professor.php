@@ -15,6 +15,7 @@ $con3= mysqli_query($conn, $consultaeS);
             <meta charset="utf-8">
           
            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+           <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
@@ -137,7 +138,7 @@ $con3= mysqli_query($conn, $consultaeS);
 				 <div class="form-group">
                 Senha: <input type="text" class="form-control"name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
 				 </div>
-                <input type= "submit" value= "Alterar"/>
+                 <input type= "submit" value= "Alterar"class="btn btn-primary"/>
                 <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
                 <?php  } ?>
 

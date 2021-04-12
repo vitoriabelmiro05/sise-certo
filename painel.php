@@ -15,6 +15,7 @@ $con3= mysqli_query($conn, $consultaeS);
             <meta charset="utf-8">
 
            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+           <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
@@ -26,6 +27,7 @@ $con3= mysqli_query($conn, $consultaeS);
         <script src="js/jquery.mask.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript" ></script>
+
 
 
 
@@ -55,12 +57,13 @@ $con3= mysqli_query($conn, $consultaeS);
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#perfil">Editar Perfil</a>
                     </li>
-                    <li class="nav-item">
+
+                    <!-- <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#estagio">Cadastrar Estágio</a>
-                    </li>
+                    </li> -->
 
 					<li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#indica">Indicar Professor Orientador</a>
+                        <a class="nav-link js-scroll-trigger" href="#indica">Indicar/Solicitar Professor Orientador</a>
                     </li>
 
 
@@ -187,54 +190,10 @@ $con3= mysqli_query($conn, $consultaeS);
 
 
             </section>
-		   <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="estagio">
-                <div class="w-100">
-                    <h2 class="mb-5 " >Cadastrar novo estágio</h2>
-                    <form action="processaEsta.php" method="post">
-					 <div class="form-group">
-                            <input type="text" class="form-control" id="NOME" name="NOME" aria-describedby="emailHelp" placeholder="Nome do Aluno" required>
-                        </div>
-						<div class="form-group">
-                            <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" required>
-                        </div>
-                        <div class="form-group">
-
-                            <label for="exampleInputEmail1">Inicio do Estágio</label>
-                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAI" id="DATAI">
-
-                        </div>
-						<div class="form-group">
-
-                            <label for="exampleInputEmail1">Fim do Estágio</label>
-                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAF" id="DATAF">
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Carga horária</label>
-                            <input type="time" class="form-control" id="exampleInputPassword1"  name="CARGA" id="CARGA" min="00:00" max="23:59" required>
-                        </div>
-						 <div class="form-group">
-                            <input type="text" class="form-control" id="NOMEO" name="NOMEO" aria-describedby="emailHelp" placeholder="Nome do Professor Orientador" required>
-                        </div>
-
-
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                         <br>
-
-
-                    </form>
-
-
-                </div>
-
-            </section>
 
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
                 <div class="w-100">
-                    <h3 class="mb-5 " >Indicar Professor Orientador</h3>
+                    <h3 class="mb-5 " >Indicar/Solicitar Professor Orientador</h3>
                     <form action="email" method="post">
 
   <div class="form-group">

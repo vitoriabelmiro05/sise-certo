@@ -19,6 +19,7 @@ $cons=mysqli_query($conn, $consul);
             <meta charset="utf-8">
 
            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+           <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
