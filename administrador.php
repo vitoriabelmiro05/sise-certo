@@ -10,6 +10,8 @@ $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
 $query4= "SELECT * FROM estagio; ";
 $con4= mysqli_query($conn, $query4);
+$consul= "SELECT nome_orientador FROM estagio; ";
+$cons=mysqli_query($conn, $consul);
 ?>
 <DOCTYPE HTLM>
     <html lang="pt-br">
@@ -217,8 +219,15 @@ $con4= mysqli_query($conn, $query4);
                             <input type="time" class="form-control" id="exampleInputPassword1"  name="CARGA" id="CARGA" min="00:00" max="23:59" required>
                         </div>
 						 <div class="form-group">
-                            <input type="text" class="form-control" id="NOMEO" name="NOMEO" aria-describedby="emailHelp" placeholder="Nome do Professor Orientador" required>
-                        </div>
+                        
+                             <select id="NOMEO" name="NOMEO">
+                             
+      <option  value="NOMEO">Professor<?php if ($cons-> num_rows> 0 ) {
+     while($dado = $cons -> fetch_array() ){
+         echo $dado["nome_orientador"]; } }?></option>
+    </select>
+                                           
+                                                     </div>
 
 
                         <button type="submit" class="btn btn-primary">Enviar</button>

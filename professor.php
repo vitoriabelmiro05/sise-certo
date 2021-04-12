@@ -55,12 +55,7 @@ $con3= mysqli_query($conn, $consultaeS);
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#perfil">Editar Perfil</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#estagio">Cadastrar Estágio</a>
-                    </li>
-
-                  
-                    <li class="nav-item">
+                   <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="login.php">Sair</a>
                     </li>
                 </ul>
@@ -88,6 +83,7 @@ $con3= mysqli_query($conn, $consultaeS);
                         </h4>
                     
                     <?php } ?>
+
 					 </li>
  
 </ul><br>
@@ -105,6 +101,9 @@ $con3= mysqli_query($conn, $consultaeS);
 	  <th scope="col">Carga horária</th>
     </tr>
   </thead>
+  <br>
+<br>
+            <a class="btn btn-primary" href="geraDeclaracao.php" role="button">Gerar Declaração</a>
   <tbody>
    
    
@@ -127,9 +126,6 @@ $con3= mysqli_query($conn, $consultaeS);
                 Nome: <input type="text" class="form-control"name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
 				 </div>
 				 <div class="form-group">
-                CPF: <input type="text"class="form-control" name= "cpf" value="<?php echo $dado["cpf"];?>"/> <br/>
-				 </div>
-				 <div class="form-group">
                 RG: <input type="text" class="form-control"name= "rg" value="<?php echo $dado["rg"];?>"/> <br/>
 				 </div>
 				 <div class="form-group">
@@ -142,6 +138,7 @@ $con3= mysqli_query($conn, $consultaeS);
                 Senha: <input type="text" class="form-control"name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
 				 </div>
                 <input type= "submit" value= "Alterar"/>
+                <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
                 <?php  } ?>
 
             </form>
@@ -150,66 +147,7 @@ $con3= mysqli_query($conn, $consultaeS);
    
                
             </section>
-		   <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="estagio">
-                <div class="w-100">
-                    <h2 class="mb-5 " >Cadastrar novo estágio</h2>
-                    <form action="processaEsta.php" method="post">
-					 <div class="form-group">
-                            <input type="text" class="form-control" id="NOME" name="NOME" aria-describedby="emailHelp" placeholder="Nome do Aluno" required>
-                        </div>
-						<div class="form-group">
-                            <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" required>
-                        </div>
-                        <div class="form-group">
-							
-                            <label for="exampleInputEmail1">Inicio do Estágio</label>
-                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAI" id="DATAI">
-                            
-                        </div>
-						<div class="form-group">
-
-                            <label for="exampleInputEmail1">Fim do Estágio</label>
-                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAF" id="DATAF">
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Carga horária</label>
-                            <input type="time" class="form-control" id="exampleInputPassword1"  name="CARGA" id="CARGA" min="00:00" max="23:59" required>
-                        </div>
-						 <div class="form-group">
-                            <input type="text" class="form-control" id="NOMEO" name="NOMEO" aria-describedby="emailHelp" placeholder="Nome do Professor Orientador" required>
-                        </div>
-                        <input type="hidden" name="cpf" value="<?php echo $cpf; ?>" /> 
-                       
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                         <br>
-                
-
-                    </form>
-				
-
-                </div>
-               
-            </section>
-			 
 		  
-		
-       
-	
-		
-       
-  
-  
-           
-			
-            
-           
-                
-
-    
             </body>
 </html>
 </DOCTYPE>

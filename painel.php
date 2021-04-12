@@ -164,9 +164,7 @@ $con3= mysqli_query($conn, $consultaeS);
                  <div class="form-group">
                 Nome:<input type="text" class="form-control"name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
 				 </div>
-				 <div class="form-group">
-                CPF: <input type="text"class="form-control" name= "cpf" value="<?php echo $dado["cpf"];?>"/> <br/>
-				 </div>
+				 
 				 <div class="form-group">
                 RG: <input type="text" class="form-control"name= "rg" value="<?php echo $dado["rg"];?>"/> <br/>
 				 </div>

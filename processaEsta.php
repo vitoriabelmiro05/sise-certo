@@ -23,10 +23,10 @@ $result_usuario = mysqli_query($conn, $result_usuario);
 
 if(mysqli_insert_id($conn)){
 	$_SESSION['msg'] = "<p style='color:green;'>estagio cadastrado com sucesso</p>";
-	header("Location: painel.php");
+	header("Location: verifica_usuario.php");
 }else{
 	$_SESSION['msg'] = "<p style='color:red;'>estagio não foi cadastrado com sucesso</p>";
-	header("Location: painel.php");
+	header("Location: verifica_usuario.php");
 }
 
 
