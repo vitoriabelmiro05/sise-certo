@@ -15,7 +15,7 @@ include('conexao.php');
  if(isset( $CPF)){
 	$CPF = preg_replace("/[^0-9]/", "",  $CPF);}
 
-$sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}'; ";
+$sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
  $result= mysqli_query($conn, $sql);
  
 
