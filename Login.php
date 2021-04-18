@@ -28,8 +28,8 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
      exit();
 
  } else{
-    
-    header('Location: Login.html');
+    echo "<script> alert('Usuário não encontrado, verifique seu Login.');";
+    echo "javascript:window.location='Login.html';</script>";
     exit();
 
  }

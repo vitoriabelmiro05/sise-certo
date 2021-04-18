@@ -86,11 +86,16 @@ endif;
  
     <input type="password" id="SENHA" name="SENHA" placeholder="Senha"  minlength="5" maxlength="10" required>
     
-  <select id="FUNCAO" name="FUNCAO">
-      <option value="professor">Professor Orientador</option>
-      <option value="chefe">Chefe do Departamento</option>
-      <option value="coordenador">Coordenador</option>
-      <option value="setor de estagio">responsavel pelo setor de Estágio</option>
+ Função: <select id="FUNCAO" name="FUNCAO">
+      <option value="Professor(a)">Professor Orientador</option>
+      <option value="Chefe de Departamento">Chefe do Departamento</option>
+      <option value="Coordenador">Coordenador</option>
+      <option value="Setor de Estágio">responsavel pelo setor de Estágio</option>
+    </select>
+   Departamento: <select id="DEPARTAMENTO" name="DEPARTAMENTO">
+      <option value="eletrica">Elétrica</option>
+      <option value="formação geral">Formação Geral</option>
+      <option value="computação e mecânica">Computação e Mecânica</option>
     </select>
   
   

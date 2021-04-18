@@ -4,13 +4,13 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'; ";
+$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]' and visibilidade = '1'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
 $query4= "SELECT * FROM estagio; ";
 $con4= mysqli_query($conn, $query4);
-$consul= "SELECT * FROM usuario where funcao = 'professor'; ";
+$consul= "SELECT * FROM usuario where funcao = 'professor' and visibilidade = '1'; ";
 $cons=mysqli_query($conn, $consul);
 ?>
 <DOCTYPE HTLM>
@@ -219,15 +219,6 @@ $cons=mysqli_query($conn, $consul);
                             <label for="exampleInputPassword1">Carga horária</label>
                             <input type="time" class="form-control" id="exampleInputPassword1"  name="CARGA" id="CARGA" min="00:00" max="23:59" required>
                         </div>
-						 <div class="form-group">
-                        
-                             <select id="NOMEO" name="NOMEO">
-                                <?php if ($cons-> num_rows> 0 ) {
-                                    while($dado = $cons -> fetch_array() ){?>
-                                   <option  value=<?php echo $dado["nome"]?>><?php echo "Professor (a) ".$dado["nome"]; } }?></option>
-                            </select>
-
-                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                          <br>
 

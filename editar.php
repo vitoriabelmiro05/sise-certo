@@ -34,6 +34,12 @@ $con= mysqli_query($conn, $consulta);
                 RG: <input type="text" name= "rg" value="<?php echo $dado["rg"];?>"/> <br/>
                 Email: <input type="text" name= "email" value="<?php echo $dado["email"];?>"/> <br/>
                 Telefone: <input type="text" name= "telefone" value="<?php echo $dado["telefone"];?>"/> <br/>
+                Função: <select id="FUNCAO" name="FUNCAO">
+      <option value="professor">Professor Orientador</option>
+      <option value="chefe">Chefe do Departamento</option>
+      <option value="coordenador">Coordenador</option>
+      <option value="setor de estagio">responsavel pelo setor de Estágio</option>
+    </select> <br/>
                 Senha: <input type="text" name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
                 <input type= "submit" value= "Alterar"/> <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
                 <?php  } ?>

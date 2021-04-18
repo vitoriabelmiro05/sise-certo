@@ -16,7 +16,7 @@ $CARGA = filter_input(INPUT_POST, 'CARGA', FILTER_SANITIZE_STRING);
 
              
 
-$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria, cpf_usuario) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','$NOMEO','$CARGA', (SELECT cpf FROM usuario where nome = '$NOMEO'))";
+$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA')";
 $result_usuario = mysqli_query($conn, $result_usuario);
 
 
