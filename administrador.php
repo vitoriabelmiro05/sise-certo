@@ -1,10 +1,10 @@
 <?php
 session_start();
-//include('verifica_login.php');
+
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]' and visibilidade = '1'; ";
+$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
@@ -70,7 +70,7 @@ $cons=mysqli_query($conn, $consul);
 
 
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="login.php">Sair</a>
+                        <a class="nav-link js-scroll-trigger" href="logout.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -79,19 +79,21 @@ $cons=mysqli_query($conn, $consul);
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="about">
 
 				<div class="w-100">
-                	  <h3 class="mb-2 " >Bem vindo(a)
+                	  <h3 class="mb-2 " >
 					  <ul class="list-group">
 
-   <?php while($dado = $con -> fetch_array() ){?>
-                     <?php echo $dado["nome"];?> </h3><p>
+   <?php while($dado = $con -> fetch_array() ){
+                      echo $dado["nome"];?> </h3><p>
   <li class="list-group-item list-group-item-secondary">
 
 
 
 
-                      <h4>  CPF:   <?php echo $dado["cpf"]; ?><br>
+                      <h4> <?php echo $dado["funcao"];?><br>
+                           CPF:   <?php echo $dado["cpf"]; ?><br>
                         E-MAIL:   <?php echo $dado["email"];?><br>
-                        TELEFONE:    <?php echo $dado["telefone"];?>
+                        TELEFONE:    <?php echo $dado["telefone"];?><br>
+                        Departamento: <?php echo $dado["departamento"];?>
 
                         </h4>
 
@@ -134,6 +136,8 @@ $cons=mysqli_query($conn, $consul);
  <?php
             echo "</tr>";
   }
+} else {
+
 }
 
  ?>  
@@ -164,9 +168,6 @@ $cons=mysqli_query($conn, $consul);
             <?php while($dado = $con2 -> fetch_array() ){?>
                  <div class="form-group">
                 Nome:<input type="text" class="form-control"name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
-				 </div>
-				 <div class="form-group">
-                CPF: <input type="text"class="form-control" name= "cpf" value="<?php echo $dado["cpf"];?>"/> <br/>
 				 </div>
 				 <div class="form-group">
                 RG: <input type="text" class="form-control"name= "rg" value="<?php echo $dado["rg"];?>"/> <br/>

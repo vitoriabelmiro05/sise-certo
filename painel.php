@@ -4,10 +4,10 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
+$consultaeS= "SELECT * FROM estagio where nome_orientador = 'Pendente'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
-$con3= mysqli_query($conn, $consultaeS);
+$con4= mysqli_query($conn, $consultaeS);
 ?>
 <DOCTYPE HTLM>
     <html lang="pt-br">
@@ -68,7 +68,7 @@ $con3= mysqli_query($conn, $consultaeS);
 
 
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="login.php">Sair</a>
+                        <a class="nav-link js-scroll-trigger" href="logout.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -77,7 +77,7 @@ $con3= mysqli_query($conn, $consultaeS);
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="about">
 
 				<div class="w-100">
-                	  <h3 class="mb-2 " >Bem vindo(a)
+                	  <h3 class="mb-2 " >
 					  <ul class="list-group">
 
    <?php while($dado = $con -> fetch_array() ){?>
@@ -87,7 +87,8 @@ $con3= mysqli_query($conn, $consultaeS);
 
 
 
-                      <h4>  CPF:   <?php echo $dado["cpf"]; ?><br>
+                      <h4> <?php echo $dado["funcao"];?><br>
+                            CPF:   <?php echo $dado["cpf"]; ?><br>
                         E-MAIL:   <?php echo $dado["email"];?><br>
                         TELEFONE:    <?php echo $dado["telefone"];?>
 
@@ -98,67 +99,59 @@ $con3= mysqli_query($conn, $consultaeS);
 
 </ul><br>
 
-					 <h3>Estágios Cadastrados </h3>
-					<table class="table table-striped">
-  <thead>
-    <tr>
 
-      <th scope="col">Nome do Aluno</th>
-      <th scope="col">Matricula</th>
-	  <th scope="col">Professor Orientador</th>
-	   <th scope="col">Nome Empresa</th>
-      <th scope="col">Início Estágio</th>
-	  <th scope="col">Fim Estágio</th>
+      <h3>Indicações Pendentes </h3>
+          <table class="table table-striped">
+<thead>
+<tr>
 
-	  <th scope="col">Carga horária</th>
+<th scope="col">Nome do Aluno</th>
+<th scope="col">Matricula</th>
+<th scope="col">Professor Orientador</th>
+<th scope="col">Nome Empresa</th>
+<th scope="col">Início Estágio</th>
+<th scope="col">Fim Estágio</th>
 
-			   <?php if ($con3-> num_rows> 0 ) {
-     while($dado = $con3 -> fetch_array() ){
+<th scope="col">Carga horária</th>
 
-                         $id= $dado["idestagio"];
+     <?php if ($con4-> num_rows> 0 ) {
+while($dado = $con4 -> fetch_array() ){
 
-
-                            echo "<tr>";
-                            echo "<td>" . $dado["nome_aluno"] . "</td>";
-							echo "<td>" . $dado["matricula"] . "</td>";
-                            echo "<td>" . $dado["nome_orientador"] . "</td>";
-                            echo "<td>" . $dado["nome_empresa"] . "</td>";
-                            echo "<td>" . $dado["inicio_estagio"] . "</td>";
-							 echo "<td>" . $dado["fim_estagio"] . "</td>";
-							  echo "<td>" . $dado["carga_horaria"] . "</td>";
+               $id= $dado["idestagio"];
 
 
-                           echo "</tr>";
-                        }
+                  echo "<tr>";
+                  echo "<td>" . $dado["nome_aluno"] . "</td>";
+                  echo "<td>" . $dado["matricula"] . "</td>";
+                  echo "<td>" . $dado["nome_orientador"] . "</td>";
+                  echo "<td>" . $dado["nome_empresa"] . "</td>";
+                  echo "<td>" . $dado["inicio_estagio"] . "</td>";
+                   echo "<td>" . $dado["fim_estagio"] . "</td>";
+                    echo "<td>" . $dado["carga_horaria"] . "</td>";
+                    ?>
+                     <td><a href="indicaPO.php?idestagio=<?php echo $dado["idestagio"];?>" class="btn btn-primary"role="button">Indicar</a></td>;
 
-
-
-                    } 
-
+<?php
+                 echo "</tr>";
+              }
 
 
 
-                ?>
+          } 
 
-  </thead>
+
+
+
+      ?>
+
+</thead>
 
 </table>
- <p>
- <p>
+
 <br>
 <br>
-            <a class="btn btn-primary" href="geraDeclaracao.php" role="button">Gerar Declaração</a>
-                
-
-                 </div>
-
-
-
-
-
-
-
-            </section>
+       </div>
+  </section>
 			 <section class="resume-section p-3 p-lg-4 d-flex justify-content-left" id="perfil">
 			  <div class="w-100">
 
@@ -227,19 +220,6 @@ $con3= mysqli_query($conn, $consultaeS);
                 </div>
 
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </body>

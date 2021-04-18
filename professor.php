@@ -57,7 +57,7 @@ $con3= mysqli_query($conn, $consultaeS);
                         <a class="nav-link js-scroll-trigger" href="#perfil">Editar Perfil</a>
                     </li>
                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="login.php">Sair</a>
+                        <a class="nav-link js-scroll-trigger" href="logout.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +66,7 @@ $con3= mysqli_query($conn, $consultaeS);
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="about">
 
 				<div class="w-100">
-                	  <h2 class="mb-5 " >Bem vindo(a) 
+                	  <h2 class="mb-5 " >
 					  <ul class="list-group">
   
    <?php while($dado = $con -> fetch_array() ){?>
@@ -77,7 +77,8 @@ $con3= mysqli_query($conn, $consultaeS);
                 
   
 						
-                      <h4>  CPF:   <?php echo $dado["cpf"];?><br>
+                      <h4>  <?php echo $dado["funcao"];?><br>
+                           CPF:   <?php echo $dado["cpf"];?><br>
                         E-MAIL:   <?php echo $dado["email"];?><br>
                         TELEFONE:    <?php echo $dado["telefone"];?> 
                         

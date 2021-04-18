@@ -70,7 +70,7 @@ $DEPARTAMENTO = filter_input(INPUT_POST, 'DEPARTAMENTO', FILTER_SANITIZE_STRING)
 					}
 					else{
 						echo "<script> alert('Usuário cadastrado com  sucesso!');";
-						echo "javascript:window.location='cadastro.php';</script>";
+						echo "javascript:window.location='Login.html';</script>";
 						
 					}
 									} 

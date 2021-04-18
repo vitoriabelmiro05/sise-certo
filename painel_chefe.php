@@ -4,7 +4,7 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM estagio where nome_orientador = 'Pendente'; ";
+$consultaeS= "SELECT * FROM estagio where aprovacao = '0'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con4= mysqli_query($conn, $consultaeS);
@@ -68,7 +68,7 @@ $con4= mysqli_query($conn, $consultaeS);
 
 
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="login.php">Sair</a>
+                        <a class="nav-link js-scroll-trigger" href="logout.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -77,17 +77,18 @@ $con4= mysqli_query($conn, $consultaeS);
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="about">
 
 				<div class="w-100">
-                	  <h3 class="mb-2 " >Bem vindo(a)
+                	  <h3 class="mb-2 " >
 					  <ul class="list-group">
 
    <?php while($dado = $con -> fetch_array() ){?>
-                     <?php echo $dado["funcao"] ." ". $dado["nome"];?> </h3><p>
+                     <?php echo $dado["nome"];?> </h3><p>
   <li class="list-group-item list-group-item-secondary">
 
 
 
 
-                      <h4>  CPF:   <?php echo $dado["cpf"]; ?><br>
+                      <h4> <?php echo $dado["funcao"];?><br>
+                            CPF:   <?php echo $dado["cpf"]; ?><br>
                         E-MAIL:   <?php echo $dado["email"];?><br>
                         TELEFONE:    <?php echo $dado["telefone"];?>
 
@@ -99,7 +100,7 @@ $con4= mysqli_query($conn, $consultaeS);
 </ul><br>
 
 
-      <h3>Indicações Pendentes </h3>
+      <h3>Estágios Pendentes </h3>
           <table class="table table-striped">
 <thead>
 <tr>
@@ -114,6 +115,7 @@ $con4= mysqli_query($conn, $consultaeS);
 <th scope="col">Carga horária</th>
 
      <?php if ($con4-> num_rows> 0 ) {
+         
 while($dado = $con4 -> fetch_array() ){
 
                $id= $dado["idestagio"];
