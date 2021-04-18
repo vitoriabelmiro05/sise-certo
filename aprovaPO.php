@@ -26,7 +26,7 @@ $cons=mysqli_query($conn, $consul);
     <div id= "conteudo">
         <h1>Indicar Orientador</h1>
         <p>
-            <form action="incaPO2.php" method="POST">
+            <form action="aprovaPO2.php" method="POST">
             <?php while($dado = $con4 -> fetch_array() ){?>
                 <input type="hidden" name= "APROVACAO" value="<?php echo $dado["aprovacao"];?>"/> <br/>
                 <input type="hidden" name= "idestagio" value="<?php echo $dado["idestagio"];?>"/> <br/>

@@ -4,7 +4,7 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM estagio where aprovacao = '0'; ";
+$consultaeS= "SELECT * FROM estagio where nome_orientador!= 'Pendente' and aprovacao = '0'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con4= mysqli_query($conn, $consultaeS);
@@ -119,6 +119,7 @@ $con4= mysqli_query($conn, $consultaeS);
 while($dado = $con4 -> fetch_array() ){
 
                $id= $dado["idestagio"];
+               $aprovacao= $dado["aprovacao"];
 
 
                   echo "<tr>";
@@ -130,7 +131,8 @@ while($dado = $con4 -> fetch_array() ){
                    echo "<td>" . $dado["fim_estagio"] . "</td>";
                     echo "<td>" . $dado["carga_horaria"] . "</td>";
                     ?>
-                     <td><a href="indicaPO.php?idestagio=<?php echo $dado["idestagio"];?>" class="btn btn-primary"role="button">Indicar</a></td>;
+                  
+                     <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"];?>" class="btn btn-primary"role="button">Aprovar Estágio</a></td>;
 
 <?php
                  echo "</tr>";
