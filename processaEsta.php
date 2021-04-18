@@ -16,18 +16,21 @@ $CARGA = filter_input(INPUT_POST, 'CARGA', FILTER_SANITIZE_STRING);
 
              
 
-$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA')";
+$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria, aprovacao) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA', '0')";
 $result_usuario = mysqli_query($conn, $result_usuario);
 
 
 
 
 if(mysqli_insert_id($conn)){
-	$_SESSION['msg'] = "<p style='color:green;'>estagio cadastrado com sucesso</p>";
-	header("Location: verifica_usuario.php");
+	echo "<script> alert('estagio cadastrado com sucesso!');";
+	echo "javascript:window.location='verifica_usuario.php';</script>";
+	
 }else{
-	$_SESSION['msg'] = "<p style='color:red;'>estagio não foi cadastrado com sucesso</p>";
-	header("Location: verifica_usuario.php");
+	echo "<script> alert('estagio não foi cadastrado!');";
+	echo "javascript:window.location='verifica_usuario.php';</script>";
+
+	
 }
 
 
