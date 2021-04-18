@@ -11,62 +11,36 @@ $TELEFONE = filter_input(INPUT_POST, 'TELEFONE', FILTER_SANITIZE_STRING);
 $FUNCAO = filter_input(INPUT_POST, 'FUNCAO', FILTER_SANITIZE_STRING);
 
 
-//verificação de cpf valido
-if(isset( $CPF)){
-	$CPF = preg_replace("/[^0-9]/", "",  $CPF);
-	$CPF = str_pad( $CPF, 11, '0', STR_PAD_LEFT);
-	$RG = preg_replace("/[^0-9]/", "",  $RG);
+$RG = preg_replace("/[^0-9]/", "",  $RG);
 	$RG = str_pad( $RG, 8, '0', STR_PAD_LEFT);
 	$TELEFONE = preg_replace("/[^0-9]/", "",  $TELEFONE);
 	$TELEFONE = str_pad( $TELEFONE, 11, '0', STR_PAD_LEFT);
-	
 
+			function isCPF($CPF){
+				$CPF = preg_replace("/[^0-9]/", "",  $CPF); //remover valores que n seja numerico
+				$digitoUm= 0;
+				$digitoDois= 0;
+				for($i=0, $x=10; $i<=8; $i++, $x--){
+					$digitoUm += $CPF[$i] * $x;
+				}
+					for($i =0, $x= 11; $i <= 9; $i++, $x--) {
+						if(str_repeat($i, 11)== $CPF){
+							return false;
+						}
+						$digitoDois += $CPF[$i] * $x;
 
-   if (strlen($CPF) != 11) {
-	   $erro= 1;
-	   $_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado, CPF invalido</p>";
-	   echo "<script type='javascript'>alert('CPF invalido');";
-	   header("Location: cadastro.php");
-   }
-  
-   else if ( $CPF== '00000000000' || 
-		$CPF == '11111111111' || 
-		$CPF == '22222222222' || 
-		$CPF == '33333333333' || 
-		$CPF == '44444444444' || 
-		$CPF == '55555555555' || 
-		$CPF == '66666666666' || 
-		$CPF == '77777777777' || 
-		$CPF == '88888888888' || 
-		$CPF == '99999999999') {
-	   $erro= 1;
-	   $_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado, CPF invalido</p>";
-			echo "<script type='javascript'>alert('CPF invalido');";
-			header("Location: cadastro.php");
+					}
+					$calculoUm = (($digitoUm%11)<2)? 0 : 11 - ($digitoUm%11);
+					$calculoDois = (($digitoDois%11)<2)? 0 : 11 - ($digitoDois%11);
 
-	} else {   
-	   for ($t = 9; $t < 11; $t++) {
+					if($calculoUm <> $CPF[9] || $calculoDois <> $CPF[10]){
+						return false;
+					} 
+					return true;
+				}
+				
 
-		   for ($d = 0, $c = 0; $c < $t; $c++) {
-			   $d +=  $CPF{$c} * (($t + 1) - $c);
-		   }
-		   $d = ((10 * $d) % 11) % 10;
-		   if ( $CPF{$c} != $d) {
-				$erro= 1;
-			$_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado, CPF invalido</p>";
-			
-			
-	header("Location: cadastro.php");
-
-		   }
-	   }
-	   $erro= 0;
-   } 
-}
-
-  
-
-
+				if(isCPF($CPF)){
 $result_usuario = "INSERT INTO usuario (cpf,nome,email,senha,rg,telefone,funcao,visibilidade) VALUES ('$CPF','$NOME','$EMAIL','$SENHA','$RG','$TELEFONE','$FUNCAO', '1')";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
@@ -82,4 +56,15 @@ if(mysqli_insert_id($conn)){
     //echo "javascript:window.location='index.php';</script>";
 	header("Location: Login.html");
 }
+				} else{
+					header("Location: cadastro.php");?>
 
+					<script> alert("cpf invalido")
+						</script>
+						
+					
+					<?php
+					
+				}
+
+?>

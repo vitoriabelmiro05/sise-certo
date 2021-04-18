@@ -4,7 +4,7 @@ session_start();
 include('conexao.php');
 
 $idestagio = filter_input(INPUT_POST, 'idestagio', FILTER_SANITIZE_STRING);
-
+$id=$_GET['idestagio'];
 
 
 $query5 = mysqli_query($conn, "DELETE from estagio where idestagio = '$idestagio'");
