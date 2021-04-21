@@ -7,13 +7,15 @@ include('conexao.php');
 $idestagio = filter_input(INPUT_POST, 'idestagio', FILTER_SANITIZE_STRING);
 $nome_orientador = filter_input(INPUT_POST, 'NOMEO', FILTER_SANITIZE_EMAIL);
 
-$sql= mysqli_query($conn, "SELECT cpf from usuario where nome = '$nome_orientador';");
-$cpf_prof= mysqli_fetch_row($sql);
+// $sql= mysqli_query($conn, "SELECT cpf from usuario where nome = '$nome_orientador';");
+// $cpf_prof= mysqli_fetch_row($sql);
 
-    $query = mysqli_query($conn, "update estagio set nome_orientador = '$nome_orientador', aprovacao= '1', cpf_usuario = '$cpf_prof' where idestagio = '$idestagio';" );
+    $query = mysqli_query($conn, "update estagio set nome_orientador = '$nome_orientador', aprovacao= '1' where idestagio = '$idestagio';" );
 
      if($query){
-         header("Location: verifica_usuario.php");
+        echo "<script> alert('Indicação enviada com  sucesso!');";
+        echo "javascript:window.location='verifica_usuario.php';</script>";
+   
      } else{
         die("Erro: ". mysqli_error($query));
      }

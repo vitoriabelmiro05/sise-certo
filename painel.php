@@ -62,9 +62,9 @@ $con4= mysqli_query($conn, $consultaeS);
                         <a class="nav-link js-scroll-trigger" href="#estagio">Cadastrar Estágio</a>
                     </li> -->
 
-					<li class="nav-item">
+					<!-- <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#indica">Indicar/Solicitar Professor Orientador</a>
-                    </li>
+                    </li> -->
 
 
                     <li class="nav-item">
@@ -184,7 +184,7 @@ while($dado = $con4 -> fetch_array() ){
 
             </section>
 
-		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
+		  <!--<section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
                 <div class="w-100">
                     <h3 class="mb-5 " >Indicar/Solicitar Professor Orientador</h3>
                     <form action="email" method="post">
@@ -193,8 +193,8 @@ while($dado = $con4 -> fetch_array() ){
 
     <select  type="email"class="form-control" id="exampleFormControlSelect1" name="email">
       <option>vitorianapo9@gmail.com</option>
-      <!-- <option>coordenaçãoele@gmail.com</option>
-      <option>coordenaçãomec@gmail.com</option> -->
+       <option>coordenaçãoele@gmail.com</option>
+      <option>coordenaçãomec@gmail.com</option> 
 	   <option>camilalindamachado9@gmail.com</option>
 
     </select>
@@ -203,8 +203,8 @@ while($dado = $con4 -> fetch_array() ){
     <label for="exampleFormControlSelect1">Assunto</label>
     <select  type="email"class="form-control" id="exampleFormControlSelect1" name="name">
       <option>Indicação de orientador</option>
-      <!-- <option>Gabriella Barbosa</option>
-      <option>Tatiana Barbosa</option> -->
+      <option>Gabriella Barbosa</option>
+      <option>Tatiana Barbosa</option> 
 
     </select>
   </div>
@@ -219,7 +219,7 @@ while($dado = $con4 -> fetch_array() ){
 
                 </div>
 
-            </section>
+            </section>-->
 
 
             </body>
