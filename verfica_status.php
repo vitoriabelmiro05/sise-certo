@@ -27,14 +27,16 @@ $row = mysqli_fetch_row($result_status);
         height: 100vh;
         width: 100vw;
         background-color: #f18322;
+        font-size: 2rem;
     }
     .caixa {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.7);
         padding: 100px;
         border-radius: 8px;
+        box-shadow: 5px 5px 5px gray;
     }
     a {
         margin: 5px;

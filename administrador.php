@@ -135,6 +135,7 @@ $cons=mysqli_query($conn, $consul);
 
                          ?>
                         <td><a href="editar.php?cpf=<?php echo $dado["cpf"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
+                        
                          
        
  <?php
