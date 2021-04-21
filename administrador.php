@@ -85,7 +85,7 @@ $cons=mysqli_query($conn, $consul);
 					  <ul class="list-group">
 
    <?php while($dado = $con -> fetch_array() ){
-                      echo $dado["nome"];?> </h3><p>
+                      echo $dado["nome"];?> </h3>
   <li class="list-group-item list-group-item-secondary">
 
               
@@ -238,7 +238,7 @@ $cons=mysqli_query($conn, $consul);
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
                 <div class="w-100">
                 <h3>Estágios Cadastrados</h3>
-                
+
 					<table class="table table-striped">
   <thead>
     <tr>
