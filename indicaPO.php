@@ -17,7 +17,9 @@ include('conexao.php');
 $id= $_GET["idestagio"];
 $query4= "SELECT * FROM estagio WHERE idestagio = '$id'; ";
 $con4= mysqli_query($conn, $query4);
-$consul= "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1'; ";
+$departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
+$dep= mysqli_fetch_row($departamento);
+$consul= "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ";
 $cons=mysqli_query($conn, $consul);
 
 ?>
@@ -40,7 +42,8 @@ $cons=mysqli_query($conn, $consul);
               <select id="NOMEO" name="NOMEO">?>
                                 <?php if ($cons-> num_rows> 0 ) {
                                     while($dado = $cons -> fetch_array() ){?>
-                                   <option  value="<?php echo $dado["nome"];?>"><?php echo "Professor (a) ".$dado["nome"]; } }?></option>
+                                   <option  value="<?php echo $dado["nome"];?>"><?php echo "Professor (a) ".$dado["nome"];} } ?></option>
+                                   
                             </select>
                 <input type= "submit" value= "Enviar"/>
                 <?php  } ?>

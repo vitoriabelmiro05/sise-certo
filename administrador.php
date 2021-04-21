@@ -4,7 +4,9 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1'; ";
+$departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
+$dep= mysqli_fetch_row($departamento);
+$consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
@@ -86,14 +88,14 @@ $cons=mysqli_query($conn, $consul);
                       echo $dado["nome"];?> </h3><p>
   <li class="list-group-item list-group-item-secondary">
 
-
+              
 
 
                       <h4> <?php echo $dado["funcao"];?><br>
                            CPF:   <?php echo $dado["cpf"]; ?><br>
                         E-MAIL:   <?php echo $dado["email"];?><br>
                         TELEFONE:    <?php echo $dado["telefone"];?><br>
-                        Departamento: <?php echo $dado["departamento"];?>
+                        Departamento: <?php echo $dado["departamento"];  $dep= $dado["departamento"];?>
 
                         </h4>
 
@@ -114,6 +116,7 @@ $cons=mysqli_query($conn, $consul);
       <th scope="col">CPF</th>
 	  <th scope="col">TELEFONE</th>
       <th scope="col">FUNÇÃO</th>
+      <th scope="col">DEPARTAMENTO</th>
       
 
       <?php if ($con3-> num_rows> 0 ) {
@@ -127,6 +130,7 @@ $cons=mysqli_query($conn, $consul);
                          echo "<td>" . $dado["cpf"] . "</td>";
                           echo "<td>" . $dado["telefone"] . "</td>";
                            echo "<td>" . $dado["funcao"] . "</td>";
+                           echo "<td>" . $dado["departamento"] . "</td>";
                             
 
                          ?>
