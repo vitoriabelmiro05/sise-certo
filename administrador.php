@@ -10,7 +10,7 @@ $consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidad
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
-$query4= "SELECT * FROM estagio; ";
+$query4= "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');";
 $con4= mysqli_query($conn, $query4);
 $consul= "SELECT * FROM usuario where funcao = 'professor' and visibilidade = '1'; ";
 $cons=mysqli_query($conn, $consul);
