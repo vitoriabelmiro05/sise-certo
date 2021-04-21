@@ -90,27 +90,58 @@ $con3= mysqli_query($conn, $consultaeS);
  
 </ul><br>
 
-					 <h3>Estágios Cadastrados </h3>
+<div class="w-100">
+                <h3>Estágios Cadastrados </h3>
 					<table class="table table-striped">
   <thead>
     <tr>
-      
+
       <th scope="col">Nome do Aluno</th>
       <th scope="col">Matricula</th>
+	  <th scope="col">Professor Orientador</th>
+	   <th scope="col">Nome Empresa</th>
       <th scope="col">Início Estágio</th>
 	  <th scope="col">Fim Estágio</th>
-	  <th scope="col">Professor Orientador</th>
+
 	  <th scope="col">Carga horária</th>
-    </tr>
+
+			   <?php if ($con3-> num_rows> 0 ) {
+     while($dado = $con3 -> fetch_array() ){
+
+                         $id= $dado["idestagio"];
+
+
+                            echo "<tr>";
+                            echo "<td>" . $dado["nome_aluno"] . "</td>";
+							echo "<td>" . $dado["matricula"] . "</td>";
+                            echo "<td>" . $dado["nome_orientador"] . "</td>";
+                            echo "<td>" . $dado["nome_empresa"] . "</td>";
+                            echo "<td>" . $dado["inicio_estagio"] . "</td>";
+							 echo "<td>" . $dado["fim_estagio"] . "</td>";
+							  echo "<td>" . $dado["carga_horaria"] . "</td>";
+                              ?>
+                               
+
+<?php
+                           echo "</tr>";
+                        }
+
+
+
+                    } 
+
+
+
+
+                ?>
+
   </thead>
-  <br>
+
+</table>
+ 
 <br>
-            <a class="btn btn-primary" href="geraDeclaracao.php" role="button">Gerar Declaração</a>
-  <tbody>
-   
-   
-    
-  </tbody>
+<br>
+                 </div>		
 </table>	
  
 				
