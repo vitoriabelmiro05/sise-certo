@@ -237,7 +237,8 @@ $cons=mysqli_query($conn, $consul);
 
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
                 <div class="w-100">
-                <h3>Estágios Cadastrados </h3>
+                <h3>Estágios Cadastrados</h3>
+                
 					<table class="table table-striped">
   <thead>
     <tr>

@@ -34,7 +34,7 @@ $con4= mysqli_query($conn, $query4);
                 INICIO: <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="inicio_estagio" id="DATAF" value="<?php echo $dado["inicio_estagio"];?>"/> <br/>
                 FIM: <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="fim_estagio" id="DATAF" value="<?php echo $dado["fim_estagio"];?>"/> <br/>
                 CARGA_HORÁRIA: <input type="time" class="form-control" id="exampleInputPassword1"  name="carga_horaria" id="CARGA" min="00:00" max="23:59" required value="<?php echo $dado["carga_horaria"];?>"/> <br/>
-                <input type= "submit" value= "Alterar"/> <a class="btn btn-primary" href="excluir_estagio.php" role="button">Excluir</a>
+                <input type= "submit" value= "Alterar"/> 
                 <?php  } ?>
 
             </form>
