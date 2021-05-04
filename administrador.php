@@ -35,6 +35,13 @@ $cons=mysqli_query($conn, $consul);
         <script src="js/bootstrap-notify.min.js" type="text/javascript" ></script>
 
 
+        <style>
+         .fixeda{
+            overflow: hidden;
+            }
+        </style>
+
+
 
         </head>
             <body  >
@@ -45,8 +52,8 @@ $cons=mysqli_query($conn, $consul);
 				<P>
 
                 <span class="d-none d-lg-block">
-
-                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-1"
+                
+                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-1" 
 
       />
                 </span>
@@ -186,6 +193,7 @@ $cons=mysqli_query($conn, $consul);
 				 <div class="form-group">
                 Senha: <input type="text" class="form-control"name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
 				 </div>
+
                 <input type= "submit" value= "Alterar"class="btn btn-primary"/>
                 <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
                 <?php  } ?>

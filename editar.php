@@ -30,16 +30,16 @@ $con= mysqli_query($conn, $consulta);
         <p>
             <form action="admin_altera.php" method="POST">
             <?php while($dado = $con -> fetch_array() ){?>
-                
+                 <input type="hidden" name= "cpf" value="<?php echo $dado["cpf"];?>"/> <br/>
                 Nome: <input type="text" name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
                 RG: <input type="text" name= "rg" value="<?php echo $dado["rg"];?>"/> <br/>
                 Email: <input type="text" name= "email" value="<?php echo $dado["email"];?>"/> <br/>
                 Telefone: <input type="text" name= "telefone" value="<?php echo $dado["telefone"];?>"/> <br/>
-                Função: <select id="FUNCAO" name="FUNCAO">
-      <option value="professor">Professor Orientador</option>
-      <option value="chefe">Chefe do Departamento</option>
-      <option value="coordenador">Coordenador</option>
-      <option value="setor de estagio">responsavel pelo setor de Estágio</option>
+                Função: <select id="funcao" name="funcao">
+      <option value="Professor(a)">Professor Orientador</option>
+      <option value="Chefe de Departamento">Chefe do Departamento</option>
+      <option value="Coordenador">Coordenador</option>
+      <option value="Setor de Estágio">responsavel pelo setor de Estágio</option>
     </select> <br/>
                 Senha: <input type="text" name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
                 <input type= "submit" value= "Alterar"/> <p> </p> <a href="verifica_usuario.php"><button type="button" class="btn btn-outline-danger">cancelar</button></a>

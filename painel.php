@@ -100,7 +100,7 @@ $con4= mysqli_query($conn, $consultaeS);
 </ul><br>
 
 
-      <h3>Indicações Pendentes </h3>
+      <h3>Aguardando indicação de orientador </h3>
           <table class="table table-striped">
 <thead>
 <tr>
