@@ -10,7 +10,7 @@ $row = mysqli_fetch_row($result_status);
 
 
 if($row[0] == 'Setor de Estágio'){
-    header("Location: administrador.php");
+    header("Location: administrador_incio.php");
     
 }else if($row[0] == 'Professor(a)'){
     header("Location: professor.php");
