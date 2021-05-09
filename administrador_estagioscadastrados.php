@@ -2,19 +2,13 @@
 session_start();
 
 include('conexao.php');  
-$con= mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep= mysqli_fetch_row($departamento);
-$con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ");
+$con4= mysqli_query($conn, "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');");
 
 ?>
 
 <DOCTYPE HTLM>
-    <style>
-        h7{
-            color:springgreen;
-        }
-    </style>
     <html lang="pt-br">
         <head>
             <meta charset="utf-8">
@@ -33,13 +27,16 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
         <script src="js/bootstrap.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript" ></script>
 
-
-     
+        <style>
+        h7{
+            color:springgreen;
+        }
+    </style>
+      
 
 
 
         </head>
-
             <body  >
 
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
@@ -59,8 +56,8 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_incio.php"><h7>Início</h7></a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="administrador_incio.php">Início</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_editaperfil.php">Editar Perfil</a>
@@ -70,7 +67,7 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
                     </li>
 
 					<li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php">Estágios Cadastrados</a>
+                        <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php"><h7>Estágios Cadastrados</h7></a>
                     </li>
 
 
@@ -82,82 +79,61 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
 
         </nav>
         <div class="w-100">
-                	  <h3 class="mb-2 " >
-					  <ul class="list-group">
+                <h3>Estágios Cadastrados</h3>
 
-   <?php while($dado = $con -> fetch_array() ){
-                      echo $dado["nome"];?> </h3>
-  <li class="list-group-item list-group-item-secondary">
-
-              
-
-
-                      <h4> <?php echo $dado["funcao"];?><br>
-                           CPF:   <?php echo $dado["cpf"]; ?><br>
-                        E-MAIL:   <?php echo $dado["email"];?><br>
-                        TELEFONE:    <?php echo $dado["telefone"];?><br>
-                        Departamento: <?php echo $dado["departamento"]; ?>
-
-                        </h4>
-
-                    <?php } ?>
-					 </li>
-
-</ul><br>
-
-					 <h3>Usuarios Cadastrados </h3>
 					<table class="table table-striped">
   <thead>
     <tr>
 
-      <th scope="col">NOME</th>
-      <th scope="col">EMAIL</th>
-	  <th scope="col">SENHA</th>
-	   <th scope="col">RG</th>
-      <th scope="col">CPF</th>
-	  <th scope="col">TELEFONE</th>
-      <th scope="col">FUNÇÃO</th>
-      <th scope="col">DEPARTAMENTO</th>
-      
+      <th scope="col">Nome do Aluno</th>
+      <th scope="col">Matricula</th>
+	  <th scope="col">Professor Orientador</th>
+	   <th scope="col">Nome Empresa</th>
+      <th scope="col">Início Estágio</th>
+	  <th scope="col">Fim Estágio</th>
 
-      <?php if ($con3-> num_rows> 0 ) {
-     while($dado = $con3 -> fetch_array() ){
+	  <th scope="col">Carga horária</th>
 
-                         echo "<tr>";
-                         echo "<td>" . $dado["nome"] . "</td>";
-                         echo "<td>" . $dado["email"] . "</td>";
-                         echo "<td>" . $dado["senha"] . "</td>";
-                         echo "<td>" . $dado["rg"] . "</td>";
-                         echo "<td>" . $dado["cpf"] . "</td>";
-                          echo "<td>" . $dado["telefone"] . "</td>";
-                           echo "<td>" . $dado["funcao"] . "</td>";
-                           echo "<td>" . $dado["departamento"] . "</td>";
-                            
+			   <?php if ($con4-> num_rows> 0 ) {
+     while($dado = $con4 -> fetch_array() ){
 
-                         ?>
-                        <td><a href="editar.php?cpf=<?php echo $dado["cpf"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
-                        
-                         
-       
- <?php
-            echo "</tr>";
-  }
-} else {
+                         $id= $dado["idestagio"];
 
-}
 
- ?>  
+                            echo "<tr>";
+                            echo "<td>" . $dado["nome_aluno"] . "</td>";
+							echo "<td>" . $dado["matricula"] . "</td>";
+                            echo "<td>" . $dado["nome_orientador"] . "</td>";
+                            echo "<td>" . $dado["nome_empresa"] . "</td>";
+                            echo "<td>" . $dado["inicio_estagio"] . "</td>";
+							 echo "<td>" . $dado["fim_estagio"] . "</td>";
+							  echo "<td>" . $dado["carga_horaria"] . "</td>";
+                              ?>
+                               <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
+
+<?php
+                           echo "</tr>";
+                        }
+
+
+
+                    } 
+
+
+
+
+                ?>
 
   </thead>
 
 </table>
- <p>
- <p>
+ 
 <br>
 <br>
-            <a class="btn btn-primary" href="geraDeclaracao.php" role="button">Gerar Declaração</a>
-                
-
                  </div>
+            </body>
+    </html>
+</DOCTYPE>
+
 
 

@@ -8,10 +8,10 @@ $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf 
 $dep= mysqli_fetch_row($departamento);
 $consultaeS= "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ";
 $con= mysqli_query($conn, $consulta);
-$con2= mysqli_query($conn, $consulta);
+$con2= mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $con3= mysqli_query($conn, $consultaeS);
 $query4= "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');";
-$con4= mysqli_query($conn, $query4);
+$con4= mysqli_query($conn, "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');");
 $consul= "SELECT * FROM usuario where funcao = 'professor' and visibilidade = '1'; ";
 $cons=mysqli_query($conn, $consul);
 ?>
@@ -38,6 +38,9 @@ $cons=mysqli_query($conn, $consul);
         <style>
          .fixeda{
             overflow: hidden;
+            }
+           body{
+                overflow: hidden;
             }
         </style>
 
@@ -85,6 +88,7 @@ $cons=mysqli_query($conn, $consul);
             </div>
 
         </nav>
+        <div class=".fixeda">
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="about">
 
 				<div class="w-100">
@@ -173,6 +177,8 @@ $cons=mysqli_query($conn, $consul);
 
 
             </section>
+        </div>
+        <div class=".fixeda">
 			 <section class="resume-section p-3 p-lg-4 d-flex justify-content-left" id="perfil">
 			  <div class="w-100">
 
@@ -204,6 +210,8 @@ $cons=mysqli_query($conn, $consul);
 
 
             </section>
+        </div>
+        <div class=".fixeda">
 		   <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="estagio">
                 <div class="w-100">
                     <h2 class="mb-5 " >Cadastrar novo estágio</h2>
@@ -243,6 +251,8 @@ $cons=mysqli_query($conn, $consul);
                 </div>
 
             </section>
+        </div>
+        <div class=".fixeda">
 
 		  <section class="resume-section p-3 p-lg-5 d-flex justify-content-left" id="indica">
                 <div class="w-100">
@@ -299,6 +309,7 @@ $cons=mysqli_query($conn, $consul);
 <br>
                  </div>
             </section>
+        </div>
 
             </body>
 </html>
