@@ -10,11 +10,6 @@ $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
 ?>
 <DOCTYPE HTLM>
-<style>
-        h7{
-            color:springgreen;
-        }
-    </style>
     <html lang="pt-br">
         <head>
             <meta charset="utf-8">
@@ -56,10 +51,10 @@ $con3= mysqli_query($conn, $consultaeS);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="professor.php"><h7>Início</h7></a>
+                        <a class="nav-link js-scroll-trigger" href="#about">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="professor_editaperfil.php">Editar Perfil</a>
+                        <a class="nav-link js-scroll-trigger" href="#perfil">Editar Perfil</a>
                     </li>
                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="logout.php">Sair</a>
@@ -68,93 +63,33 @@ $con3= mysqli_query($conn, $consultaeS);
             </div>
 				
         </nav>
-		 
-
-				<div class="w-100">
-                	  <h2 class="mb-5 " >
-					  <ul class="list-group">
-  
-   <?php while($dado = $con -> fetch_array() ){?>
-                    
-                        <?php echo $dado["nome"];?> </h2><p>
-  <li class="list-group-item list-group-item-secondary">
- 
-                
-  
-						
-                      <h4>  <?php echo $dado["funcao"];?><br>
-                           CPF:   <?php echo $dado["cpf"];?><br>
-                        E-MAIL:   <?php echo $dado["email"];?><br>
-                        TELEFONE:    <?php echo $dado["telefone"];?> 
-                        
-                        </h4>
-                    
-                    <?php } ?>
-
-					 </li>
- 
-</ul><br>
-
-<div class="w-100">
-                <h3>Estágios Cadastrados </h3>
-					<table class="table table-striped">
-  <thead>
-    <tr>
-
-      <th scope="col">Nome do Aluno</th>
-      <th scope="col">Matricula</th>
-	  <th scope="col">Professor Orientador</th>
-	   <th scope="col">Nome Empresa</th>
-      <th scope="col">Início Estágio</th>
-	  <th scope="col">Fim Estágio</th>
-
-	  <th scope="col">Carga horária</th>
-
-			   <?php if ($con3-> num_rows> 0 ) {
-     while($dado = $con3 -> fetch_array() ){
-
-                         $id= $dado["idestagio"];
 
 
-                            echo "<tr>";
-                            echo "<td>" . $dado["nome_aluno"] . "</td>";
-							echo "<td>" . $dado["matricula"] . "</td>";
-                            echo "<td>" . $dado["nome_orientador"] . "</td>";
-                            echo "<td>" . $dado["nome_empresa"] . "</td>";
-                            echo "<td>" . $dado["inicio_estagio"] . "</td>";
-							 echo "<td>" . $dado["fim_estagio"] . "</td>";
-							  echo "<td>" . $dado["carga_horaria"] . "</td>";
-                              ?>
-                               
+        <div class="w-100">
+				 <form action="alterar.php">
+            <?php while($dado = $con2 -> fetch_array() ){?>
+                 <div class="form-group">
+                Nome: <input type="text" class="form-control"name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
+				 </div>
+				 <div class="form-group">
+                RG: <input type="text" class="form-control"name= "rg" value="<?php echo $dado["rg"];?>"/> <br/>
+				 </div>
+				 <div class="form-group">
+                Email: <input type="text"class="form-control" name= "email" value="<?php echo $dado["email"];?>"/> <br/>
+				 </div>
+				 <div class="form-group">
+                Telefone: <input type="text"class="form-control" name= "telefone" value="<?php echo $dado["telefone"];?>"/> <br/>
+				 </div>
+				 <div class="form-group">
+                Senha: <input type="text" class="form-control"name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
+				 </div>
+                 <input type= "submit" value= "Alterar"class="btn btn-primary"/>
+                <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
+                <?php  } ?>
 
-<?php
-                           echo "</tr>";
-                        }
+            </form>
 
-
-
-                    } 
-
-
-
-
-                ?>
-
-  </thead>
-
-</table>
- 
-<br>
-<br>
-                 </div>		
-</table>	
- 
-				
-               
-	
-                 </div>
-			
-           
+</div>
             </body>
-</html>
+    </html>
 </DOCTYPE>

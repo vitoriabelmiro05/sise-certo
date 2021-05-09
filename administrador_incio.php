@@ -40,6 +40,9 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
 
         </head>
 
+      
+      
+
             <body  >
 
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
@@ -49,9 +52,7 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
 
                 <span class="d-none d-lg-block">
                 
-                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-1" 
-
-      />
+                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-1"  />
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

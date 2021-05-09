@@ -16,7 +16,7 @@ if($row[0] == 'Setor de Estágio'){
     header("Location: professor.php");
    
 }else if($row[0] == 'Chefe de Departamento'){
-    header("Location: painel_chefe.php");
+    header("Location: chefe_inicio.php");
    
 }else if($row[0] == 'Coordenador') {
     header("Location: painel.php");
