@@ -84,6 +84,8 @@ $con4= mysqli_query($conn, $consultaeS);
 				 <form action="alterar.php">
             <?php while($dado = $con2 -> fetch_array() ){?>
                  <div class="form-group">
+                 <input type="hidden" class="form-control"name= "cpf" value="<?php echo $dado["cpf"];?>"/>
+                 
                 Nome:<input type="text" class="form-control"name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
 				 </div>
 				 

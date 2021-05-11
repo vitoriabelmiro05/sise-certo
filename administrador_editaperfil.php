@@ -83,6 +83,8 @@ $con2= mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; 
 <form action="alterar.php">
 <?php while($dado = $con2 -> fetch_array() ){?>
 <div class="form-group">
+<input type="hidden" class="form-control"name= "cpf" value="<?php echo $dado["cpf"];?>"/>
+
 Nome:<input type="text" class="form-control"name= "nome" value="<?php echo $dado["nome"];?>"/> <br/>
 </div>
 <div class="form-group">
