@@ -19,6 +19,6 @@ $query = mysqli_query($conn, "update usuario set email = '$email', senha = '$sen
         die("Erro: ". mysqli_error($query));
      }
 
-
+//vapo vapo vapo
 
 ?>
