@@ -156,7 +156,7 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
  <p>
 <br>
 <br>
-            <a class="btn btn-primary" href="geraDeclaracao.php" role="button">Gerar Declaração</a>
+            <a class="btn btn-primary" href="mpdf/index.php" role="button">Gerar Declaração</a>
                 
 
                  </div>
