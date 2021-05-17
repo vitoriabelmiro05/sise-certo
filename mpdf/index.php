@@ -5,6 +5,16 @@ require_once __DIR__.'/vendor/autoload.php';
 $mpdf = new Mpdf();
 
 $css = file_get_contents('estilo.css');
+// include('conexao.php');
+// session_start();
+// $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'";
+// $consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
+// $con= mysqli_query($conn, $consulta);
+// $con2= mysqli_query($conn, $consulta);
+// $con3= mysqli_query($conn, $consultaeS);
+
+// $dado = $con3 -> fetch_array();
+
 // $html = file_get_contents('declaracao.html');
 
 // include('conexao.php');
@@ -67,12 +77,12 @@ $mpdf->WriteHTML("<header>
   </thead>
   <tbody>
     <tr>
-      <td class='nome'>Igor Lamoia Queiroz</td>
-      <td class='empresa'>Igor Lamoia Queiroz</td>
-      <td>Igor Lamoia Queiroz</td>
-      <td>Igor Lamoia Queiroz</td>
-      <td class='curso'>Igor Lamoia Queiroz</td>
-      <td>Igor Lamoia Queiroz</td>
+      <td class='nome'>Vitória Napoleão Belmiro</td>
+      <td class='empresa'>CEFET-MG</td>
+      <td>TEXTO</td>
+      <td>TEXTO</td>
+      <td class='curso'>TEXTO</td>
+      <td>TEXTO</td>
     </tr>
   </tbody>
 </table>
