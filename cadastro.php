@@ -1,25 +1,36 @@
-
 <?php
 session_start();
 ?> 
 <!DOCTYPE html>
-
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
-      rel="stylesheet"
-    />     
-<link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
-  <!-- Estilos -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Scripts (jQuery não pode ser o slim que vem do Boostrap) -->
-  <script
+	<title>Login V16</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    	<link rel="stylesheet" type="text/css" href="css/styless.css">
+<!--===============================================================================================-->
+    <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
@@ -47,63 +58,103 @@ session_start();
        
 
       </script>
-    
-    
-   
-    
-    <title>Sistema de estágio</title>
-    <link rel="stylesheet" href="cadastro.css">
+</head>
 <body>
-  
-    <?php
+       <?php
  if(isset($_SESSION["msg"])):
    print $_SESSION["msg"];
    unset($_SESSION["msg"]);
 endif; 
 ?>
 
- <nav id="menu">
-    <ul>    
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="Login.html">Login</a></li>    
-    </ul>
-</nav>
-
-   
-   
-<div class="container" >
-    <img src="imagens/LOGO.png" style="width: 300px;">
-
-    
-  <form method="POST" action="processa.php">
-    <label style="font-size: 30px; color: white;">Cadastre-se</label>
-    <input type="text" id="NOME" name="NOME" placeholder="Nome Completo">
-
-   <input type="email" id="EMAIL" name="EMAIL" placeholder="E-mail">
-    <input type="text" id="RG" name="RG" placeholder="RG" minlength="8" maxlength="8">
- <input type="text" id="CPF" name="CPF" placeholder="CPF" minlength="11"  maxlength="11">
-<input type="text" id="TELEFONE" name="TELEFONE" placeholder="Telefone" minlength="11" maxlength="11">
- 
-    <input type="password" id="SENHA" name="SENHA" placeholder="Senha"  minlength="5" maxlength="10" required>
-    
- Função: <select id="FUNCAO" name="FUNCAO">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase  ">
+                        
+                        
+                        
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger bg-primary" href="login.html"style="border-radius: 10px;">Voltar</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('imagens/LOGO2.jpg');">
+			<div style="width: 900px;">
+				<span class="login100-form-title p-b-41">
+					Digite suas informações
+				</span>
+                 <form class="login100-form validate-form p-b-33 p-t-5" method="POST" action="processa.php">
+    <div class="wrap-input100 validate-input" data-validate = "Enter username">
+    <input class="input100" type="text" id="NOME" name="NOME" placeholder="Nome Completo">
+     </div>
+                     <div class="wrap-input100 validate-input" data-validate = "Enter username">
+   <input class="input100"type="email" id="EMAIL" name="EMAIL" placeholder="E-mail">
+                     </div>
+                         <div class="wrap-input100 validate-input" data-validate = "Enter username">
+    <input class="input100"type="text" id="RG" name="RG" placeholder="RG" minlength="8" maxlength="8">
+                     </div>
+                     <div class="wrap-input100 validate-input" data-validate = "Enter username">
+ <input class="input100"type="text" id="CPF" name="CPF" placeholder="CPF" minlength="11"  maxlength="11">
+                     </div>
+                         <div class="wrap-input100 validate-input" data-validate = "Enter username">
+<input class="input100"type="text" id="TELEFONE" name="TELEFONE" placeholder="Telefone" minlength="11" maxlength="11">
+                         </div>
+ <div class="wrap-input100 validate-input" data-validate="Enter password">
+    <input class="input100"type="password" id="SENHA" name="SENHA" placeholder="Senha"  minlength="5" maxlength="10" required>
+                     </div>
+                     <div style="" class="wrap-input100 validate-input" data-validate = "Enter username">
+<span class="input100"> Função: </span><select style="border-radius: 13px;width: 600px;" class="input100" id="FUNCAO" name="FUNCAO">
       <option value="Professor(a)">Professor Orientador</option>
       <option value="Chefe de Departamento">Chefe do Departamento</option>
       <option value="Coordenador">Coordenador</option>
       <option value="Setor de Estágio">responsavel pelo setor de Estágio</option>
     </select>
-   Departamento: <select id="DEPARTAMENTO" name="DEPARTAMENTO">
+                    </div>
+                     <div class="wrap-input100 validate-input" data-validate = "Enter username">
+  <span class="input100"> Departamento:  </span><select style="border-radius: 13px;width: 600px;" class="input100"id="DEPARTAMENTO" name="DEPARTAMENTO">
       <option value="eletrica">Elétrica</option>
       <option value="formação geral">Formação Geral</option>
       <option value="computação e mecânica">Computação e Mecânica</option>
     </select>
-  
-  
-    <input type="submit" value="ENVIAR" placeholder="ENVIAR">
+                     </div>
+  <div class="container-login100-form-btn m-t-32">
+    <input class="login100-form-btn"type="submit" value="ENVIAR" placeholder="ENVIAR">
+                     </div>
   </form>
- 
-</div>
+				
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
 </body>
 </html>
-
