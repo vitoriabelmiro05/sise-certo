@@ -21,6 +21,9 @@ if($row[0] == 'Setor de Estágio'){
 }else if($row[0] == 'Coordenador') {
     header("Location: coordenador_inicio.php");
 }
+else {
+    echo "erro";
+}
 
 //echo $row[0];
 ?>
