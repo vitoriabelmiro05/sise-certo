@@ -16,7 +16,7 @@ $carga_horaria = filter_input(INPUT_POST, 'carga_horaria', FILTER_SANITIZE_STRIN
 $query = mysqli_query($conn, "update estagio set nome_aluno= '$nome_aluno', matricula = '$matricula', nome_orientador = '$nome_orientador', nome_empresa= '$nome_empresa', inicio_estagio = '$inicio_estagio', fim_estagio= '$fim_estagio', carga_horaria= '$carga_horaria' where idestagio = '$idestagio'" );
 
      if($query){
-         header("Location: administrador.php");
+         header("Location: administrador_incio.php");
      } else{
         die("Erro: ". mysqli_error($query));
      }

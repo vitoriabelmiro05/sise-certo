@@ -14,11 +14,10 @@ $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
 $funcao = filter_input(INPUT_POST, 'funcao', FILTER_SANITIZE_STRING);
 $query = mysqli_query($conn, "update usuario set email = '$email', senha = '$senha', rg= '$rg', nome = '$nome', telefone= '$telefone', funcao= '$funcao' where cpf = '$cpf';" );
      if($query){
-         header("Location: administrador.php");
+         header("Location: administrador_incio.php");
      } else{
         die("Erro: ". mysqli_error($query));
      }
 
-//vapo vapo vapo
 
 ?>

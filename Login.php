@@ -29,7 +29,7 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
 
  } else{
     echo "<script> alert('Usuário não encontrado, verifique seu Login.');";
-    echo "javascript:window.location='Login.html';</script>";
+    echo "javascript:window.location='login.html';</script>";
     exit();
 
  }
