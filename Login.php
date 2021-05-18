@@ -4,7 +4,7 @@ session_start();
 include('conexao.php');
  if(empty($_POST['CPF'] || empty($_POST['SENHA']))){
     //  <script>echo 'alert'</script>     //Colocar um alert
-     header('Location: Login.html');
+     header('Location: login.html');
      exit();
  }
  
