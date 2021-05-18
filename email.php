@@ -1,20 +1,32 @@
 <?php 
 include('conexao.php');
-// $email = $_POST['email'];
-// $message = $_POST['message'];
-// $emailenviar = "vitorianapo9@gmail.com";
-$destino = 'vitorianapo9@gmail.com';
-$assunto = "Indicação de orientador";
-     	$headers  = 'MIME-Version: 1.0' . "\r\n";
-         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-         $headers .= 'From: igorlamoia@hotmail.com';
-         $enviaremail = mail($destino, $assunto, 'Direito');
-    // mail('vitorianapo9@gmail.com', 'Sise', '$_POST[message]', $headers);
-    if($enviaremail){
-        $mgm = "E-MAIL ENVIADO COM SUCESSO! <br> O link será enviado para o e-mail fornecido no formulário";
-        echo " <meta http-equiv='refresh' content='10;URL=contato.php'>";
-        } else {
-        $mgm = "ERRO AO ENVIAR E-MAIL!";
-        echo "";
-        }
+$emails= $_POST['email'];
+$consulta= mysqli_query($conn, "SELECT * FROM usuario WHERE email = '$emails'");
+$total = mysqli_num_rows($consulta);
+$email= $conn->escape_string($_POST['email']);
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        echo "<script> alert('E-mail inválido.');";
+    echo "javascript:window.location='redefinir.html';</script>";
+    exit();
+    }
+    if ($total == 0){
+        echo "<script> alert('O E-mail informado não existe no sistema.');";
+    echo "javascript:window.location='redefinir.html';</script>";
+    exit();
+    }
+    else if( $total > 0){
+    
+    $novasenha= substr(md5(time()), 0, 6);
+    echo substr(md5(time()), 0, 6);
+     
+    if(mail($email, "REDEFINIÇÃO DE SENHA", "Suan nova senha é: ".$novasenha)){
+    $sql= "UPDATE usuario set senha= ' $novasenha' WHERE email = '$email'";
+    $query=  mysqli_query($conn, $sql);
+
+}
+}
+
+
      ?>
