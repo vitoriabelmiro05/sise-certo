@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 	<body>
 <?php
 session_start();
@@ -26,8 +32,10 @@ $DEPARTAMENTO = filter_input(INPUT_POST, 'DEPARTAMENTO', FILTER_SANITIZE_STRING)
 		$linha= mysqli_num_rows($verfica);
 
 		if($linha == 1){
-			echo "<script> alert('CPF já existente!');";
-				echo "javascript:window.location='cadastro.php';</script>";
+			echo "<script type='text/javascript'> swal('CPF JÁ EXISTE!', '','error').then((value) => {
+				javascript:window.location='cadastro.php';
+			  });;</script>";
+			
 		}
 
 		 else{
@@ -64,21 +72,27 @@ $DEPARTAMENTO = filter_input(INPUT_POST, 'DEPARTAMENTO', FILTER_SANITIZE_STRING)
 		
 
 					if(mysqli_insert_id($conn)){
+						echo "<script type='text/javascript'> swal('Usuário não foi cadastrado!', 'erro de conexao.','error').then((value) => {
+							javascript:window.location='cadastro.php';
+						  });;</script>";
 
-						echo "<script> alert('Usuário não foi cadastrado, erro de conexao.');";
-						echo "javascript:window.location='cadastro.php';</script>";
+						
 					}
 					else{
-						echo "<script> alert('Usuário cadastrado com  sucesso!');";
-						echo "javascript:window.location='Login.html';</script>";
+						echo "<script type='text/javascript'> swal('Usuário cadastrado com  sucesso!', '','success').then((value) => {
+							javascript:window.location='login.html';
+						  });;</script>";
+						
 						
 					}
 									} 
 					
 				else{
+					echo "<script type='text/javascript'> swal('Usuário não foi cadastrado!', 'CPF inválido','error').then((value) => {
+						javascript:window.location='cadastro.php';
+					  });;</script>";
 
-				echo "<script> alert('CPF inválido');";
-				echo "javascript:window.location='cadastro.php';</script>";
+				
 
 			
 						

@@ -11,13 +11,13 @@
 session_start();
 include_once("conexao.php");
 
-// = $_POST['CPF'];
+
 
 $result_status = "SELECT visibilidade FROM usuario WHERE cpf = '$_SESSION[CPF]';";
 $result_status = mysqli_query($conn, $result_status);
 $row = mysqli_fetch_row($result_status);
 
-//echo $row[0];
+
 ?>
 <style>
     body {
@@ -54,7 +54,7 @@ if($row[0] == '1'){
 }
 ?>
 <a href="ativa_status.php"><button type="button" class="btn btn-outline-success">SIM</button></a>
-<a href="Login.php"><button type="button" class="btn btn-outline-danger">NÃO</button></a>
+<a href="login.php"><button type="button" class="btn btn-outline-danger">NÃO</button></a>
 
 </div>
 

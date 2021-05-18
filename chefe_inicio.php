@@ -4,7 +4,7 @@ session_start();
 include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
-$consultaeS= "SELECT * FROM estagio where  aprovacao = '0'; ";
+$consultaeS= "SELECT * FROM estagio where  aprovacao = '0' and nome_orientador != 'Pendente'; ";
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con4= mysqli_query($conn, $consultaeS);

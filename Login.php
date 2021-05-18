@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    
+
 <?php
 session_start();
 
@@ -27,10 +38,13 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
      header('Location: verfica_status.php');
      exit();
 
- } else{
-    echo "<script> alert('Usuário não encontrado, verifique seu Login.');";
-    echo "javascript:window.location='login.html';</script>";
-    exit();
-
- }
+ } else {
+      
+    echo "<script type='text/javascript'> swal('Usuário não encontrado', 'Verifique seu Login.','error').then((value) => {
+     javascript:window.location='login.html';
+   });;</script>";
+     
+ } 
  ?>
+ </body>
+</html>
