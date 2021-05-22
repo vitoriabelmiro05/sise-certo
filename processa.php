@@ -65,12 +65,48 @@ $DEPARTAMENTO = filter_input(INPUT_POST, 'DEPARTAMENTO', FILTER_SANITIZE_STRING)
 				
 
 			if(isCPF($CPF)){
-		$result_usuario = "INSERT INTO usuario (cpf,nome,email,senha,rg,telefone,funcao,visibilidade, departamento) VALUES ('$CPF','$NOME','$EMAIL','$SENHA','$RG','$TELEFONE','$FUNCAO', '1', '$DEPARTAMENTO')";
-		$resultado_usuario = mysqli_query($conn, $result_usuario);
+				/******
+ * Upload de imagens
+ ******/
+ 
+// verifica se foi enviado um arquivo
+if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] == 0 ) {
+    // echo 'Você enviou o arquivo: <strong>' . $_FILES[ 'arquivo' ][ 'name' ] . '</strong><br />';
+    // echo 'Este arquivo é do tipo: <strong > ' . $_FILES[ 'arquivo' ][ 'type' ] . ' </strong ><br />';
+    // echo 'Temporáriamente foi salvo em: <strong>' . $_FILES[ 'arquivo' ][ 'tmp_name' ] . '</strong><br />';
+    // echo 'Seu tamanho é: <strong>' . $_FILES[ 'arquivo' ][ 'size' ] . '</strong> Bytes<br /><br />';
+ 
+    $arquivo_tmp = $_FILES[ 'arquivo' ][ 'tmp_name' ];
+    $nome = $_FILES[ 'arquivo' ][ 'name' ];
+ 
+    // Pega a extensão
+    $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+ 
+    // Converte a extensão para minúsculo
+    $extensao = strtolower ( $extensao );
+ 
+    // Somente imagens, .jpg;.jpeg;.gif;.png
+    // Aqui eu enfileiro as extensões permitidas e separo por ';'
+    // Isso serve apenas para eu poder pesquisar dentro desta String
+    if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
+        // Cria um nome único para esta imagem
+        // Evita que duplique as imagens no servidor.
+        // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+        $novoNome = 'vitorinha'. '.' . $extensao;
+ 
+        // Concatena a pasta com o nome
+        $destino = 'fotoperfil / ' . $novoNome;
+ 
+        // tenta mover o arquivo para o destino
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+			$result_usuario = "INSERT INTO usuario (cpf,nome,email,senha,rg,telefone,funcao,visibilidade, departamento, foto) VALUES ('$CPF','$NOME','$EMAIL','$SENHA','$RG','$TELEFONE','$FUNCAO', '1', '$DEPARTAMENTO','$novoNome' )";
+			$resultado_usuario = mysqli_query($conn, $result_usuario);
+        }
+        else
+            echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
+    }
+}
 		
-
-		
-
 					if(mysqli_insert_id($conn)){
 						echo "<script type='text/javascript'> swal('Usuário não foi cadastrado!', 'erro de conexao.','error').then((value) => {
 							javascript:window.location='cadastro.php';

@@ -14,7 +14,7 @@
 //testando a conexao
  if($link){
      //alterando os dados
-     $query = mysqli_query($link, "update usuario set  email = '$email', senha = '$senha', rg= '$rg', nome = '$nome', telefone= '$telefone' where cpf = '$cpf';" );
+     $query = mysqli_query($link, "UPDATE usuario set  email = '$email', senha = '$senha', rg= '$rg', nome = '$nome', telefone= '$telefone' where cpf = '$cpf';" );
      if($query){
          header("Location: verifica_usuario.php");
          

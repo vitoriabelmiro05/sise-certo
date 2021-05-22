@@ -5,6 +5,7 @@ include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
+$foto= mysqli_query($conn,"SELECT foto FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
@@ -39,15 +40,19 @@ $con3= mysqli_query($conn, $consultaeS);
             <body  >
 			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            
+                
+            <a class="navbar-brand js-scroll-trigger" href="">
                 <img src="imagens/LOGO.png" alt="log" class="imagem img-fluid   "       />
 				<P>
 				
                 <span class="d-none d-lg-block">
-				 
-                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-2"
+                
+                   
+                   <img  src="fotoperfil/vitorinha.jpg" width="10px" height="10px" alt="abc"
         
       />
+                    
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

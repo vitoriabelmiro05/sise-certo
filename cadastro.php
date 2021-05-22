@@ -93,7 +93,7 @@ endif;
 				<span class="login100-form-title p-b-41">
 					Digite suas informações
 				</span>
-                 <form class="login100-form validate-form p-b-33 p-t-5" method="POST" action="processa.php">
+                 <form class="login100-form validate-form p-b-33 p-t-5" method="POST" enctype="multipart/form-data" action="processa.php">
     <div class="wrap-input100 validate-input" data-validate = "Enter username">
     <input class="input100" type="text" id="NOME" name="NOME" placeholder="Nome Completo">
      </div>
@@ -126,6 +126,10 @@ endif;
       <option value="formação geral">Formação Geral</option>
       <option value="computação e mecânica">Computação e Mecânica</option>
     </select>
+                     </div>
+                     <div class="wrap-input100 validate-input" data-validate="Enter password">
+                     <span class="input100">  Selecione uma Foto: </span>
+    <input class="input100"type="file" id="arquivo" name="arquivo">
                      </div>
   <div class="container-login100-form-btn m-t-32">
     <input class="login100-form-btn"type="submit" value="ENVIAR" placeholder="ENVIAR">
