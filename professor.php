@@ -5,7 +5,7 @@ include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
-$foto= mysqli_query($conn,"SELECT foto FROM usuario WHERE cpf = '$_SESSION[CPF]';");
+$foto= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
@@ -48,8 +48,8 @@ $con3= mysqli_query($conn, $consultaeS);
 				
                 <span class="d-none d-lg-block">
                 
-                   
-                   <img  src="fotoperfil/vitorinha.jpg" width="10px" height="10px" alt="abc"
+                <?php while($dado = $foto -> fetch_array() ){?>
+                   <img  src="fotoperfil/ <?php echo $dado['foto'];} ?>"  alt="abc" class="imagem img-fluid   " 
         
       />
                     
