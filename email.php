@@ -20,7 +20,7 @@ $email= $conn->escape_string($_POST['email']);
     
     $novasenha= rand( 100000 , 1000000000 );//cria numero aleatorio de 6 a 10 digitos
   
-   // echo substr(md5(time()), 0, 6);
+   
      
     if(mail($email, "REDEFINIÇÃO DE SENHA", "Suan nova senha é: ".$novasenha)){
     $sql= "UPDATE usuario set senha= ' $novasenha' WHERE email = '$email'";
