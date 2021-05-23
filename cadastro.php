@@ -117,14 +117,14 @@ endif;
       <option value="Professor(a)">Professor Orientador</option>
       <option value="Chefe de Departamento">Chefe do Departamento</option>
       <option value="Coordenador">Coordenador</option>
-      <option value="Setor de Estágio">responsavel pelo setor de Estágio</option>
+      <option value="Setor de Estagio">responsavel pelo setor de Estágio</option>
     </select>
                     </div>
                      <div class="wrap-input100 validate-input" data-validate = "Enter username">
   <span class="input100"> Departamento:  </span><select style="border-radius: 13px;width: 600px;" class="input100"id="DEPARTAMENTO" name="DEPARTAMENTO">
       <option value="eletrica">Elétrica</option>
-      <option value="formação geral">Formação Geral</option>
-      <option value="computação e mecânica">Computação e Mecânica</option>
+      <option value="formacao geral">Formação Geral</option>
+      <option value="computacao e mecanica">Computação e Mecânica</option>
     </select>
                      </div>
                      <div class="wrap-input100 validate-input" data-validate="Enter password">

@@ -14,6 +14,7 @@ $query4= "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario wh
 $con4= mysqli_query($conn, "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');");
 $consul= "SELECT * FROM usuario where funcao = 'professor' and visibilidade = '1'; ";
 $cons=mysqli_query($conn, $consul);
+$foto= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 ?>
 <DOCTYPE HTLM>
     <html lang="pt-br">

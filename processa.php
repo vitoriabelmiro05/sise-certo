@@ -92,7 +92,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
         // Cria um nome único para esta imagem
         // Evita que duplique as imagens no servidor.
         // Evita nomes com acentos, espaços e caracteres não alfanuméricos
-        $novoNome = 'vitorinha'. '.' . $extensao;
+        $novoNome = rand ( 100000 , 1000000000 ) . '.' . $extensao;
  
         // Concatena a pasta com o nome
         $destino = 'fotoperfil / ' . $novoNome;

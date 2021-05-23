@@ -5,12 +5,18 @@ include('conexao.php');
 
 $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
+$foto= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 $con= mysqli_query($conn, $consulta);
 $con2= mysqli_query($conn, $consulta);
 $con3= mysqli_query($conn, $consultaeS);
 ?>
 <DOCTYPE HTLM>
     <html lang="pt-br">
+    <style>
+        h7{
+            color:#f18322;
+        }
+    </style>
         <head>
             <meta charset="utf-8">
           
@@ -41,8 +47,9 @@ $con3= mysqli_query($conn, $consultaeS);
 				<P>
 				
                 <span class="d-none d-lg-block">
-				 
-                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-2"
+
+                <?php while($dado = $foto -> fetch_array() ){?>
+                   <img  src="fotoperfil/ <?php echo $dado['foto'];} ?>" style= "border-radius: 50%; " width="200px" height="200px"  alt="foto perfil" class="imagem img-fluid   " 
         
       />
                 </span>
@@ -54,10 +61,10 @@ $con3= mysqli_query($conn, $consultaeS);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">Início</a>
+                        <a class="nav-link js-scroll-trigger" href="professor.php">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#perfil">Editar Perfil</a>
+                        <a class="nav-link js-scroll-trigger" href="professor_editaperfil.php"><h7>Editar Perfil</h7></a>
                     </li>
                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="logout.php">Sair</a>

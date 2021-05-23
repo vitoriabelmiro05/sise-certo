@@ -6,13 +6,14 @@ $con= mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';")
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep= mysqli_fetch_row($departamento);
 $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ");
+$foto= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 
 ?>
 
 <DOCTYPE HTLM>
     <style>
         h7{
-            color:springgreen;
+            color:#f18322;
         }
     </style>
     <html lang="pt-br">
@@ -51,8 +52,9 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
 				<P>
 
                 <span class="d-none d-lg-block">
-                
-                   <img src="imagens/icon.jpg" alt="ICONE" class="imagem img-fluid img-profile rounded-circle mx-auto mb-1"  />
+                <?php while ($dado = $foto->fetch_array()) { ?>
+                            <img src="fotoperfil/ <?php echo $dado['foto'];
+                                                } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,7 +108,7 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
 
 </ul><br>
 
-					 <h3>Usuarios Cadastrados </h3>
+					 <h3>Usuários Cadastrados </h3>
 					<table class="table table-striped">
   <thead>
     <tr>
@@ -136,18 +138,23 @@ $con3= mysqli_query($conn,"SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'an
                             
 
                          ?>
-                        <td><a href="editar.php?cpf=<?php echo $dado["cpf"];?>" class="btn btn-primary"role="button">EDITAR</a></td>;
-                        
-                         
+                        <td><a href="editar.php?cpf=<?php echo $dado["cpf"];?>" class="btn btn-primary"role="button">EDITAR</a></td>
        
  <?php
             echo "</tr>";
   }
 } else {
+    echo "<tr>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+    echo "<td>-</td>";
+} ?>
 
-}
-
- ?>  
 
   </thead>
 
