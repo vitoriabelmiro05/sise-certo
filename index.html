@@ -1,735 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Sise-Sistema de Estágio</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
-    <!-- Font Awesome icons (free version)-->
-    <script
-      src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Google fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles1.css" rel="stylesheet" />
 
-    <style>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Sise-Sistema de Estágio</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  
+  <!-- Links para o MODAL INICIO -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+  <!-- Links para o MODAL FIM -->
+
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles1.css" rel="stylesheet" />
+
+  <style>
+    .info-sise {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .texto {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      padding: 40px;
+      font-size: 1rem;
+      background-color: rgb(255, 255, 255);
+    }
+
+    #escreve {
+      width: 50vw;
+    }
+
+    @media only screen and (max-width: 1100px) {
       .info-sise {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .texto {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: justify;
-        padding: 40px;
-        font-size: 1.5rem;
-        background-color: rgb(255, 255, 255);
+        flex-direction: column;
       }
 
       #escreve {
-        width: 50vw;
+        width: 0px;
       }
-      @media only screen and (max-width: 1100px) {
-        .info-sise {
-          flex-direction: column;
-        }
-        #escreve {
-          width: 100vw;
-        }
-      }
-      .parallax {
-        /* The image used */
-        background-image: url('./assets/img/CEFET_LEOPOLDINA.jpg');
+    }
 
-        /* Set a specific height */
-        min-height: 500px;
+    .parallax {
+      /* The image used */
+      background-image: url('./assets/img/CEFET_LEOPOLDINA.jpg');
 
-        /* Create the parallax scrolling effect */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    </style>
-  </head>
-  <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <button
-          class="navbar-toggler navbar-toggler-right"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i class="fas fa-bars ml-1"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll-trigger bg-primary"
-                href="login.html"
-                style="border-radius: 10px"
-                >Login</a
-              >
-            </li>
+      /* Set a specific height */
+      min-height: 500px;
 
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll-trigger bg-primary"
-                href="#services"
-                style="border-radius: 10px"
-                >Quem somos nós</a
-              >
-            </li>
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
 
-            <li class="nav-item">
-              <a
-                class="nav-link js-scroll-trigger bg-primary"
-                href="#team"
-                style="border-radius: 10px"
-                >Equipe</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-      <div class="container">
-        <div class="masthead-subheading"></div>
-        <div class="masthead-heading text-uppercase"></div>
-        <br />
-      </div>
-    </header>
-    <!-- Services-->
-    <div class="info-sise">
-      <img id="escreve" src="imagens/img.jpg" alt="mulher" />
-      <div class="texto">
-        <p>
-          O SiSe- Sistema de estágio é um projeto desenvolvido tendo como
-          objetivo principal proporcionar aos profissionais envolvidos nas
-          orientações de estágio uma forma eficiente de supervisão dos dados e
-          emissão de declaração de orientações de estágio.
-        </p>
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars ml-1"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger bg-primary" href="login.html" style="border-radius: 10px">Login</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger bg-primary" href="#services" style="border-radius: 10px">Quem somos
+              nós</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger bg-primary" href="#team" style="border-radius: 10px">Equipe</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-subheading"></div>
+      <div class="masthead-heading text-uppercase"></div>
+      <br />
+    </div>
+  </header>
+  <!-- Services-->
+  <div class="info-sise">
+    <img id="escreve" src="imagens/img.jpg" alt="mulher" />
+    <div class="texto">
+      <p>
+        O SiSe- Sistema de estágio é um projeto desenvolvido tendo como
+        objetivo principal proporcionar aos profissionais envolvidos nas
+        orientações de estágio uma forma eficiente de supervisão dos dados e
+        emissão de declaração de orientações de estágio.
+      </p>
+    </div>
+  </div>
 
-    <!-- About-->
-    <section style="margin-top: -100px" class="page-section" id="about">
-      <div class="parallax">
-        <div
-          class="container-fluid"
-          style="background-color: rgba(0, 0, 0, 0.8)"
-        >
-          <div class="text-center" style="padding-top: 30px">
-            <h2 style="color: white" class="section-heading text-uppercase">
-              CEFET-MG
-            </h2>
-            <h3 style="color: white" class="section-subheading">
-              Linha do tempo
-            </h3>
-          </div>
-          <ul class="timeline">
-            <li>
-              <div class="timeline-image">
-                <img
-                  class="rounded-circle img-fluid"
-                  src="imagens/cefet_logo.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 style="color: white">Setembro 1909</h4>
-                  <h4 class="subheading"></h4>
-                </div>
-                <div class="timeline-body">
-                  <p style="color: white">
-                    Em 23 de setembro de 1909, o Presidente Nilo Peçanha,
-                    através do Decreto nº 7.566, criava a Escola de Aprendizes
-                    Artífices de Minas Gerais, hoje Centro Federal de Educação
-                    Tecnológica de Minas Gerais (CEFET-MG).
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img
-                  class="rounded-circle img-fluid mx-auto"
-                  src="imagens/cefet2.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading" style="color: white">
-                  <h4>Meados de 1942</h4>
-                </div>
-                <div class="timeline-body">
-                  <p style="color: white">
-                    Somente em 1942, com a industrialização, é que a escola se
-                    tornou técnica, primeiro com o nome de Escola Técnica de
-                    Belo Horizonte e, em 1959, com a denominação de Escola
-                    Técnica Federal de Minas Gerais. Em 30 de junho de 1978, a
-                    instituição se transformou em CEFET-MG, a partir da
-                    aprovação de uma lei pelo Congresso Nacional.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img
-                  class="rounded-circle img-fluid"
-                  src="assets/img/about/3.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 style="color: white">1971-1979</h4>
-                  <h4 class="subheading"></h4>
-                </div>
-                <div class="timeline-body">
-                  <p style="color: white" style="color: white">
-                    Criados os cursos de Formação de Tecnólogos e os cursos
-                    superiores de Engenharia de Operação Elétrica e Mecânica,
-                    que foram extintos em 1979 quando houve a criação dos Cursos
-                    de Engenharia Elétrica e de Engenharia Mecânica..
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img
-                  class="rounded-circle img-fluid"
-                  src="assets/img/about/4.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 style="color: white">Atualmente</h4>
-                  <h4 class="subheading"></h4>
-                </div>
-                <div class="timeline-body">
-                  <p style="color: white">
-                    Hoje, o Centro Federal de Educação Tecnológica de Minas
-                    Gerais (CEFET-MG) é uma autarquia federal brasileira,
-                    vinculada ao Ministério da Educação, que oferece ensino
-                    médio, cursos técnicos e superiores, contemplando também, de
-                    forma indissociada, o ensino, a pesquisa e a extensão, na
-                    área tecnológica e no âmbito da pesquisa aplicada. Em 2011,
-                    ocupou o segundo e terceiro lugar do ranking nacional de
-                    instituições de ensino superior entre as 10 mais concorridas
-                    do Brasil no Sistema de Seleção Unificada (Sisu).
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <h4>
-                  112
-                  <br />
-                  anos
-                  <br />
-                  de história!
-                </h4>
-              </div>
-            </li>
-          </ul>
+  <!-- About-->
+  <section style="margin-top: -100px" class="page-section" id="about">
+    <div class="parallax">
+      <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.8)">
+        <div class="text-center" style="padding-top: 30px">
+          <h2 style="color: white" class="section-heading text-uppercase">
+            CEFET-MG
+          </h2>
+          <h3 style="color: white" class="section-subheading">
+            Linha do tempo
+          </h3>
         </div>
+        <ul class="timeline">
+          <li>
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="imagens/cefet_logo.jpg" alt="" />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 style="color: white">Setembro 1909</h4>
+                <h4 class="subheading"></h4>
+              </div>
+              <div class="timeline-body">
+                <p style="color: white">
+                  Em 23 de setembro de 1909, o Presidente Nilo Peçanha,
+                  através do Decreto nº 7.566, criava a Escola de Aprendizes
+                  Artífices de Minas Gerais, hoje Centro Federal de Educação
+                  Tecnológica de Minas Gerais (CEFET-MG).
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid mx-auto" src="imagens/cefet2.jpg" alt="" />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading" style="color: white">
+                <h4>Meados de 1942</h4>
+              </div>
+              <div class="timeline-body">
+                <p style="color: white">
+                  Somente em 1942, com a industrialização, é que a escola se
+                  tornou técnica, primeiro com o nome de Escola Técnica de
+                  Belo Horizonte e, em 1959, com a denominação de Escola
+                  Técnica Federal de Minas Gerais. Em 30 de junho de 1978, a
+                  instituição se transformou em CEFET-MG, a partir da
+                  aprovação de uma lei pelo Congresso Nacional.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="" />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 style="color: white">1971-1979</h4>
+                <h4 class="subheading"></h4>
+              </div>
+              <div class="timeline-body">
+                <p style="color: white" style="color: white">
+                  Criados os cursos de Formação de Tecnólogos e os cursos
+                  superiores de Engenharia de Operação Elétrica e Mecânica,
+                  que foram extintos em 1979 quando houve a criação dos Cursos
+                  de Engenharia Elétrica e de Engenharia Mecânica..
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="" />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 style="color: white">Atualmente</h4>
+                <h4 class="subheading"></h4>
+              </div>
+              <div class="timeline-body">
+                <p style="color: white">
+                  Hoje, o Centro Federal de Educação Tecnológica de Minas
+                  Gerais (CEFET-MG) é uma autarquia federal brasileira,
+                  vinculada ao Ministério da Educação, que oferece ensino
+                  médio, cursos técnicos e superiores, contemplando também, de
+                  forma indissociada, o ensino, a pesquisa e a extensão, na
+                  área tecnológica e no âmbito da pesquisa aplicada. Em 2011,
+                  ocupou o segundo e terceiro lugar do ranking nacional de
+                  instituições de ensino superior entre as 10 mais concorridas
+                  do Brasil no Sistema de Seleção Unificada (Sisu).
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image" style="background-color: #f08324;">
+              <h4>
+                112
+                <br />
+                anos
+                <br />
+                de história!
+              </h4>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Team-->
-    <section class="page-section bg-light" id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/vitoria.jpeg"
-                alt=""
-              />
-              <h4>Vitória Napoleão Belmiro</h4>
-              <p class="text-muted">Desenvolvedor</p>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/tati.jpeg"
-                alt=""
-              />
-              <h4>Tatiana Barbosa</h4>
-              <p class="text-muted">Orientador</p>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/luis.jpeg"
-                alt=""
-              />
-              <h4>Luis Augusto Mendes</h4>
-              <p class="text-muted">Orientador</p>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="col-lg-3">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/gabriella.jpeg"
-                alt=""
-              />
-              <h4>Gabreilla Barbosa</h4>
-              <p class="text-muted">Orientador</p>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a class="btn btn-dark btn-social mx-2" href="#!"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
+  <!-- Team-->
+  <section class="page-section bg-light" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="assets/img/vitoria.jpeg" alt="" />
+            <h4>Vitória Napoleão Belmiro</h4>
+            <p class="text-muted">Desenvolvedor</p>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted"></p>
+        <div class="col-lg-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="assets/img/tati.jpeg" alt="" />
+            <h4>Tatiana Barbosa</h4>
+            <p class="text-muted">Orientador</p>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="assets/img/luis.jpeg" alt="" />
+            <h4>Luis Augusto Mendes</h4>
+            <p class="text-muted">Orientador</p>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="assets/img/gabriella.jpeg" alt="" />
+            <h4>Gabreilla Barbosa</h4>
+            <p class="text-muted">Orientador</p>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Clients-->
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Clients-->
 
-    <!-- Contact-->
+  <!-- Contact-->
 
-    <!-- Footer-->
-    <footer class="footer py-4" style="background-color: #f08324">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-4 text-lg-left">Copyright © Sise 2020</div>
-          <div class="col-lg-4 my-3 my-lg-0">
-            <p>
-              Laboratório de Iniciação Científica e Extensão da Computação
-              CEFET-MG Unidade Leopoldina, Sala 6-209 Rua José Peres, 558 -
-              Centro Leopoldina - MG +55 (32) 3449-2346
-            </p>
-            <!-- <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+  <!-- Footer-->
+  <footer class="footer py-4" style="background-color: #f08324">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 text-lg-left">Copyright © Sise 2020</div>
+        <div class="col-lg-4 my-3 my-lg-0">
+          <p>
+            Laboratório de Iniciação Científica e Extensão da Computação
+            CEFET-MG Unidade Leopoldina, Sala 6-209 Rua José Peres, 558 -
+            Centro Leopoldina - MG +55 (32) 3449-2346
+          </p>
+          <!-- <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a> -->
-          </div>
-          <div class="col-lg-4 text-lg-right">
-            <a class="mr-3" href="#!" style="background-color: #028c8c"
-              >Politica de Privacidade</a
-            >
-            <a href="#!" style="background-color: #028c8c">Termos de Uso</a>
-          </div>
+        </div>
+        <div class="col-lg-4 text-lg-right">
+          <!-- Button Politica Modal -->
+          <a data-toggle="modal" data-target="#politicaModal" class="mr-3" href="#!"
+          style="background-color: #028c8c; padding: 5px; box-shadow: 0px 0px 5px #028c8c;">Politica de Privacidade</a>
+          <!-- Button Termos Modal -->
+          <a data-toggle="modal" data-target="#termosModal" href="#!" style="background-color: #028c8c; padding: 5px; box-shadow: 0px 0px 5px #028c8c;">Termos de
+            Uso</a>
         </div>
       </div>
-    </footer>
-    <!-- Portfolio Modals-->
-    <!-- Modal 1-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal1"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <img src="assets/img/close-icon.svg" alt="Close modal" />
-          </div>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="modal-body">
-                  <!-- Project Details Go Here-->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <img
-                    class="img-fluid d-block mx-auto"
-                    src="assets/img/portfolio/01-full.jpg"
-                    alt=""
-                  />
-                  <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
-                  </p>
-                  <ul class="list-inline">
-                    <li>Date: January 2020</li>
-                    <li>Client: Threads</li>
-                    <li>Category: Illustration</li>
-                  </ul>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times mr-1"></i>
-                    Close Project
-                  </button>
-                </div>
+    </div>
+  </footer>
+  <!-- Portfolio Modals-->
+  <!-- Modal 1-->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <img src="assets/img/close-icon.svg" alt="Close modal" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="modal-body">
+                <!-- Project Details Go Here-->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+                <p>
+                  Use this area to describe your project. Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit. Est blanditiis
+                  dolorem culpa incidunt minus dignissimos deserunt repellat
+                  aperiam quasi sunt officia expedita beatae cupiditate,
+                  maiores repudiandae, nostrum, reiciendis facere nemo!
+                </p>
+                <ul class="list-inline">
+                  <li>Date: January 2020</li>
+                  <li>Client: Threads</li>
+                  <li>Category: Illustration</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times mr-1"></i>
+                  Close Project
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Modal 2-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal2"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <img src="assets/img/close-icon.svg" alt="Close modal" />
-          </div>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="modal-body">
-                  <!-- Project Details Go Here-->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <img
-                    class="img-fluid d-block mx-auto"
-                    src="assets/img/portfolio/02-full.jpg"
-                    alt=""
-                  />
-                  <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
-                  </p>
-                  <ul class="list-inline">
-                    <li>Date: January 2020</li>
-                    <li>Client: Explore</li>
-                    <li>Category: Graphic Design</li>
-                  </ul>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times mr-1"></i>
-                    Close Project
-                  </button>
-                </div>
+  </div>
+  <!-- Modal 2-->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <img src="assets/img/close-icon.svg" alt="Close modal" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="modal-body">
+                <!-- Project Details Go Here-->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                <p>
+                  Use this area to describe your project. Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit. Est blanditiis
+                  dolorem culpa incidunt minus dignissimos deserunt repellat
+                  aperiam quasi sunt officia expedita beatae cupiditate,
+                  maiores repudiandae, nostrum, reiciendis facere nemo!
+                </p>
+                <ul class="list-inline">
+                  <li>Date: January 2020</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times mr-1"></i>
+                  Close Project
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Modal 3-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal3"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <img src="assets/img/close-icon.svg" alt="Close modal" />
-          </div>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="modal-body">
-                  <!-- Project Details Go Here-->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <img
-                    class="img-fluid d-block mx-auto"
-                    src="assets/img/portfolio/03-full.jpg"
-                    alt=""
-                  />
-                  <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
-                  </p>
-                  <ul class="list-inline">
-                    <li>Date: January 2020</li>
-                    <li>Client: Finish</li>
-                    <li>Category: Identity</li>
-                  </ul>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times mr-1"></i>
-                    Close Project
-                  </button>
-                </div>
+  </div>
+  <!-- Modal 3-->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <img src="assets/img/close-icon.svg" alt="Close modal" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="modal-body">
+                <!-- Project Details Go Here-->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
+                <p>
+                  Use this area to describe your project. Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit. Est blanditiis
+                  dolorem culpa incidunt minus dignissimos deserunt repellat
+                  aperiam quasi sunt officia expedita beatae cupiditate,
+                  maiores repudiandae, nostrum, reiciendis facere nemo!
+                </p>
+                <ul class="list-inline">
+                  <li>Date: January 2020</li>
+                  <li>Client: Finish</li>
+                  <li>Category: Identity</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times mr-1"></i>
+                  Close Project
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Modal 4-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal4"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <img src="assets/img/close-icon.svg" alt="Close modal" />
-          </div>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="modal-body">
-                  <!-- Project Details Go Here-->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <img
-                    class="img-fluid d-block mx-auto"
-                    src="assets/img/portfolio/04-full.jpg"
-                    alt=""
-                  />
-                  <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
-                  </p>
-                  <ul class="list-inline">
-                    <li>Date: January 2020</li>
-                    <li>Client: Lines</li>
-                    <li>Category: Branding</li>
-                  </ul>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times mr-1"></i>
-                    Close Project
-                  </button>
-                </div>
+  </div>
+  <!-- Modal 4-->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <img src="assets/img/close-icon.svg" alt="Close modal" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="modal-body">
+                <!-- Project Details Go Here-->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                <p>
+                  Use this area to describe your project. Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit. Est blanditiis
+                  dolorem culpa incidunt minus dignissimos deserunt repellat
+                  aperiam quasi sunt officia expedita beatae cupiditate,
+                  maiores repudiandae, nostrum, reiciendis facere nemo!
+                </p>
+                <ul class="list-inline">
+                  <li>Date: January 2020</li>
+                  <li>Client: Lines</li>
+                  <li>Category: Branding</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times mr-1"></i>
+                  Close Project
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Modal 5-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal5"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <img src="assets/img/close-icon.svg" alt="Close modal" />
-          </div>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="modal-body">
-                  <!-- Project Details Go Here-->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <img
-                    class="img-fluid d-block mx-auto"
-                    src="assets/img/portfolio/05-full.jpg"
-                    alt=""
-                  />
-                  <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
-                  </p>
-                  <ul class="list-inline">
-                    <li>Date: January 2020</li>
-                    <li>Client: Southwest</li>
-                    <li>Category: Website Design</li>
-                  </ul>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times mr-1"></i>
-                    Close Project
-                  </button>
-                </div>
+  </div>
+  <!-- Modal 5-->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <img src="assets/img/close-icon.svg" alt="Close modal" />
+        </div>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="modal-body">
+                <!-- Project Details Go Here-->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                <p>
+                  Use this area to describe your project. Lorem ipsum dolor
+                  sit amet, consectetur adipisicing elit. Est blanditiis
+                  dolorem culpa incidunt minus dignissimos deserunt repellat
+                  aperiam quasi sunt officia expedita beatae cupiditate,
+                  maiores repudiandae, nostrum, reiciendis facere nemo!
+                </p>
+                <ul class="list-inline">
+                  <li>Date: January 2020</li>
+                  <li>Client: Southwest</li>
+                  <li>Category: Website Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times mr-1"></i>
+                  Close Project
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Modal 6-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal6"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <img src="assets/img/close-icon.svg" alt="Close modal" />
-          </div>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="modal-body">
-                  <!-- Project Details Go Here-->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">
-                    Lorem ipsum dolor sit amet consectetur.
-                  </p>
-                  <img
-                    class="img-fluid d-block mx-auto"
-                    src="assets/img/portfolio/06-full.jpg"
-                    alt=""
-                  />
-                  <p>
-                    Use this area to describe your project. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Est blanditiis
-                    dolorem culpa incidunt minus dignissimos deserunt repellat
-                    aperiam quasi sunt officia expedita beatae cupiditate,
-                    maiores repudiandae, nostrum, reiciendis facere nemo!
-                  </p>
-                  <ul class="list-inline">
-                    <li>Date: January 2020</li>
-                    <li>Client: Window</li>
-                    <li>Category: Photography</li>
-                  </ul>
-                  <button
-                    class="btn btn-primary"
-                    data-dismiss="modal"
-                    type="button"
-                  >
-                    <i class="fas fa-times mr-1"></i>
-                    Close Project
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+  </div>
+
+
+  <!-- Modal Politica -->
+  <div class="modal fade" id="politicaModal" tabindex="-1" role="dialog" aria-labelledby="politicaModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="politicaModalLabel">Política de Privacidade</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2>Política de Privacidade</h2>
+          <p>A sua privacidade é importante para nós. É política do SISE-SISTEMA DE ESTÁGIO respeitar a sua privacidade
+            em relação a qualquer informação sua que possamos coletar no site <a
+              href=http://sise.projetoscomputacao.com.br />SISE-SISTEMA DE ESTÁGIO</a>, e outros sites que possuímos e
+            operamos.</p>
+          <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.
+            Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que
+            estamos coletando e como será usado. </p>
+          <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando
+            armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos, bem
+            como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
+          <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando
+            exigido por lei.</p>
+          <p>O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não
+            temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas
+            respectivas <a href='[https://politicaprivacidade.com](https://politicaprivacidade.com/)'
+              target='_BLANK'>políticas de privacidade</a>. </p>
+          <p>Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos
+            fornecer alguns dos serviços desejados.</p>
+          <p>O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e
+            informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações
+            pessoais, entre em contacto connosco.</p>
+          <h3>Compromisso do Usuário</h3>
+          <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o SISE-SISTEMA DE ESTÁGIO
+            oferece no site e com caráter enunciativo, mas não limitativo:</p>
+          <ul>
+            <li>A) Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;</li>
+            <li>B) Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, ou casas de apostas online
+              (ex.:<a
+                href='[https://ondeapostar.pt/review/moosh-portugal/](https://ondeapostar.pt/review/moosh-portugal/)'>
+                Moosh</a>), jogos de sorte e azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou
+              contra os direitos humanos;</li>
+            <li>C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do SISE-SISTEMA DE ESTÁGIO,
+              de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros
+              sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.</li>
+          </ul>
+          <h3>Mais informações</h3>
+          <p>Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza
+            se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos
+            que você usa em nosso site.</p>
+          <p>Esta política é efetiva a partir de <strong>Maio</strong>/<strong>2021</strong>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Contact form JS-->
-    <script src="assets/mail/jqBootstrapValidation.js"></script>
-    <script src="assets/mail/contact_me.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-  </body>
+  </div>
+
+  <!-- Termos Modal Fim-->
+
+
+  <!-- Modal Termos -->
+  <div class="modal fade" id="termosModal" tabindex="-1" role="dialog" aria-labelledby="termosModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termosModalLabel">Termos de uso</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <h2>1. Termos</h2>
+          <p>Ao acessar ao site <a
+              href='[http://sise.projetoscomputacao.com.br/](http://sise.projetoscomputacao.com.br/)'>SISE-SISTEMA DE
+              ESTÁGIO</a>, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis e
+            concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com
+            algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são
+            protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis.</p>
+          <h2>2. Uso de Licença</h2>
+          <p>É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site
+            SISE-SISTEMA DE ESTÁGIO , apenas para visualização transitória pessoal e não comercial. Esta é a concessão
+            de uma licença, não uma transferência de título e, sob esta licença, você não pode: </p>
+          <ol>
+            <li>modificar ou copiar os materiais; </li>
+            <li>usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não
+              comercial); </li>
+            <li>tentar descompilar ou fazer engenharia reversa de qualquer software contido no site SISE-SISTEMA DE
+              ESTÁGIO; </li>
+            <li>remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou </li>
+            <li>transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.</li>
+          </ol>
+          <p>Esta licença será automaticamente rescindida se você violar alguma dessas restrições e poderá ser
+            rescindida por SISE-SISTEMA DE ESTÁGIO a qualquer momento. Ao encerrar a visualização desses materiais ou
+            após o término desta licença, você deve apagar todos os materiais baixados em sua posse, seja em formato
+            eletrónico ou impresso.</p>
+          <h2>3. Isenção de responsabilidade</h2>
+          <ol>
+            <li>Os materiais no site da SISE-SISTEMA DE ESTÁGIO são fornecidos 'como estão'. SISE-SISTEMA DE ESTÁGIO não
+              oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias,
+              incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim
+              específico ou não violação de propriedade intelectual ou outra violação de direitos. </li>
+            <li>Além disso, o SISE-SISTEMA DE ESTÁGIO não garante ou faz qualquer representação relativa à precisão, aos
+              resultados prováveis ou à confiabilidade do uso dos materiais em seu site ou de outra forma relacionado a
+              esses materiais ou em sites vinculados a este site.</li>
+          </ol>
+          <h2>4. Limitações</h2>
+          <p>Em nenhum caso o SISE-SISTEMA DE ESTÁGIO ou seus fornecedores serão responsáveis por quaisquer danos
+            (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios)
+            decorrentes do uso ou da incapacidade de usar os materiais em SISE-SISTEMA DE ESTÁGIO, mesmo que
+            SISE-SISTEMA DE ESTÁGIO ou um representante autorizado da SISE-SISTEMA DE ESTÁGIO tenha sido notificado
+            oralmente ou por escrito da possibilidade de tais danos. Como algumas jurisdições não permitem limitações em
+            garantias implícitas, ou limitações de responsabilidade por danos conseqüentes ou incidentais, essas
+            limitações podem não se aplicar a você.</p>
+          <h2>5. Precisão dos materiais</h2>
+          <p>Os materiais exibidos no site da SISE-SISTEMA DE ESTÁGIO podem incluir erros técnicos, tipográficos ou
+            fotográficos. SISE-SISTEMA DE ESTÁGIO não garante que qualquer material em seu site seja preciso, completo
+            ou atual. SISE-SISTEMA DE ESTÁGIO pode fazer alterações nos materiais contidos em seu site a qualquer
+            momento, sem aviso prévio. No entanto, SISE-SISTEMA DE ESTÁGIO não se compromete a atualizar os materiais.
+          </p>
+          <h2>6. Links</h2>
+          <p>O SISE-SISTEMA DE ESTÁGIO não analisou todos os sites vinculados ao seu site e não é responsável pelo
+            conteúdo de nenhum site vinculado. A inclusão de qualquer link não implica endosso por SISE-SISTEMA DE
+            ESTÁGIO do site. O uso de qualquer site vinculado é por conta e risco do usuário.</p>
+          </p>
+          <h3>Modificações</h3>
+          <p>O SISE-SISTEMA DE ESTÁGIO pode revisar estes termos de serviço do site a qualquer momento, sem aviso
+            prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de serviço.</p>
+          <h3>Lei aplicável</h3>
+          <p>Estes termos e condições são regidos e interpretados de acordo com as leis do SISE-SISTEMA DE ESTÁGIO e
+            você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Termos Modal Fim-->
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!-- Contact form JS-->
+  <script src="assets/mail/jqBootstrapValidation.js"></script>
+  <script src="assets/mail/contact_me.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>
