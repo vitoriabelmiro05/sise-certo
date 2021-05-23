@@ -28,6 +28,23 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
 
+        <script>
+        function myFunction(){
+            confirm("Confirmar o envio!");
+        }
+         $(document).ready(function(){
+                
+             $('#CPF').mask('000.000.000-00');
+             $('#RG').mask('00.000.000');
+             $('#TELEFONE').mask('(00) 00000-0000');
+            
+            
+            }
+           )
+       
+
+      </script>
+
 
 
         <style>
@@ -84,24 +101,26 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </div>
 
         </nav>
+        <div class="container">
         <div class="w-100">
 
             <form action="alterar.php">
 
                 <?php while ($dado = $con2->fetch_array()) { ?>
                     <div class="form-group">
-                        <input type="hidden" class="form-control" name="cpf" value="<?php echo $dado["cpf"]; ?>" />
+                        <input type="hidden" class="form-control" name="cpf"
+                        id="CPF" value="<?php echo $dado["cpf"]; ?>" />
 
                         Nome:<input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
-                        RG: <input type="text" class="form-control" name="rg" value="<?php echo $dado["rg"]; ?>" /> <br />
+                        RG: <input type="text" class="form-control" name="rg" id="RG" value="<?php echo $dado["rg"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
                         Email: <input type="text" class="form-control" name="email" value="<?php echo $dado["email"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
-                        Telefone: <input type="text" class="form-control" name="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
+                        Telefone: <input type="text" class="form-control" name="telefone" id="TELEFONE" value="<?php echo $dado["telefone"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
                         Senha: <input type="text" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
@@ -118,6 +137,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </form>
 
 
+        </div>
         </div>
     </body>
 

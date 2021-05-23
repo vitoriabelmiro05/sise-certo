@@ -83,6 +83,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </div>
 
         </nav>
+        <div class="container">
         <div class="w-100">
 
             <form action="alterar.php">
@@ -110,7 +111,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 <?php  } ?>
 
             </form>
-
+            </div>
         </div>
     </body>
 

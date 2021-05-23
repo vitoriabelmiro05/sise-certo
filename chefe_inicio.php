@@ -107,6 +107,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 </li>
 
                 </ul><br>
+                <div class="container">
 
 
             <h3>Aguardando aprovação de orientador </h3>
@@ -141,7 +142,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
 
-                                <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Editar Orientador</a></td>;
+                                <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Editar Orientador</a></td>
                                 <td><a href="aprova_direto.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Aprovar Orientador</a></td>
 
                         <?php
@@ -161,6 +162,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 </thead>
 
             </table>
+                </div>
 
             <br>
             <br>

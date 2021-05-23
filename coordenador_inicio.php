@@ -107,8 +107,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 </li>
 
                 </ul><br>
-
-
+<div class="container"
+>
             <h3>Aguardando indicação de orientador </h3>
             <table class="table table-striped">
                 <thead>
@@ -153,6 +153,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 </thead>
 
             </table>
+            </div>
 
             <br>
             <br>
