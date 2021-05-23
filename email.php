@@ -25,6 +25,7 @@ $email= $conn->escape_string($_POST['email']);
     if(mail($email, "REDEFINIÇÃO DE SENHA", "Suan nova senha é: ".$novasenha)){
     $sql= "UPDATE usuario set senha= ' $novasenha' WHERE email = '$email'";
     $query=  mysqli_query($conn, $sql);
+    header("Location: login.html");
 
 }
 }
