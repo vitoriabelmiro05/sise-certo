@@ -11,6 +11,7 @@
     
 
 <?php
+session_name('CPF');
 session_start();
 
 include('conexao.php');
