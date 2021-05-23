@@ -1,4 +1,5 @@
 <?php
+header ('Content-type: text/html; charset=UTF-8');
 session_start();
 //include('verifica_login.php');
 include('conexao.php');
@@ -19,7 +20,7 @@ $con3 = mysqli_query($conn, $consultaeS);
     <html lang="pt-br">
 
     <head>
-        <meta charset="utf-8">
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">

@@ -1,4 +1,5 @@
 <?php
+header ('Content-type: text/html; charset=UTF-8');
 session_start();
 
 include('conexao.php');
@@ -13,7 +14,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <html lang="pt-br">
 
     <head>
-        <meta charset="utf-8">
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">

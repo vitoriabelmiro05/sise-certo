@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body>
-
-    
-
 <?php
-session_name('CPF');
 session_start();
-
 include('conexao.php');
- if(empty($_POST['CPF'] || empty($_POST['SENHA']))){
+if(empty($_POST['CPF'] || empty($_POST['SENHA']))){
     //  <script>echo 'alert'</script>     //Colocar um alert
      header('Location: login.html');
      exit();
@@ -35,9 +21,9 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
 
  $row= mysqli_num_rows($result);
 
- if($row==1){
-     $_SESSION['CPF']= $CPF;
+ if($row==1){    
      header('Location: verfica_status.php');
+     $_SESSION['CPF']= $CPF;
      exit();
 
  } else {
@@ -47,6 +33,16 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
    });;</script>";
      
  } 
- ?>
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
  </body>
 </html>
