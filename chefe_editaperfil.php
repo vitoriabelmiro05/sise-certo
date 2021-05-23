@@ -42,15 +42,17 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <a class="navbar-brand js-scroll-trigger">
                 <img src="imagens/LOGO.png" alt="log" class="imagem img-fluid mb-1" />
                 <P>
 
                     <span class="d-none d-lg-block">
 
+                    <a href="foto.php" >
+
                         <?php while ($dado = $foto->fetch_array()) { ?>
                             <img src="fotoperfil/ <?php echo $dado['foto'];
-                                                } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
+                                                } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " /></a>
                     </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,6 +85,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </div>
 
         </nav>
+        <div class="container">
         <div class="w-100">
 
             <form action="alterar.php">
@@ -110,7 +113,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 <?php  } ?>
 
             </form>
-
+            </div>
         </div>
     </body>
 

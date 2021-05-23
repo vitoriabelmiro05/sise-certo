@@ -42,7 +42,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <a class="navbar-brand js-scroll-trigger">
                 <img src="imagens/LOGO.png" alt="log" class="imagem img-fluid mb-1" />
                 <P>
 
@@ -82,6 +82,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </div>
 
         </nav>
+        <div class="container">
         <div class="w-100">
             <h2 class="mb-5 ">Cadastrar novo estágio</h2>
             <form action="processaEsta.php" method="post">
@@ -92,7 +93,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" required>
+                    <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" minlength="14" maxlength="14" required>
                 </div>
                 <div class="form-group">
 
@@ -118,6 +119,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </form>
 
 
+        </div>
         </div>
 
     </body>

@@ -44,7 +44,7 @@ $con3 = mysqli_query($conn, $consultaeS);
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
 
 
-            <a class="navbar-brand js-scroll-trigger" href="">
+            <a class="navbar-brand js-scroll-trigger">
                 <img src="imagens/LOGO.png" alt="log" class="imagem img-fluid   " />
                 <P>
 

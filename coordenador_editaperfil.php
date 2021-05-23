@@ -42,15 +42,15 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <a class="navbar-brand js-scroll-trigger" >
                 <img src="imagens/LOGO.png" alt="log" class="imagem img-fluid mb-1" />
                 <P>
 
                     <span class="d-none d-lg-block">
-
+                    <a href="foto.php" >
                         <?php while ($dado = $foto->fetch_array()) { ?>
                             <img src="fotoperfil/ <?php echo $dado['foto'];
-                                                } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
+                                                } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " /></a>
                     </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,35 +83,36 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </div>
 
         </nav>
+        <div class="container">
+            <div class="w-100">
 
-        <div class="w-100">
+                <form action="alterar.php">
+                    <?php while ($dado = $con2->fetch_array()) { ?>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="cpf" value="<?php echo $dado["cpf"]; ?>" />
 
-            <form action="alterar.php">
-                <?php while ($dado = $con2->fetch_array()) { ?>
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" name="cpf" value="<?php echo $dado["cpf"]; ?>" />
+                            Nome:<input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>" /> <br />
+                        </div>
 
-                        Nome:<input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>" /> <br />
-                    </div>
+                        <div class="form-group">
+                            RG: <input type="text" class="form-control" name="rg" value="<?php echo $dado["rg"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            Email: <input type="text" class="form-control" name="email" value="<?php echo $dado["email"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            Telefone: <input type="text" class="form-control" name="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            Senha: <input type="text" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
+                        </div>
+                        <input type="submit" value="Alterar" class="btn btn-primary" />
+                        <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
+                    <?php  } ?>
 
-                    <div class="form-group">
-                        RG: <input type="text" class="form-control" name="rg" value="<?php echo $dado["rg"]; ?>" /> <br />
-                    </div>
-                    <div class="form-group">
-                        Email: <input type="text" class="form-control" name="email" value="<?php echo $dado["email"]; ?>" /> <br />
-                    </div>
-                    <div class="form-group">
-                        Telefone: <input type="text" class="form-control" name="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
-                    </div>
-                    <div class="form-group">
-                        Senha: <input type="text" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
-                    </div>
-                    <input type="submit" value="Alterar" class="btn btn-primary" />
-                    <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
-                <?php  } ?>
+                </form>
 
-            </form>
-
+            </div>
         </div>
     </body>
 

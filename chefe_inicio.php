@@ -42,7 +42,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <a class="navbar-brand js-scroll-trigger">
                 <img src="imagens/LOGO.png" alt="log" class="imagem img-fluid mb-1" />
                 <P>
 
@@ -107,60 +107,62 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 </li>
 
                 </ul><br>
+            <div class="container">
 
 
-            <h3>Aguardando aprovação de orientador </h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
+                <h3>Aguardando aprovação de orientador </h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
 
-                        <th scope="col">Nome do Aluno</th>
-                        <th scope="col">Matricula</th>
-                        <th scope="col">Professor Orientador</th>
-                        <th scope="col">Nome Empresa</th>
-                        <th scope="col">Início Estágio</th>
-                        <th scope="col">Fim Estágio</th>
+                            <th scope="col">Nome do Aluno</th>
+                            <th scope="col">Matricula</th>
+                            <th scope="col">Professor Orientador</th>
+                            <th scope="col">Nome Empresa</th>
+                            <th scope="col">Início Estágio</th>
+                            <th scope="col">Fim Estágio</th>
 
-                        <th scope="col">Carga horária</th>
+                            <th scope="col">Carga horária</th>
 
-                        <?php if ($con4->num_rows > 0) {
+                            <?php if ($con4->num_rows > 0) {
 
-                            while ($dado = $con4->fetch_array()) {
+                                while ($dado = $con4->fetch_array()) {
 
-                                $id = $dado["idestagio"];
-                                $aprovacao = $dado["aprovacao"];
+                                    $id = $dado["idestagio"];
+                                    $aprovacao = $dado["aprovacao"];
 
 
+                                    echo "<tr>";
+                                    echo "<td>" . $dado["nome_aluno"] . "</td>";
+                                    echo "<td>" . $dado["matricula"] . "</td>";
+                                    echo "<td>" . $dado["nome_orientador"] . "</td>";
+                                    echo "<td>" . $dado["nome_empresa"] . "</td>";
+                                    echo "<td>" . $dado["inicio_estagio"] . "</td>";
+                                    echo "<td>" . $dado["fim_estagio"] . "</td>";
+                                    echo "<td>" . $dado["carga_horaria"] . "</td>";
+                            ?>
+
+                                    <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Editar Orientador</a></td>
+                                    <td><a href="aprova_direto.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Aprovar Orientador</a></td>
+
+                            <?php
+                                    echo "</tr>";
+                                }
+                            } else {
                                 echo "<tr>";
-                                echo "<td>" . $dado["nome_aluno"] . "</td>";
-                                echo "<td>" . $dado["matricula"] . "</td>";
-                                echo "<td>" . $dado["nome_orientador"] . "</td>";
-                                echo "<td>" . $dado["nome_empresa"] . "</td>";
-                                echo "<td>" . $dado["inicio_estagio"] . "</td>";
-                                echo "<td>" . $dado["fim_estagio"] . "</td>";
-                                echo "<td>" . $dado["carga_horaria"] . "</td>";
-                        ?>
+                                echo "<td>-</td>";
+                                echo "<td>-</td>";
+                                echo "<td>-</td>";
+                                echo "<td>-</td>";
+                                echo "<td>-</td>";
+                                echo "<td>-</td>";
+                                echo "<td>-</td>";
+                            } ?>
 
-                                <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Editar Orientador</a></td>;
-                                <td><a href="aprova_direto.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Aprovar Orientador</a></td>
+                    </thead>
 
-                        <?php
-                                echo "</tr>";
-                            }
-                        } else {
-                            echo "<tr>";
-                            echo "<td>-</td>";
-                            echo "<td>-</td>";
-                            echo "<td>-</td>";
-                            echo "<td>-</td>";
-                            echo "<td>-</td>";
-                            echo "<td>-</td>";
-                            echo "<td>-</td>";
-                        } ?>
-
-                </thead>
-
-            </table>
+                </table>
+            </div>
 
             <br>
             <br>
