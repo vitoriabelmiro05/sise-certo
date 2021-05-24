@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('conexao.php');
+include('conexao.php'); 
 if(empty($_POST['CPF'] || empty($_POST['SENHA']))){
     //  <script>echo 'alert'</script>     //Colocar um alert
      header('Location: login.html');
@@ -26,15 +26,8 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
      $_SESSION['CPF']= $CPF;
      exit();
 
- } else {
-      
-    echo "<script type='text/javascript'> swal('Usuário não encontrado', 'Verifique seu Login.','error').then((value) => {
-     javascript:window.location='login.html';
-   });;</script>";
-     
- } 
-?>
-<!DOCTYPE html>
+ } else {?>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,6 +36,14 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
+      <?php
+    echo "<script type='text/javascript'> swal('Usuário não encontrado', 'Verifique seu Login.','error').then((value) => {
+     javascript:window.location='login.html';
+   });;</script>";
+     
+ } 
+?>
+
 
  </body>
 </html>

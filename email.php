@@ -35,7 +35,7 @@ $email= $conn->escape_string($_POST['email']);
    
      
     if(mail($email, "REDEFINIÇÃO DE SENHA", "Suan nova senha é: ".$novasenha)){
-    $sql= "UPDATE usuario set senha= ' $novasenha' WHERE email = '$email'";
+    $sql= "UPDATE usuario set senha= '$novasenha' WHERE email = '$email'";
     $query=  mysqli_query($conn, $sql);
     echo "<script type='text/javascript'> swal('Senha redefinida com sucesso!', 'a nova senha chegará em seu email.','success').then((value) => {
         javascript:window.location='login.html';
