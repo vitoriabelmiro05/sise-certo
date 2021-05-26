@@ -47,7 +47,16 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             })
         </script>
-
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+      <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+  <style>
+      .fa-pen {
+          color: #028c8c !important;
+      }
+      .fa-pen:hover {
+        color: #f08324 !important;
+      }
+  </style>
 
 
 
@@ -156,7 +165,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 
                             ?>
-                                    <td><a href="editar.php?cpf=<?php echo $dado["cpf"]; ?>" class="btn btn-primary" role="button">EDITAR</a></td>
+                                    <td><a href="editar.php?cpf=<?php echo $dado["cpf"]; ?>"><i class="fas fa-pen"></i></a></td>
 
                             <?php
                                     echo "</tr>";
