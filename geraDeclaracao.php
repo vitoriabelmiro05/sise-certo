@@ -1,4 +1,5 @@
 <?php
+header ('Content-type: text/html; charset=UTF-8');
 include('fpdf/fpdf.php');
 include('conexao.php');
 // ini_set('display_errors', 1);
@@ -34,22 +35,22 @@ $pdf->SetY(35);
 $pdf->SetX(30);
 $pdf->SetFont('Arial', 'B', 10);
 $w = array(90);
-$pdf->Cell(0, 5, 'SERVIÇO PÚBLICO FEDERAL', 0, 1, 'C', 0);
-$pdf->Cell(0, 5, 'MINISTÉRIO DA EDUCAÇÃO', 0, 1, 'C', 0);
-$pdf->Cell(0, 5, 'CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS', 0, 1, 'C', 0);
+$pdf->Cell(0, 5, 'SERVIï¿½O Pï¿½BLICO FEDERAL', 0, 1, 'C', 0);
+$pdf->Cell(0, 5, 'MINISTï¿½RIO DA EDUCAï¿½ï¿½O', 0, 1, 'C', 0);
+$pdf->Cell(0, 5, 'CENTRO FEDERAL DE EDUCAï¿½ï¿½O TECNOLï¿½GICA DE MINAS GERAIS', 0, 1, 'C', 0);
 $pdf->Cell(0, 5, 'CAMPUS LEOPOLDINA', 0, 1, 'C', 0);
-$pdf->Cell(0, 5, 'COORDENAÇÃO DE PROGRAMAS DE ESTÁGIO', 0, 1, 'C', 0);
+$pdf->Cell(0, 5, 'COORDENAï¿½ï¿½O DE PROGRAMAS DE ESTï¿½GIO', 0, 1, 'C', 0);
 
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->SetX(30);
 $w = array(90);
 $pdf->ln();
 $pdf->ln();
-$pdf->Cell(0, 5, 'DECLACAÇÃO Nº 25/2020', 0, 1, 'C', 0);
+$pdf->Cell(0, 5, 'DECLACAï¿½ï¿½O Nï¿½ 25/2020', 0, 1, 'C', 0);
 $pdf->SetFont('Arial', '', 12);
 $pdf->ln();
 $pdf->SetX(30);
-$pdf->MultiCell(150, 5, 'Declaramos para os devidos fins que o(a) aluno(a) ' . $dado["nome_aluno"] . ' participou dos respectivos estágios:', 0, 'J', 0);
+$pdf->MultiCell(150, 5, 'Declaramos para os devidos fins que o(a) aluno(a) ' . $dado["nome_aluno"] . ' participou dos respectivos estï¿½gios:', 0, 'J', 0);
 
 $pdf->ln();
 $pdf->ln();
@@ -67,10 +68,10 @@ $tamanho = 190/6;
 $pdf->SetFont('Arial', '', 8);
 $pdf->Cell($tamanho, 5, 'NOME:', 'TLR', 0, 'L', 0);
 $pdf->Cell($tamanho, 5, 'EMPRESA:', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, 'PERÍODO ESTÁGIO:', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, 'CH TOTAL CUMPRIDA NO ESTÁGIO', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'PERï¿½ODO ESTï¿½GIO:', 'TR', 0, 'L', 0);
+$pdf->Cell($tamanho, 5, 'CH TOTAL CUMPRIDA NO ESTï¿½GIO', 'TR', 0, 'L', 0);
 $pdf->Cell($tamanho, 5, 'CURSO', 'TR', 0, 'L', 0);
-$pdf->Cell($tamanho, 5, 'SEMINÁRIO', 'TR', 1, 'L', 0);
+$pdf->Cell($tamanho, 5, 'SEMINï¿½RIO', 'TR', 1, 'L', 0);
 
 $pdf->SetFont('Arial', '', 8);
 //Aqui entra o while

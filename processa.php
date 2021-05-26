@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-	<body>
 <?php
+header ('Content-type: text/html; charset=UTF-8');
 session_start();
 include_once("conexao.php");
 
@@ -32,6 +24,17 @@ $DEPARTAMENTO = filter_input(INPUT_POST, 'DEPARTAMENTO', FILTER_SANITIZE_STRING)
 		$linha= mysqli_num_rows($verfica);
 
 		if($linha == 1){
+			?>
+			<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+	<body>
+		<?php
 			echo "<script type='text/javascript'> swal('CPF JÁ EXISTE!', '','error').then((value) => {
 				javascript:window.location='cadastro.php';
 			  });;</script>";

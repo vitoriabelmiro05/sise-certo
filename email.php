@@ -1,5 +1,14 @@
+<?php 
+header ('Content-type: text/html; charset=UTF-8');
+include('conexao.php');
+$emails= $_POST['email'];
+$consulta= mysqli_query($conn, "SELECT * FROM usuario WHERE email = '$emails'");
+$total = mysqli_num_rows($consulta);
+$email= $conn->escape_string($_POST['email']);
 
-	  <!DOCTYPE html>
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+    {?>
+     <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -8,15 +17,7 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-<?php 
-include('conexao.php');
-$emails= $_POST['email'];
-$consulta= mysqli_query($conn, "SELECT * FROM usuario WHERE email = '$emails'");
-$total = mysqli_num_rows($consulta);
-$email= $conn->escape_string($_POST['email']);
-
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-    {
+<?php
         echo "<script type='text/javascript'> swal('E-mail inválido.', ' ','error').then((value) => {
             javascript:window.location='redefinir.html';
           });;</script>";
@@ -44,7 +45,6 @@ $email= $conn->escape_string($_POST['email']);
 
 }
 }
-
 
      ?>
 </body>
