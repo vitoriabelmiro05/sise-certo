@@ -48,12 +48,29 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             })
         </script>
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-      <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <!-- Links para o MODAL INICIO -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <!-- Links para o MODAL FIM -->
   <style>
       .fa-pen {
           color: #028c8c !important;
       }
       .fa-pen:hover {
+        color: #f08324 !important;
+      }
+      .fa-search-plus {
+          color: #028c8c !important;
+      }
+      .fa-search-plus:hover {
         color: #f08324 !important;
       }
   </style>
@@ -76,13 +93,13 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <span class="d-none d-lg-block">
                         <?php while ($dado = $foto->fetch_array()) { ?>
                             <img src="fotoperfil/ <?php echo $dado['foto'];
-                                                } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
+                                                } ?>" style="border-radius: 50%; " width="100px" height="100px" alt="foto perfil" class="imagem img-fluid   " />
                     </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div style="zoom: 0.9;" class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_incio.php">
@@ -134,7 +151,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             </ul><br>
 
-            <div class="container">
+            <div style="zoom: 0.8;" class="container">
                 <h3>Usuários Cadastrados </h3>
                 <table class="table table-striped">
                     <thead>
@@ -148,6 +165,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                             <th scope="col">TELEFONE</th>
                             <th scope="col">FUNÇÃO</th>
                             <th scope="col">DEPARTAMENTO</th>
+                            <th scope="col">EDITAR</th>
+                            <th scope="col">MAIS</th>
 
 
                             <?php if ($con3->num_rows > 0) {
@@ -165,8 +184,9 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 
                             ?>
-                                    <td><a href="editar.php?cpf=<?php echo $dado["cpf"]; ?>"><i class="fas fa-pen"></i></a></td>
-
+                                    <td style="display: flex; align-items: center; justify-content: center;"><a href="editar.php?cpf=<?php echo $dado["cpf"]; ?>"><i class="fas fa-pen"></i></a></td>
+                                    <td style="align-items: center; justify-content: center;"><a href="#" data-toggle="modal" data-target="#lupaModal" class="mr-3"><i class="fas fa-search-plus"></i></a></td>
+                                    
                             <?php
                                     echo "</tr>";
                                 }
@@ -196,3 +216,26 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             </div>
         </div>
+
+
+        <!-- MODAL LUPA -->
+  <div class="modal fade" id="lupaModal" tabindex="-1" role="dialog" aria-labelledby="lupaModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="lupaModalLabel">Mais informações</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <h1>Colocar</h1>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
