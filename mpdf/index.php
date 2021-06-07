@@ -13,6 +13,16 @@ $css = file_get_contents('estilo.css');
 // $con2= mysqli_query($conn, $consulta);
 // $con3= mysqli_query($conn, $consultaeS);
 
+setlocale(LC_ALL, 'pt_BR');  
+date_default_timezone_set('America/Sao_Paulo');
+$dia = date("d");
+$mes = date("m");
+$ano = date("Y");
+$mes = mesPortugues($mes);
+$data = "$dia de $mes de $ano";
+
+// $data = strftime('%d de %B de %Y', strtotime('today'));
+
 // $dado = $con3 -> fetch_array();
 
 // $html = file_get_contents('declaracao.html');
@@ -42,7 +52,7 @@ $css = file_get_contents('estilo.css');
 
 
 //******** Anterior *********
-
+$nome = "igor Lamoia";
 $mpdf->WriteHTML($css, 1);
 $mpdf->WriteHTML("<header>
 <img
@@ -53,7 +63,7 @@ $mpdf->WriteHTML("<header>
 />
 <h1>SERVIÇO PÚBLICO FEDERAL</h1>
 <h1>MINISTÉRIO DA EDUCAÇÃO</h1>
-<h1>CENTRO FEDERAL DE EDUCAÇÃOO TECNOLÓGICA DE MINAS GERAIS</h1>
+<h1>CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS</h1>
 <h1>CAMPUS LEOPOLDINA</h1>
 <h1>COORDEÇÃO DE PROGRAMAS DE ESTÁGIO</h1>
 </header>
@@ -76,22 +86,30 @@ $mpdf->WriteHTML("<header>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class='nome'>Vitória Napoleão Belmiro</td>
-      <td class='empresa'>CEFET-MG</td>
-      <td>TEXTO</td>
-      <td>TEXTO</td>
-      <td class='curso'>TEXTO</td>
-      <td>TEXTO</td>
-    </tr>
-  </tbody>
+");
+$count = 1;
+while ($count <5 ) {
+  $mpdf->WriteHTML("
+  <tr>
+    <td class='nome'>$nome</td>
+    <td class='empresa'>CEFET-MG</td>
+    <td>TEXTO</td>
+    <td>TEXTO</td>
+    <td class='curso'>TEXTO</td>
+    <td>TEXTO</td>
+  </tr>
+  ");
+  $count = $count + 1;
+}
+$mpdf->WriteHTML("
+</tbody>
 </table>
 </div>
 <p>
 * Estágio em andamento e/ou com pendências na entrega da documentação;<br />
 ** Ainda não participou do Seminário de Conclusão.
 </p>
-<div class='local-data'><p>LEOPOLDINA, date(aqui)</p></div>
+<div class='local-data'><p>LEOPOLDINA, $data</p></div>
 <div class='responsavel'>
 Sueli de Oliveira ***<br />
 Coordenação de programas de Estágio<br />
@@ -106,5 +124,50 @@ CEFET-MG Campos Leopoldina
 <p>Telefone: (32) 3449-2308 - email aqui***</p>
 </div>
 ");
-
 $mpdf->Output();
+
+function mesPortugues($mes){
+
+  switch ($mes){
+    case '01':
+      $mes = 'Janeiro';
+    break;
+    case '02':
+      $mes = 'Fevereiro';
+    break;
+    case '03':
+      $mes = 'Março';
+    break;
+    case '04':
+      $mes = 'Abril';
+    break;
+    case '05':
+      $mes = 'Maio';
+    break;
+    case '06':
+      $mes = 'Junho';
+    break;
+    case '07':
+      $mes = 'Julho';
+    break;
+    case '08':
+      $mes = 'Agosto';
+    break;
+    case '09':
+      $mes = 'Setembro';
+    break;
+    case '10':
+      $mes = 'Outubro';
+    break;
+    case '11':
+      $mes = 'Novembro';
+    break;
+    case '12':
+      $mes = 'Dezembro';
+    break;
+    default:
+      $mes = 'Janeiro';
+    break;
+  }
+  return $mes;
+}
