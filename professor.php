@@ -52,7 +52,7 @@ $con3 = mysqli_query($conn, $consultaeS);
                     <span class="d-none d-lg-block">
 
                         <?php while ($dado = $foto->fetch_array()) { ?>
-                            <img src="fotoperfil/ <?php echo $dado['foto'];
+                            <img src="fotoperfil/<?php echo $dado['foto'];
                                                 } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
 
 

@@ -1,7 +1,19 @@
 <?php
-header ('Content-type: text/html; charset=UTF-8');
+// header ('Content-type: text/html; charset=UTF-8');
 session_start();
 include_once("conexao.php");
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+	<body>
+<?php
 
 $CPF = filter_input(INPUT_POST, 'CPF', FILTER_SANITIZE_STRING);
 $NOME = filter_input(INPUT_POST, 'NOME', FILTER_SANITIZE_STRING);
@@ -24,17 +36,7 @@ $DEPARTAMENTO = filter_input(INPUT_POST, 'DEPARTAMENTO', FILTER_SANITIZE_STRING)
 		$linha= mysqli_num_rows($verfica);
 
 		if($linha == 1){
-			?>
-			<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-	<body>
-		<?php
+		
 			echo "<script type='text/javascript'> swal('CPF JÁ EXISTE!', '','error').then((value) => {
 				javascript:window.location='cadastro.php';
 			  });;</script>";
@@ -98,7 +100,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
         $novoNome = rand ( 100000 , 1000000000 ) . '.' . $extensao;
  
         // Concatena a pasta com o nome
-        $destino = 'fotoperfil / ' . $novoNome;
+        $destino = 'fotoperfil/' . $novoNome;
  
         // tenta mover o arquivo para o destino
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {

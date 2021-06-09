@@ -7,7 +7,7 @@ $result_status = "UPDATE usuario SET visibilidade = '0' WHERE (cpf = '$_SESSION[
 $result_status = mysqli_query($conn, $result_status);
 
 if($result_status){
-    header("Location: Login.html");
+    header("Location: login.html");
     
 }else{
     die("Erro: ". mysqli_error($conn));

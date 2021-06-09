@@ -1,5 +1,5 @@
 <?php
-header ('Content-type: text/html; charset=UTF-8');
+
 
 use Mpdf\Tag\Header;
 
@@ -33,7 +33,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
         $novoNome = rand ( 100000 , 1000000000 ) . '.' . $extensao;
  
         // Concatena a pasta com o nome
-        $destino = 'fotoperfil / ' . $novoNome;
+        $destino = 'fotoperfil/' . $novoNome;
  
         // tenta mover o arquivo para o destino
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {

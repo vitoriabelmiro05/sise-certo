@@ -36,6 +36,17 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             }
         </style>
 
+         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+      <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+  <style>
+      .fa-pen {
+          color: #028c8c !important;
+      }
+      .fa-pen:hover {
+        color: #f08324 !important;
+      }
+  </style>
+
 
 
 
@@ -51,7 +62,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <span class="d-none d-lg-block">
 
                         <?php while ($dado = $foto->fetch_array()) { ?>
-                            <img src="fotoperfil/ <?php echo $dado['foto'];
+                            <img src="fotoperfil/<?php echo $dado['foto'];
                                                 } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
                     </span>
             </a>
@@ -116,7 +127,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<td>" . $dado["fim_estagio"] . "</td>";
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
-                                <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">EDITAR</a></td>
+                                <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"]; ?>"><i class="fas fa-pen"></a></td>
 
                         <?php
                                 echo "</tr>";
