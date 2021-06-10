@@ -51,4 +51,5 @@ th {
 .informacoes {
   word-spacing: 0.1px;
   letter-spacing: 0.1px;
+  line-height: 1px;
 }
