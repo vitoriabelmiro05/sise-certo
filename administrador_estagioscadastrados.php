@@ -8,6 +8,8 @@ $dep = mysqli_fetch_row($departamento);
 $con4 = mysqli_query($conn, "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');");
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 
+
+
 ?>
 
 <DOCTYPE HTLM>
@@ -29,11 +31,35 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/jquery.mask.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
-
-        <style>
-            h7 {
+ <!-- Links para o MODAL INICIO -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <!-- Links para o MODAL FIM -->
+  <style>
+      .fa-pen {
+          color: #028c8c !important;
+      }
+      .fa-pen:hover {
+        color: #f08324 !important;
+      }
+      .fa-search-plus {
+          color: #028c8c !important;
+      }
+      .fa-search-plus:hover {
+        color: #f08324 !important;
+      }
+     h7 {
                 color: #f18322;
             }
+            
+            
         </style>
 
          <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -111,6 +137,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                         <th scope="col">Fim Estágio</th>
 
                         <th scope="col">Carga horária</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Mais</th>
 
                         <?php if ($con4->num_rows > 0) {
                             while ($dado = $con4->fetch_array()) {
@@ -128,6 +156,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
                                 <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"]; ?>"><i class="fas fa-pen"></a></td>
+                                <td style="align-items: center; justify-content: center;"><a href="<?php echo $dado["idestagio"]; ?>" data-toggle="modal" data-target="#lupaModal" data-id= class="mr-3"><i class="fas fa-search-plus"></i></a></td>
 
                         <?php
                                 echo "</tr>";
@@ -153,6 +182,59 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             </div>
         </div>
     </body>
+      <!-- MODAL LUPA -->
+  <div class="modal fade" id="lupaModal" tabindex="-1" role="dialog" aria-labelledby="lupaModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="lupaModalLabel">Mais informações</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <h1>
+             <table class="table table-striped">
+                <tr>
+             <th scope="col">Informação</th>
+            <th scope="col">Data</th>
+            </tr>
+                 <tr>
+                     <th>
+                     oi
+                     </th>
+                     <td>xx</td>
+                     </tr>
+                     <tr>
+                     <th>
+                     oi
+                     </th>
+                     <td>xx</td>
+                     </tr>
+                     <tr>
+                     <th>
+                     oi
+                     </th>
+                     <td>xx</td>
+                     </tr>
+                     
+                 
+                     
+                     
+                 
+                 
+             </table>
+
+         </h1>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     </html>
 </DOCTYPE>

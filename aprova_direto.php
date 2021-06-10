@@ -7,10 +7,12 @@ include('conexao.php');
 
 //$idestagio = filter_input(INPUT_POST, 'idestagio', FILTER_SANITIZE_STRING);
 $id= $_GET["idestagio"];
+date_default_timezone_set('America/Sao_Paulo');
+$dataCD= date('Y-m-d');
 
 
 
-    $query = mysqli_query($conn, "update estagio set aprovacao= '1' where idestagio = '$id=';");
+    $query = mysqli_query($conn, "update estagio set aprovacao= '1', dataCD= '$dataCD' where idestagio = '$id=';");
 
      if($query){?>
      <!DOCTYPE html>

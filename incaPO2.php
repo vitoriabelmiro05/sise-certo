@@ -7,10 +7,12 @@ include('conexao.php');
 
 $idestagio = filter_input(INPUT_POST, 'idestagio', FILTER_SANITIZE_STRING);
 $nome_orientador = filter_input(INPUT_POST, 'NOMEO', FILTER_SANITIZE_STRING);
+date_default_timezone_set('America/Sao_Paulo');
+$dataC= date('Y-m-d');
 
 
 
-    $query = mysqli_query($conn, "update estagio set nome_orientador = '$nome_orientador', cpf_usuario = (select cpf from usuario where nome = '$nome_orientador') where idestagio = '$idestagio';");
+    $query = mysqli_query($conn, "update estagio set nome_orientador = '$nome_orientador', dataC= '$dataC', cpf_usuario = (select cpf from usuario where nome = '$nome_orientador') where idestagio = '$idestagio';");
     
     
    

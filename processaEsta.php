@@ -11,12 +11,14 @@ $DATAF = filter_input(INPUT_POST, 'DATAF', FILTER_SANITIZE_STRING);
 $NOMEO = filter_input(INPUT_POST, 'NOMEO', FILTER_SANITIZE_STRING);
 $MATRICULA = filter_input(INPUT_POST, 'MATRICULA', FILTER_SANITIZE_STRING);
 $CARGA = filter_input(INPUT_POST, 'CARGA', FILTER_SANITIZE_STRING);
+date_default_timezone_set('America/Sao_Paulo');
+$dataSE= date('Y-m-d');
 
 
 
              
 
-$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria, aprovacao) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA', '0')";
+$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria, aprovacao, dataSE) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA', '0', '$dataSE')";
 $result_usuario = mysqli_query($conn, $result_usuario);
 
 
