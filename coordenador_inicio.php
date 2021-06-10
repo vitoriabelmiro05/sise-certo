@@ -32,6 +32,12 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
 
         <style>
+            .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
             h7 {
                 color: #f18322;
             }
@@ -117,12 +123,13 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
                         <th scope="col">Nome do Aluno</th>
                         <th scope="col">Matricula</th>
-                        <th scope="col">Professor Orientador</th>
+                        
                         <th scope="col">Nome Empresa</th>
                         <th scope="col">Início Estágio</th>
                         <th scope="col">Fim Estágio</th>
 
                         <th scope="col">Carga horária</th>
+                        <th scope="col">Professor Orientador</th>
 
                         <?php if ($con4->num_rows > 0) {
                             while ($dado = $con4->fetch_array()) {
@@ -133,13 +140,13 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<tr>";
                                 echo "<td>" . $dado["nome_aluno"] . "</td>";
                                 echo "<td>" . $dado["matricula"] . "</td>";
-                                echo "<td>" . $dado["nome_orientador"] . "</td>";
+                                
                                 echo "<td>" . $dado["nome_empresa"] . "</td>";
                                 echo "<td>" . $dado["inicio_estagio"] . "</td>";
                                 echo "<td>" . $dado["fim_estagio"] . "</td>";
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
-                                <td><a href="indicaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Indicar</a></td>
+                                <td><a href="indicaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary botao" role="button">Indicar</a></td>
 
                         <?php
                                 echo "</tr>";

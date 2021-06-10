@@ -32,6 +32,12 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
 
         <style>
+             .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
             h7 {
                 color: #f18322;
             }
@@ -107,8 +113,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                         <div class="form-group">
                             Senha: <input type="text" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
                         </div>
-                        <input type="submit" value="Alterar" class="btn btn-primary" />
-                        <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
+                        <input type="submit" value="Alterar" class="btn btn-primary botao" />
+                        <a class="btn btn-primary botao" href="status.php" role="button">Desativar conta</a>
                     <?php  } ?>
 
                 </form>

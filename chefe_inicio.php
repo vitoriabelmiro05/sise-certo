@@ -32,6 +32,12 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
 
         <style>
+               .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
             h7 {
                 color: #f18322;
             }
@@ -143,8 +149,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                     echo "<td>" . $dado["carga_horaria"] . "</td>";
                             ?>
 
-                                    <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Editar Orientador</a></td>
-                                    <td><a href="aprova_direto.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary" role="button">Aprovar Orientador</a></td>
+                                    <td><a href="aprovaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary botao" role="button">Editar Orientador</a></td>
+                                    <td><a href="aprova_direto.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary botao" role="button">Aprovar Orientador</a></td>
 
                             <?php
                                     echo "</tr>";

@@ -46,9 +46,26 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
       </script>
 
-
-
-        <style>
+<style>
+  .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
+      .fa-pen {
+          color: #028c8c !important;
+      }
+      .fa-pen:hover {
+        color: #f08324 !important;
+      }
+      .fa-search-plus {
+          color: #028c8c !important;
+      }
+      .fa-search-plus:hover {
+        color: #f08324 !important;
+      }
+ 
             h7 {
                 color: #f18322;
             }
@@ -131,8 +148,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 
 
-                    <input type="submit" value="Alterar" class="btn btn-primary" />
-                    <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
+                    <input type="submit" value="Alterar" class="btn btn-primary botao" />
+                    <a class="btn btn-primary botao" href="status.php" role="button">Desativar conta</a>
                 <?php  } ?>
 
             </form>

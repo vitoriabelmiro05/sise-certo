@@ -74,7 +74,31 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
   </style>
 
 
+      <script>
+        var dadosModal = [];
 
+        function dataModal(linha) {
+            const dataSE = dadosModal[linha][1].split('-');
+            const diaSE = dataSE[2];
+            const mesSE = dataSE[1];
+            const anoSE = dataSE[0];
+            const dataC = dadosModal[linha][2].split('-');
+            const diaC = dataC[2];
+            const mesC = dataC[1];
+            const anoC = dataC[0];
+            const dataCD = dadosModal[linha][3].split('-');
+            const diaCD = dataCD[2];
+            const mesCD = dataCD[1];
+            const anoCD = dataCD[0];
+
+            document.getElementById("dataSE").innerText = "Setor de estágio cadastrou o estágio no dia: "
+            + diaSE + " do " + mesSE + " de " + anoSE;
+            document.getElementById("dataC").innerText = "Coordenador inidicou o orientador no dia: "
+            + diaC  + " do " + mesC + " de " + anoC;
+            document.getElementById("dataCD").innerText = "Chefe de departamento aprovou o orientador no dia: "
+            + diaCD  + " do " + mesCD + " de " + anoCD;
+        }
+      </script>
 
     </head>
 
@@ -140,25 +164,40 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                         <th scope="col">Editar</th>
                         <th scope="col">Mais</th>
 
-                        <?php if ($con4->num_rows > 0) {
+                        <?php 
+                        $linha = 0; 
+                        if ($con4->num_rows > 0) {
                             while ($dado = $con4->fetch_array()) {
 
                                 $id = $dado["idestagio"];
-
+                             ?>
+                            <script>
+                                dadosModal.push(["<?php echo $id; ?>", "<?php echo $dado["dataSE"]; ?>", "<?php echo $dado["dataC"]; ?>", "<?php echo $dado["dataCD"]; ?>"]);
+                            </script>
+                             <?php   
+                                $inicioEstagio = explode('-',$dado["inicio_estagio"]);
+                                $diaI = $inicioEstagio[2];
+                                $mesI = $inicioEstagio[1];
+                                $anoI = $inicioEstagio[0];
+                                $fimEstagio = explode('-',$dado["fim_estagio"]);
+                                $diaF = $fimEstagio[2];
+                                $mesF = $fimEstagio[1];
+                                $anoF = $fimEstagio[0];
 
                                 echo "<tr>";
                                 echo "<td>" . $dado["nome_aluno"] . "</td>";
                                 echo "<td>" . $dado["matricula"] . "</td>";
                                 echo "<td>" . $dado["nome_orientador"] . "</td>";
                                 echo "<td>" . $dado["nome_empresa"] . "</td>";
-                                echo "<td>" . $dado["inicio_estagio"] . "</td>";
-                                echo "<td>" . $dado["fim_estagio"] . "</td>";
+                                echo "<td>" . $diaI ."/" . $mesI . "/" . $anoI . "</td>";
+                                echo "<td>" . $diaF ."/" . $mesF . "/" . $anoF . "</td>";
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
                                 <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"]; ?>"><i class="fas fa-pen"></a></td>
-                                <td style="align-items: center; justify-content: center;"><a href="<?php echo $dado["idestagio"]; ?>" data-toggle="modal" data-target="#lupaModal" data-id= class="mr-3"><i class="fas fa-search-plus"></i></a></td>
+                                <td onclick="dataModal(<?php echo $linha ?>)" style="align-items: center; justify-content: center;"><a href="<?php echo $dado["idestagio"]; ?>" data-toggle="modal" data-target="#lupaModal" class="mr-3"><i class="fas fa-search-plus"></i></a></td>
 
                         <?php
+                                $linha += 1;
                                 echo "</tr>";
                             }
                         }else {
@@ -171,7 +210,9 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                             echo "<td>-</td>";
                             echo "<td>-</td>";
                         } ?>
-
+                            <script>
+                            console.log(dadosModal)
+                            </script>
 
                 </thead>
 
@@ -188,45 +229,15 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="lupaModalLabel">Mais informações</h5>
+          <h5 class="modal-title" id="lupaModalLabel">Rastreio do estágio:</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-         <h1>
-             <table class="table table-striped">
-                <tr>
-             <th scope="col">Informação</th>
-            <th scope="col">Data</th>
-            </tr>
-                 <tr>
-                     <th>
-                     oi
-                     </th>
-                     <td>xx</td>
-                     </tr>
-                     <tr>
-                     <th>
-                     oi
-                     </th>
-                     <td>xx</td>
-                     </tr>
-                     <tr>
-                     <th>
-                     oi
-                     </th>
-                     <td>xx</td>
-                     </tr>
-                     
-                 
-                     
-                     
-                 
-                 
-             </table>
-
-         </h1>
+         <p id="dataSE"><p>
+         <p id="dataC"><p>
+         <p id="dataCD"><p>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Fechar

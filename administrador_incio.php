@@ -49,18 +49,16 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         </script>
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-    <!-- Links para o MODAL INICIO -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
     
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+
     <!-- Links para o MODAL FIM -->
   <style>
+  .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
       .fa-pen {
           color: #028c8c !important;
       }
@@ -92,13 +90,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
                     <span class="d-none d-lg-block">
                         <?php while ($dado = $foto->fetch_array()) { ?>
-<<<<<<< HEAD
                             <img src="fotoperfil/<?php echo $dado['foto'];
                                                 } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
-=======
-                            <img src="fotoperfil/ <?php echo $dado['foto'];
-                                                 ?>" style="border-radius: 50%; " width="100px" height="100px" alt="foto perfil" class="imagem img-fluid   " />
->>>>>>> bc7a80a41768ec52d4ba4aba7ff1b77932b363db
                     </span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,7 +149,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             </ul><br>
 
-            <div style="zoom: 0.8;" class="container">
+            <div class="container">
                 <h3>Usuários Cadastrados </h3>
                 <table class="table table-striped">
                     <thead>
@@ -171,7 +164,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                             <th scope="col">FUNÇÃO</th>
                             <th scope="col">DEPARTAMENTO</th>
                             <th scope="col">EDITAR</th>
-                            <th scope="col">MAIS</th>
+                            
 
 
                             <?php if ($con3->num_rows > 0) {
@@ -190,7 +183,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
                             ?>
                                     <td style="display: flex; align-items: center; justify-content: center;"><a href="editar.php?cpf=<?php echo $dado["cpf"]; ?>"><i class="fas fa-pen"></i></a></td>
-                                    <td style="align-items: center; justify-content: center;"><a href="#" data-toggle="modal" data-target="#lupaModal" class="mr-3"><i class="fas fa-search-plus"></i></a></td>
+                                   
                                     
                             <?php
                                     echo "</tr>";
@@ -216,37 +209,18 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 <p>
                     <br>
                     <br>
-                    <a class="btn btn-primary" href="mpdf/index.php" role="button">Gerar Declaração</a>
+                    <a class="btn btn-success botao" href="mpdf/index.php" role="button">Gerar Declaração</a>
 
 
             </div>
         </div>
-<<<<<<< HEAD
+
     </body>
     </html>
 </DOCTYPE>
-=======
 
 
-        <!-- MODAL LUPA -->
-  <div class="modal fade" id="lupaModal" tabindex="-1" role="dialog" aria-labelledby="lupaModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="lupaModalLabel">Mais informações</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-         <h1>Colocar</h1>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Fechar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+        
+
 

@@ -14,6 +14,12 @@ $con3= mysqli_query($conn, $consultaeS);
 <DOCTYPE HTLM>
     <html lang="pt-br">
     <style>
+        .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
         h7{
             color:#f18322;
         }
@@ -97,8 +103,8 @@ $con3= mysqli_query($conn, $consultaeS);
 				 <div class="form-group">
                 Senha: <input type="text" class="form-control"name= "senha" value="<?php echo $dado["senha"];?>"/> <br/>
 				 </div>
-                 <input type= "submit" value= "Alterar"class="btn btn-primary"/>
-                <a class="btn btn-primary" href="status.php" role="button">Excluir conta</a>
+                 <input type= "submit" value= "Alterar"class="btn btn-primary botao"/>
+                <a class="btn btn-primary botao" href="status.php" role="button">Desativar conta</a>
                 <?php  } ?>
 
             </form>

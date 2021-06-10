@@ -30,6 +30,13 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
 
         <style>
+  .botao {
+      background-color: #028c8c !important;
+      }
+      .botao:hover {
+        background-color: #f08324 !important;
+      }
+    
             h7 {
                 color: #f18322;
             }
@@ -113,7 +120,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <input type="time" class="form-control" id="exampleInputPassword1" name="CARGA" id="CARGA" min="00:00" max="23:59" required>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary botao">Enviar</button>
                 <br>
 
 
