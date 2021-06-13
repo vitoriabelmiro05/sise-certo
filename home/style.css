@@ -1,0 +1,55 @@
+.info-sise {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.texto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  padding: 40px;
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255);
+}
+
+#escreve {
+  width: 50vw;
+}
+
+@media only screen and (max-width: 1100px) {
+  .info-sise {
+    flex-direction: column;
+  }
+
+  #escreve {
+    width: 0px;
+  }
+}
+
+.parallax {
+  /* The image used */
+  background-image: url('../assets/img/CEFET_LEOPOLDINA.jpg');
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header.masthead {
+  padding-top: 12.5rem;
+  padding-bottom: 12.5rem;
+  background-image: url("../assets/img/LOGO2.jpeg");
+  opacity: 0.6;
+}
+body {
+  background-color: black;
+}
+#escrito {
+  font-size: 19px;
+}
