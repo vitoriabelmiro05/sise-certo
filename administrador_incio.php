@@ -1,10 +1,15 @@
 <?php
-header ('Content-type: text/html; charset=UTF-8');
+header('Content-type: text/html; charset=UTF-8');
 session_start();
 include('conexao.php');
+date_default_timezone_set('America/Sao_Paulo');
+$dataAtual = date('d/m/Y');
+$datacortada = explode('/', $dataAtual);
+$anoAtual = $datacortada[2];
 $con = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep = mysqli_fetch_row($departamento);
+$declaracao = mysqli_query($conn, "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ");
 $con3 = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ");
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 
@@ -19,7 +24,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
     <html lang="pt-br">
 
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
@@ -47,31 +52,41 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             })
         </script>
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-    
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+        <!-- Links para o MODAL INICIO -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-    <!-- Links para o MODAL FIM -->
-  <style>
-  .botao {
-      background-color: #028c8c !important;
-      }
-      .botao:hover {
-        background-color: #f08324 !important;
-      }
-      .fa-pen {
-          color: #028c8c !important;
-      }
-      .fa-pen:hover {
-        color: #f08324 !important;
-      }
-      .fa-search-plus {
-          color: #028c8c !important;
-      }
-      .fa-search-plus:hover {
-        color: #f08324 !important;
-      }
-  </style>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+        <!-- Links para o MODAL FIM -->
+        <style>
+            .botao {
+                background-color: #028c8c !important;
+            }
+
+            .botao:hover {
+                background-color: #f08324 !important;
+            }
+
+            .fa-pen {
+                color: #028c8c !important;
+            }
+
+            .fa-pen:hover {
+                color: #f08324 !important;
+            }
+
+            .fa-search-plus {
+                color: #028c8c !important;
+            }
+
+            .fa-search-plus:hover {
+                color: #f08324 !important;
+            }
+        </style>
 
 
 
@@ -164,7 +179,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                             <th scope="col">FUNÇÃO</th>
                             <th scope="col">DEPARTAMENTO</th>
                             <th scope="col">EDITAR</th>
-                            
+
 
 
                             <?php if ($con3->num_rows > 0) {
@@ -183,8 +198,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
                             ?>
                                     <td style="display: flex; align-items: center; justify-content: center;"><a href="editar.php?cpf=<?php echo $dado["cpf"]; ?>"><i class="fas fa-pen"></i></a></td>
-                                   
-                                    
+
+
                             <?php
                                     echo "</tr>";
                                 }
@@ -192,7 +207,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<tr>";
                                 echo "<td>-</td>";
                                 echo "<td>-</td>";
-                        
+
                                 echo "<td>-</td>";
                                 echo "<td>-</td>";
                                 echo "<td>-</td>";
@@ -209,18 +224,56 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                 <p>
                     <br>
                     <br>
-                    <a class="btn btn-success botao" href="mpdf/index.php" role="button">Gerar Declaração</a>
+                    <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
+                        <h8 style="color: white;">Gerar Declaração</h8>
+                    </a>
 
 
             </div>
         </div>
 
     </body>
+    <!-- MODAL GERA DECLARAÇÃO -->
+    <div class="modal fade" id="lupaModal" tabindex="-1" role="dialog" aria-labelledby="lupaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lupaModalLabel">Gerar declaração de estágio:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="geraDeclaracao.php">
+                        PROFESSOR ORIENTADOR: <select id="professor_orientador" name="professor_orientador">?>
+                            <?php if ($declaracao->num_rows > 0) {
+                                while ($dado = $declaracao->fetch_array()) { ?>
+                                    <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];
+                                                                                }
+                                                                            } ?></option>
+
+                        </select>
+                        <br>
+                        ANO: <select id="ano" name="ano">?>
+                            <?php
+                            $ano = $anoAtual - 10;
+
+                            while ($ano <= $anoAtual) { ?>
+                                <option value="<?php echo $ano; ?>"><?php echo " $ano";  ?></option>
+                            <?php $ano += 1;
+                            } ?>
+
+                        </select>
+                        <div class="modal-footer">
+                            <input class="btn btn-success botao"  type="submit" value="ENVIAR" placeholder="ENVIAR">
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
     </html>
 </DOCTYPE>
-
-
-
-        
-
-

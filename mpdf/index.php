@@ -1,18 +1,20 @@
 <?php
+require_once __DIR__.'/../conexao.php';
 use Mpdf\Mpdf;
 require_once __DIR__.'/vendor/autoload.php';
 
 $mpdf = new Mpdf();
 
 $css = file_get_contents('estilo.css');
-// include('conexao.php');
-// session_start();
-// $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'";
-// $consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
-// $con= mysqli_query($conn, $consulta);
-// $con2= mysqli_query($conn, $consulta);
-// $con3= mysqli_query($conn, $consultaeS);
 
+ session_start();
+$declaracao= mysqli_query($conn,"SELECT * FROM declaracao WHERE nome_prof = '$_SESSION[professor]' and ano = '$_SESSION[ano]' ;" );
+
+ $estagio= mysqli_query($conn,"SELECT * FROM estagio WHERE nome_orientador = '$_SESSION[professor]' and date_format(inicio_estagio, '%Y') = '$_SESSION[ano]' ; ");
+
+
+while ($dado = $declaracao->fetch_array() ) {
+$data = $dado['data_atual'];
 setlocale(LC_ALL, 'pt_BR');  
 date_default_timezone_set('America/Sao_Paulo');
 $dia = date("d");
@@ -20,39 +22,6 @@ $mes = date("m");
 $ano = date("Y");
 $mes = mesPortugues($mes);
 $data = "$dia de $mes de $ano";
-
-// $data = strftime('%d de %B de %Y', strtotime('today'));
-
-// $dado = $con3 -> fetch_array();
-
-// $html = file_get_contents('declaracao.html');
-
-// include('conexao.php');
-// session_start();
-// include('conexao.php');
-// $consulta= "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'";
-// $consultaeS= "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
-// $con= mysqli_query($conn, $consulta);
-// $con2= mysqli_query($conn, $consulta);
-// $con3= mysqli_query($conn, $consultaeS);
-
-// $dado = $con3 -> fetch_array();
-
-// $pdf->SetFont('Arial', '', 8);
-// //Aqui entra o while
-// while($dado = $con3 -> fetch_array() ){
-
-// $id= $dado['idestagio'];
-// . $dado['nome_aluno'] .'', 'TLR', 0, 'L', 0);
-// . $dado['matricula'] .'', 'TLR', 0, 'L', 0);
-// . $dado['nome_orientador'] .'', 'TLR', 0, 'L', 0);
-// . $dado['nome_empresa'] .'', 'TLR', 0, 'L', 0);
-// .$dado['inicio_estagio'] . ' a '. $dado['fim_estagio'], 'TLR', 0, 'L', 0);
-// . $dado['carga_horaria'] .'', 'TLR', 1, 'L', 0);   
-
-
-//******** Anterior *********
-$nome = "igor Lamoia";
 $mpdf->WriteHTML($css, 1);
 $mpdf->WriteHTML("<header>
 <img
@@ -68,9 +37,9 @@ $mpdf->WriteHTML("<header>
 <h1>COORDEÇÃO DE PROGRAMAS DE ESTÁGIO</h1>
 </header>
 <div class='corpo'>
-<h1 style='font-size: 2rem'>DECLARAÇÃO Nº 25/2020</h1>
+<h1 style='font-size: 2rem'>DECLARAÇÃO Nº $dado[numero]/$dado[ano]</h1>
 <p>
-  Declaramos para os devidos fins que o(a) aluno(a) participou dos
+  Declaramos para os devidos fins que o(a) professor(a) $dado[nome_prof] orientou os
   respectivos estágios:
 </p>
 
@@ -80,50 +49,60 @@ $mpdf->WriteHTML("<header>
       <th>NOME</th>
       <th>EMPRESA</th>
       <th>PERÍODO DO ESTÁGIO</th>
-      <th>CH TOTAL CUMPRIDA NO ESTÁGIO</th>
+      <th>CH SEMANAL CUMPRIDA NO ESTÁGIO</th>
       <th>CURSO</th>
-      <th>SEMINÁRIO</th>
+      
     </tr>
   </thead>
   <tbody>
 ");
-$count = 1;
-while ($count <5 ) {
+}
+
+
+while ($dado = $estagio->fetch_array() ) {
+  $data_inicio = $dado['inicio_estagio'];
+  $data_fim= $dado['fim_estagio'];
+$dia = date("d");
+$mes = date("m");
+$ano = date("Y");
+$data_inicio = "$dia/$mes/$ano";
+$data_fim = "$dia/$mes/$ano";
+$mpdf->WriteHTML($css, 1);
   $mpdf->WriteHTML("
   <tr>
-    <td class='nome'>$nome</td>
-    <td class='empresa'>CEFET-MG</td>
-    <td>TEXTO</td>
-    <td>TEXTO</td>
-    <td class='curso'>TEXTO</td>
-    <td>TEXTO</td>
+    <td class='nome'>$dado[nome_aluno]</td>
+    <td class='empresa'>$dado[nome_empresa]</td>
+    <td>$data_inicio a $data_fim</td>
+    <td>$dado[carga_horaria]</td>
+    <td class='curso'>$dado[curso]</td>
+    
   </tr>
   ");
-  $count = $count + 1;
+  
 }
+
+
 $mpdf->WriteHTML("
 </tbody>
 </table>
 </div>
-<p>
-* Estágio em andamento e/ou com pendências na entrega da documentação;<br />
-** Ainda não participou do Seminário de Conclusão.
-</p>
-<div class='local-data'><p>LEOPOLDINA, $data</p></div>
-<div class='responsavel'>
-Sueli de Oliveira ***<br />
+
+<div class='local-data'><p>LEOPOLDINA, $data </p></div>
+<div class='responsavel'> _________________________________________
+<br />
 Coordenação de programas de Estágio<br />
 CEFET-MG Campos Leopoldina
 </div>
 <div class='informacoes'>
 <h4>CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS</h4>
 <h4>CAMPOS LEOPOLDINA</h4>
-<p>CNPJ: 999999</p>
-<p>Diretor do Campus Leopoldina - Prof. Douglas Martins</p>
-<p>Rua José Peres, 558 - Centro - Leopoldina/MG - CEP: 36773-578</p>
-<p>Telefone: (32) 3449-2308 - email aqui***</p>
+<p>CNPJ: 17.220.203/0001-96</p>
+<p>Diretor do Campus Leopoldina - Prof. Douglas Martins Vieira da Silva</p>
+<p>Rua José Peres, 558 - Centro - Leopoldina/MG - CEP: 36700-000</p>
+<p>Telefone: (32) 3449-2308 - sree@leopoldina.cefetmg.br***</p>
 </div>
 ");
+
 $mpdf->Output();
 
 function mesPortugues($mes){

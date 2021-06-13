@@ -130,7 +130,7 @@ endif;
                      </div>
                      <div class="wrap-input100 validate-input" data-validate="Enter password">
                      <span class="input100">  Selecione uma Foto: </span>
-    <input class="input100"type="file" id="arquivo" name="arquivo">
+    <input class="input100"type="file" id="arquivo" name="arquivo" required>
                      </div>
   <div class="container-login100-form-btn m-t-32">
     <input class="login100-form-btn"type="submit" value="ENVIAR" placeholder="ENVIAR">
