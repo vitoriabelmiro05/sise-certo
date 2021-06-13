@@ -91,12 +91,12 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             const mesCD = dataCD[1];
             const anoCD = dataCD[0];
 
-            document.getElementById("dataSE").innerText = "Setor de estágio cadastrou o estágio no dia: "
-            + diaSE + " do " + mesSE + " de " + anoSE;
-            document.getElementById("dataC").innerText = "Coordenador inidicou o orientador no dia: "
-            + diaC  + " do " + mesC + " de " + anoC;
-            document.getElementById("dataCD").innerText = "Chefe de departamento aprovou o orientador no dia: "
-            + diaCD  + " do " + mesCD + " de " + anoCD;
+            document.getElementById("dataSE").innerHTML = "Setor de estágio cadastrou o estágio no dia: "
+            + diaSE + "/" + mesSE + "/" + anoSE;
+            document.getElementById("dataC").innerHTML = "Coordenador inidicou o orientador no dia: "
+            + diaC  + "/" + mesC + "/" + anoC;
+            document.getElementById("dataCD").innerHTML = "Chefe de departamento aprovou o orientador no dia: "
+            + diaCD  + "/" + mesCD + "/" + anoCD;
         }
       </script>
 
