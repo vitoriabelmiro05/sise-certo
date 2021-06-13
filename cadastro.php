@@ -59,6 +59,21 @@ session_start();
        
 
       </script>
+      <style>
+        .botao {
+            background-color: #f08324;
+            padding: 3px;
+            width: 150px;
+            height: 40px;
+            border-radius: 50px;
+            color: white;
+            font-family: Serif;
+        }
+        .botao:hover {
+            background-color: #028c8c;
+        }
+
+      </style>
 </head>
 <body>
        <?php
@@ -133,7 +148,7 @@ endif;
     <input class="input100"type="file" id="arquivo" name="arquivo">
                      </div>
   <div class="container-login100-form-btn m-t-32">
-    <input class="login100-form-btn"type="submit" value="ENVIAR" placeholder="ENVIAR">
+    <button class="botao"type="submit">ENVIAR</button>
                      </div>
   </form>
 				
