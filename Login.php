@@ -34,8 +34,12 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
 </head>
 <body>
+<div class="container-login100" style="background-image: url('imagens/LOGO2.jpg')">
       <?php
     echo "<script type='text/javascript'> swal('Usuário não encontrado', 'Verifique seu Login.','error').then((value) => {
      javascript:window.location='login.html';
@@ -43,7 +47,6 @@ $sql= "SELECT * FROM usuario WHERE cpf = '{$CPF}' and senha= '{$SENHA}';";
      
  } 
 ?>
-
-
+</div>
  </body>
 </html>
