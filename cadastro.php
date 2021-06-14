@@ -68,9 +68,11 @@ session_start();
             border-radius: 50px;
             color: white;
             font-family: Serif;
+            transition: all 0.3s ease;
         }
         .botao:hover {
             background-color: #028c8c;
+            transition: all 0.3s ease;
         }
 
       </style>
