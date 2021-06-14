@@ -113,7 +113,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                         Telefone: <input type="text" class="form-control" name="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
-                        Senha: <input type="text" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
+                        Senha: <input type="password" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
                     </div>
                     <input type="submit" value="Alterar" class="btn btn-primary botao" />
                     <a class="btn btn-primary botao" href="status.php" role="button">Desativar conta</a>
