@@ -42,19 +42,14 @@
   background-size: cover;
 }
 header.masthead {
-  padding-top: 12.5rem;
-  padding-bottom: 12.5rem;
   background-image: url("../assets/img/LOGO2.jpeg");
-  width: 1500px;
-  height: 300px;
-  background-size:1000px;
- 
- 
- 
+  background-size:55vw;
 }
+
 body {
   background-color: black;
 }
 #escrito {
   font-size: 19px;
+  padding: 7vw;
 }
