@@ -145,11 +145,11 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         </nav>
 
         <div class="w-100">
-            <h3 class="mb-2 ">
+            
                 <ul class="list-group">
 
                    
-            </h3>
+          
             <li class="list-group-item list-group-item-secondary">
 
 
