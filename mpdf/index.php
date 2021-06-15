@@ -10,7 +10,7 @@ $css = file_get_contents('estilo.css');
  session_start();
 $declaracao= mysqli_query($conn,"SELECT * FROM declaracao WHERE nome_prof = '$_SESSION[professor]' and ano = '$_SESSION[ano]' ;" );
 
- $estagio= mysqli_query($conn,"SELECT * FROM estagio WHERE nome_orientador = '$_SESSION[professor]' and date_format(inicio_estagio, '%Y') = '$_SESSION[ano]' ; ");
+ $estagio= mysqli_query($conn,"SELECT * FROM estagio WHERE nome_orientador = '$_SESSION[professor]' and date_format(inicio_estagio, '%Y') = '$_SESSION[ano]' and aprovacao = '1' ; ");
 
 
 while ($dado = $declaracao->fetch_array() ) {

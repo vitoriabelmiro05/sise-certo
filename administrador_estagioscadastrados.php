@@ -93,7 +93,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             document.getElementById("dataSE").innerHTML = "Setor de estágio cadastrou o estágio no dia: "
             + diaSE + "/" + mesSE + "/" + anoSE;
-            document.getElementById("dataC").innerHTML = "Coordenador inidicou o orientador no dia: "
+            document.getElementById("dataC").innerHTML = "Coordenador indicou o orientador no dia: "
             + diaC  + "/" + mesC + "/" + anoC;
             document.getElementById("dataCD").innerHTML = "Chefe de departamento aprovou o orientador no dia: "
             + diaCD  + "/" + mesCD + "/" + anoCD;

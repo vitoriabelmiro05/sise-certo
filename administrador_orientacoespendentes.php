@@ -5,7 +5,7 @@ session_start();
 include('conexao.php');
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep = mysqli_fetch_row($departamento);
-$con4 = mysqli_query($conn, "SELECT * FROM estagio  where departamento = '$dep[0]';");
+$con4 = mysqli_query($conn, "SELECT * FROM estagio  where departamento = '$dep[0]' and aprovacao= '0';");
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 
 
@@ -97,7 +97,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             + diaSE + "/" + mesSE + "/" + anoSE;
             } 
             if(diaC!= 00){
-            document.getElementById("dataC").innerHTML = "Coordenador inidicou o orientador no dia: "
+            document.getElementById("dataC").innerHTML = "Coordenador indicou o orientador no dia: "
             + diaC  + "/" + mesC + "/" + anoC;
             }
             if(diaCD!= 00){

@@ -81,7 +81,7 @@ $con3= mysqli_query($conn, $consultaeS);
 				
         </nav>
 
-
+        <div class="container">
         <div class="w-100">
 				 <form action="alterar.php">
             <?php while($dado = $con2 -> fetch_array() ){?>
@@ -110,6 +110,7 @@ $con3= mysqli_query($conn, $consultaeS);
             </form>
 
 </div>
+        </div>
             </body>
     </html>
 </DOCTYPE>
