@@ -21,8 +21,10 @@ $nome_orientador = filter_input(INPUT_POST, 'NOMEO', FILTER_SANITIZE_STRING);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
+<div class="container-login100" style="background-image: url('imagens/LOGO2.jpg')">
 <?php
       echo "<script type='text/javascript'> swal('Indicação enviada com  sucesso!', '','success').then((value) => {
          javascript:window.location='verifica_usuario.php';
@@ -33,5 +35,6 @@ $nome_orientador = filter_input(INPUT_POST, 'NOMEO', FILTER_SANITIZE_STRING);
      }
 
 ?>
+</div>
 </body>
 </html>

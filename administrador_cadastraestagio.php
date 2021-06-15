@@ -1,5 +1,5 @@
 <?php
-header ('Content-type: text/html; charset=UTF-8');
+header('Content-type: text/html; charset=UTF-8');
 session_start();
 
 include('conexao.php');
@@ -32,13 +32,14 @@ $dep = mysqli_fetch_row($departamento);
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
 
         <style>
-  .botao {
-      background-color: #028c8c !important;
-      }
-      .botao:hover {
-        background-color: #f08324 !important;
-      }
-    
+            .botao {
+                background-color: #028c8c !important;
+            }
+
+            .botao:hover {
+                background-color: #f08324 !important;
+            }
+
             h7 {
                 color: #f18322;
             }
@@ -83,6 +84,11 @@ $dep = mysqli_fetch_row($departamento);
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php">Estágios Cadastrados</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="administrador_orientacoespendentes.php">
+                            Orientações Pendentes
+                        </a>
+                    </li>
 
 
                     <li class="nav-item">
@@ -93,47 +99,47 @@ $dep = mysqli_fetch_row($departamento);
 
         </nav>
         <div class="container">
-        <div class="w-100">
-            <h2 class="mb-5 ">Cadastrar novo estágio</h2>
-            <form action="processaEsta.php" method="post">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="NOME" name="NOME" aria-describedby="emailHelp" placeholder="Nome do Aluno" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" minlength="14" maxlength="14" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="CURSO" name="CURSO" aria-describedby="emailHelp" placeholder="Curso" required>
-                </div>
-                <input type="hidden" class="form-control" id="DEPARTAMENTO" name="DEPARTAMENTO" aria-describedby="emailHelp"  value="<?php echo $dep[0];?>" required>
-                <div class="form-group">
+            <div class="w-100">
+                <h2 class="mb-5 ">Cadastrar novo estágio</h2>
+                <form action="processaEsta.php" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="NOME" name="NOME" aria-describedby="emailHelp" placeholder="Nome do Aluno" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" minlength="14" maxlength="14" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="CURSO" name="CURSO" aria-describedby="emailHelp" placeholder="Curso" required>
+                    </div>
+                    <input type="hidden" class="form-control" id="DEPARTAMENTO" name="DEPARTAMENTO" aria-describedby="emailHelp" value="<?php echo $dep[0]; ?>" required>
+                    <div class="form-group">
 
-                    <label for="exampleInputEmail1">Inicio do Estágio</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAI" id="DATAI">
+                        <label for="exampleInputEmail1">Inicio do Estágio</label>
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAI" id="DATAI">
 
-                </div>
-                <div class="form-group">
+                    </div>
+                    <div class="form-group">
 
-                    <label for="exampleInputEmail1">Fim do Estágio</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAF" id="DATAF">
+                        <label for="exampleInputEmail1">Fim do Estágio</label>
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="DATAF" id="DATAF">
 
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Carga horária</label>
-                    <input type="time" class="form-control" id="exampleInputPassword1" name="CARGA" id="CARGA" min="00:00" max="23:59" required>
-                </div>
-                
-                <button type="submit" class="btn btn-primary botao">Enviar</button>
-                <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Carga horária</label>
+                        <input type="time" class="form-control" id="exampleInputPassword1" name="CARGA" id="CARGA" min="00:00" max="23:59" required>
+                    </div>
 
-
-            </form>
+                    <button type="submit" class="btn btn-primary botao">Enviar</button>
+                    <br>
 
 
-        </div>
+                </form>
+
+
+            </div>
         </div>
 
     </body>

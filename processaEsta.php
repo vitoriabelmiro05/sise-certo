@@ -19,9 +19,10 @@ $dataSE= date('Y-m-d');
 
 
 
+
              
 
-$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria, aprovacao, dataSE, curso, departamento) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA', '0', '$dataSE', '$CURSO', '$DEPARTAMENTO')";
+$result_usuario = "INSERT INTO estagio (nome_aluno,nome_empresa,inicio_estagio,fim_estagio,matricula,nome_orientador,carga_horaria, aprovacao, dataSE, curso, departamento, dataC, dataCD) VALUES ('$NOME','$NOMEP','$DATAI','$DATAF','$MATRICULA','Pendente','$CARGA', '0', '$dataSE', '$CURSO', '$DEPARTAMENTO','', '')";
 $result_usuario = mysqli_query($conn, $result_usuario);
 
 
@@ -35,9 +36,10 @@ if(mysqli_insert_id($conn)){ ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-	
+<div class="container-login100" style="background-image: url('imagens/LOGO2.jpg')">
 <?php
 	echo "<script type='text/javascript'> swal('Estágio cadastrado com sucesso!', '','success').then((value) => {
 		javascript:window.location='verifica_usuario.php';
@@ -56,5 +58,6 @@ if(mysqli_insert_id($conn)){ ?>
 
 
 ?>
+</div>
 </body>
 </html>

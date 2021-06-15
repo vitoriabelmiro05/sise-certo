@@ -22,8 +22,11 @@ $dataCD= date('Y-m-d');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="css/main.css" />
+     
 </head>
 <body>
+<div class="container-login100" style="background-image: url('imagens/LOGO2.jpg')">
      <?php echo "<script type='text/javascript'> swal('Aprovação enviada com  sucesso!', '','success').then((value) => {
          javascript:window.location='verifica_usuario.php';
        });;</script>";
@@ -34,5 +37,6 @@ $dataCD= date('Y-m-d');
      }
 
 ?>
+</div>
 </body>
 </html>

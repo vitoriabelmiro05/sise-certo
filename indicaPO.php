@@ -96,6 +96,8 @@ $cons=mysqli_query($conn, $consul);
                 NOME DO ALUNO: <?php echo $dado["nome_aluno"];?> <br/>
                 
                 MATRICULA: <?php echo $dado["matricula"];?> <br/>
+
+                Curso: <?php echo $dado["curso"];?> <br/>
                 
                 EMPRESA: <?php echo $dado["nome_empresa"];?> <br/>
                 
