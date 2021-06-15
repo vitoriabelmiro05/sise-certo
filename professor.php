@@ -4,7 +4,7 @@ session_start();
 //include('verifica_login.php');
 include('conexao.php');
 
-$declaracao = mysqli_query($conn, "select ano FROM declaracao WHERE nome_prof = (SELECT nome FROM usuario where cpf = '$_SESSION[CPF]');");
+$declaracao = mysqli_query($conn, "select * FROM declaracao WHERE nome_prof = (SELECT nome FROM usuario where cpf = '$_SESSION[CPF]');");
 
 $consulta = "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS = "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
@@ -200,6 +200,7 @@ $con3 = mysqli_query($conn, $consultaeS);
                             
                             if ($declaracao->num_rows > 0){
                             while ($dado = $declaracao->fetch_array()){ ?>
+                            <input type="hidden" name="professor_orientador" value="<?php echo $dado["nome_prof"]; ?>">
                                ANO: <select id="ano" name="ano">?>
                                 <option value="<?php echo $dado["ano"]; ?>"><?php echo $dado["ano"];}  ?></option>
                                 
