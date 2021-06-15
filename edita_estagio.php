@@ -50,6 +50,7 @@ $con4= mysqli_query($conn, $query4);
         <script src="js/jquery.mask.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript" ></script>
+      
  
 </head>
 
@@ -90,6 +91,8 @@ $con4= mysqli_query($conn, $query4);
                           MATRICULA:  <input class="input100" type="text" name= "matricula" value="<?php echo $dado["matricula"];?>"/></div> <br/>
                           <div class="wrap-input100 validate-input" data-validate="Enter username">
                            EMPRESA: <input class="input100"type="text" name= "nome_empresa" value="<?php echo $dado["nome_empresa"];?>"/> </div><br/>
+                           <div class="wrap-input100 validate-input" data-validate="Enter username">
+                           CURSO: <input class="input100"type="text" name= "curso" value="<?php echo $dado["curso"];?>"/> </div><br/>
                            <div class="wrap-input100 validate-input" data-validate="Enter username">
                            INICIO DO ESTÁGIO: <input class="input100" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data" name="inicio_estagio" id="DATAF" value="<?php echo $dado["inicio_estagio"];?>"/></div> <br/>
                            <div class="wrap-input100 validate-input" data-validate="Enter username">

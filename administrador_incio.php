@@ -16,18 +16,16 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 ?>
 
 <DOCTYPE HTLM>
-    <style>
-        h7 {
-            color: #f18322;
-        }
-    </style>
+    
     <html lang="pt-br">
 
     <head>
+    <title>SISE- Sistema de estágio</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
+        
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
@@ -60,9 +58,11 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
-        <!-- Links para o MODAL FIM -->
         <style>
+             h7 {
+            color: #f18322;
+        }
+        
             .botao {
                 background-color: #028c8c !important;
             }
@@ -93,9 +93,6 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
     </head>
 
-
-
-
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
@@ -109,6 +106,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                                 } ?>" style="border-radius: 50%; " width="200px" height="200px" alt="foto perfil" class="imagem img-fluid   " />
                     </span>
             </a>
+           <h4 style="color:white;"> <?php while ($dado = $con->fetch_array()) {
+                       ?><?php echo $dado["nome"]; ?></h4>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -129,6 +128,11 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php">Estágios Cadastrados</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="administrador_orientacoespendentes.php">
+                           Orientações Pendentes
+                        </a>
+                    </li>
 
 
                     <li class="nav-item">
@@ -143,8 +147,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             <h3 class="mb-2 ">
                 <ul class="list-group">
 
-                    <?php while ($dado = $con->fetch_array()) {
-                        echo $dado["nome"]; ?>
+                   
             </h3>
             <li class="list-group-item list-group-item-secondary">
 

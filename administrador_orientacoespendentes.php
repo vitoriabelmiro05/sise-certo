@@ -5,7 +5,7 @@ session_start();
 include('conexao.php');
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep = mysqli_fetch_row($departamento);
-$con4 = mysqli_query($conn, "SELECT * FROM estagio where cpf_usuario in (select cpf from usuario where departamento = '$dep[0]');");
+$con4 = mysqli_query($conn, "SELECT * FROM estagio  where departamento = '$dep[0]';");
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 
 
@@ -78,6 +78,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         var dadosModal = [];
 
         function dataModal(linha) {
+            
             const dataSE = dadosModal[linha][1].split('-');
             const diaSE = dataSE[2];
             const mesSE = dataSE[1];
@@ -91,12 +92,18 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             const mesCD = dataCD[1];
             const anoCD = dataCD[0];
 
-            document.getElementById("dataSE").innerHTML = "Setor de estágio cadastrou o estágio no dia: "
+            if(diaSE!= 00){
+            document.getElementById("dataSE").innerHTML = " Setor de estágio cadastrou o estágio no dia: "
             + diaSE + "/" + mesSE + "/" + anoSE;
+            } 
+            if(diaC!= 00){
             document.getElementById("dataC").innerHTML = "Coordenador inidicou o orientador no dia: "
             + diaC  + "/" + mesC + "/" + anoC;
+            }
+            if(diaCD!= 00){
             document.getElementById("dataCD").innerHTML = "Chefe de departamento aprovou o orientador no dia: "
             + diaCD  + "/" + mesCD + "/" + anoCD;
+            }
         }
       </script>
 
@@ -133,12 +140,12 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php">
-                            <h7>Estágios Cadastrados</h7>
+                            Estágios Cadastrados
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_orientacoespendentes.php">
-                           Orientações Pendentes
+                            <h7>Orientações Pendentes</h7>
                         </a>
                     </li>
 
@@ -152,7 +159,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         </nav>
         <div class="w-100">
             <div class="container">
-            <h3>Estágios Cadastrados</h3>
+            <h3>Estágios Aguardando Orientação</h3>
 
             <table class="table table-striped">
                 <thead>
@@ -165,9 +172,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                         <th scope="col">Nome Empresa</th>
                         <th scope="col">Início Estágio</th>
                         <th scope="col">Fim Estágio</th>
-
                         <th scope="col">Carga horária</th>
-                        <th scope="col">Editar</th>
                         <th scope="col">Mais</th>
 
                         <?php 
@@ -200,7 +205,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<td>" . $diaF ."/" . $mesF . "/" . $anoF . "</td>";
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
-                                <td><a href="edita_estagio.php?idestagio=<?php echo $dado["idestagio"]; ?>"><i class="fas fa-pen"></a></td>
+                                
                                 <td onclick="dataModal(<?php echo $linha ?>)" style="align-items: center; justify-content: center;"><a href="<?php echo $dado["idestagio"]; ?>" data-toggle="modal" data-target="#lupaModal" class="mr-3"><i class="fas fa-search-plus"></i></a></td>
 
                         <?php
@@ -246,9 +251,9 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
          <p id="dataC"><p>
          <p id="dataCD"><p>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <a type="button" class="btn btn-secondary" data-dismiss="modal" href="administrador_orientacoespendentes.php">
             Fechar
-          </button>
+                    </a>
         </div>
       </div>
     </div>
