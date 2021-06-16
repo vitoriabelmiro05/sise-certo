@@ -15,7 +15,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 ?>
 
-<DOCTYPE HTLM>
+<!DOCTYPE HTLM>
     
     <html lang="pt-br">
 
@@ -248,7 +248,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="geraDeclaracao.php">
+                    <form method="POST" action="geraDeclaracao.php" target="_blank">
                         PROFESSOR ORIENTADOR: <select id="professor_orientador" name="professor_orientador">?>
                             <?php if ($declaracao->num_rows > 0) {
                                 while ($dado = $declaracao->fetch_array()) { ?>

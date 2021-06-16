@@ -20,15 +20,15 @@ $con2 = mysqli_query($conn, $consulta);
 $con4 = mysqli_query($conn, $consultaeS);
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
 ?>
-<DOCTYPE HTLM>
+<!DOCTYPE HTLM>
     <html lang="pt-br">
 
     <head>
         <meta charset="utf-8">
-
+        <title>SISE</title>
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
-
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
@@ -228,7 +228,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="geraDeclaracao.php">
+                    <form method="POST" action="geraDeclaracao.php" target="_blank">
                         PROFESSOR ORIENTADOR: <select id="professor_orientador" name="professor_orientador">?>
                             <?php if ($declaracao->num_rows > 0) {
                                 while ($dado = $declaracao->fetch_array()) { ?>

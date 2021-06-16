@@ -13,7 +13,7 @@ $con = mysqli_query($conn, $consulta);
 $con2 = mysqli_query($conn, $consulta);
 $con3 = mysqli_query($conn, $consultaeS);
 ?>
-<DOCTYPE HTLM>
+<!DOCTYPE HTLM>
     <style>
         h7 {
             color: #f18322;
@@ -30,10 +30,10 @@ $con3 = mysqli_query($conn, $consultaeS);
 
     <head>
         <meta charset="utf-8">
-
+            <title>SISE</title>
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
-
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
@@ -194,7 +194,7 @@ $con3 = mysqli_query($conn, $consultaeS);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="geraDeclaracao.php">
+                    <form method="POST" action="geraDeclaracao.php" target="_blank">
                      
                             <?php
                             
