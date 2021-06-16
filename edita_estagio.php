@@ -16,7 +16,7 @@ $con4= mysqli_query($conn, $query4);
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="images/icons/favicon2.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -51,7 +51,22 @@ $con4= mysqli_query($conn, $query4);
         <script src="js/bootstrap.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript" ></script>
       
- 
+        <style>
+        .botao {
+            background-color: #f08324;
+            padding: 3px;
+            width: 150px;
+            height: 40px;
+            border-radius: 50px;
+            color: white;
+            font-family: Serif;
+            transition: all 0.3s ease;
+        }
+        .botao:hover {
+            background-color: #028c8c;
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 
 <body>
@@ -100,7 +115,7 @@ $con4= mysqli_query($conn, $query4);
                            <div class="wrap-input100 validate-input" data-validate="Enter username">
                            CARGA HORÁRIA (SEMANAL):<input class="input100" type="time" class="form-control" id="exampleInputPassword1"  name="carga_horaria" id="CARGA" min="00:00" max="23:59" required value="<?php echo $dado["carga_horaria"];?>"/> </div><br/>
                            <div class="container-login100-form-btn m-t-32">
-                        <input class="login100-form-btn" type="submit" value="ENVIAR" placeholder="ENVIAR">
+                           <button class="botao"type="submit" >ENVIAR</button>
                     </div>
                 <?php  } ?>
 

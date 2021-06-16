@@ -20,7 +20,7 @@ $cons=mysqli_query($conn, $consul);
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="images/icons/favicon2.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -54,7 +54,22 @@ $cons=mysqli_query($conn, $consul);
         <script src="js/jquery.mask.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap.min.js" type="text/javascript" ></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript" ></script>
- 
+    <style>
+        .botao {
+            background-color: #f08324;
+            padding: 3px;
+            width: 150px;
+            height: 40px;
+            border-radius: 50px;
+            color: white;
+            font-family: Serif;
+            transition: all 0.3s ease;
+        }
+        .botao:hover {
+            background-color: #028c8c;
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -111,7 +126,7 @@ $cons=mysqli_query($conn, $consul);
                                    
                             </select>
                             <div class="container-login100-form-btn m-t-32">
-    <input class="login100-form-btn"type="submit" value="ENVIAR" placeholder="ENVIAR">
+    <button class="botao"type="submit" >ENVIAR</button>
                      </div>
                 <?php  } ?>
 
