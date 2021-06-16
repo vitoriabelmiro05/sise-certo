@@ -25,10 +25,11 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
     <head>
         <meta charset="utf-8">
-        <title>SISE</title>
+        <title>SISE- Sistema de estágio</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
+       
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">

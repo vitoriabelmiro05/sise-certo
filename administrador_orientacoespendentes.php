@@ -12,11 +12,13 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 ?>
 
-<DOCTYPE HTLM>
+<!DOCTYPE HTLM>
     <html lang="pt-br">
 
     <head>
     <meta  charset="utf-8">
+    <title>SISE- Sistema de estágio</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
@@ -131,9 +133,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_incio.php">Início</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_editaperfil.php">Editar Perfil</a>
-                    </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">Cadastrar Estágio</a>
                     </li>

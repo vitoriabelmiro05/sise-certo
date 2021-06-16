@@ -126,14 +126,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                         <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">Cadastrar Estágio</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php">Estágios Cadastrados</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_orientacoespendentes.php">
-                           Orientações Pendentes
-                        </a>
-                    </li>
+                  
 
 
                     <li class="nav-item">

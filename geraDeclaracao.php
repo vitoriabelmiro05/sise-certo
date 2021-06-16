@@ -19,7 +19,7 @@ if(mysqli_insert_id($conn)){
     
     
 }
-else {   header("Location: administrador_incio.php");
+else {   header("Location: verifica_usuario.php");
     
 } 
 }else // exibindo a declaração caso ela já tenha sido gerada anteriormente.
