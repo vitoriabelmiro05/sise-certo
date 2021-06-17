@@ -16,7 +16,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>SISE- Sistema de estágio</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
 

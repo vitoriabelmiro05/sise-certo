@@ -4,6 +4,8 @@ use Mpdf\Mpdf;
 require_once __DIR__.'/vendor/autoload.php';
 
 $mpdf = new Mpdf();
+$mpdf->allow_charset_conversion = true;
+$mpdf->charset_in='utf-8';
 
 $css = file_get_contents('estilo.css');
 
@@ -30,17 +32,17 @@ $mpdf->WriteHTML("<header>
   width='100px'
   height='100px'
 />
-<h1>SERVI√áO P√öBLICO FEDERAL</h1>
-<h1>MINIST√âRIO DA EDUCA√á√ÉO</h1>
-<h1>CENTRO FEDERAL DE EDUCA√á√ÉO TECNOL√ìGICA DE MINAS GERAIS</h1>
+<h1>SERVI«O P⁄BLICO FEDERAL</h1>
+<h1>MINIST…RIO DA EDUCA«√O</h1>
+<h1>CENTRO FEDERAL DE EDUCA«√O TECNOL”GICA DE MINAS GERAIS</h1>
 <h1>CAMPUS LEOPOLDINA</h1>
-<h1>COORDE√á√ÉO DE PROGRAMAS DE EST√ÅGIO</h1>
+<h1>COORDENA«√O DE PROGRAMAS DE EST¡GIO</h1>
 </header>
 <div class='corpo'>
-<h1 style='font-size: 2rem'>DECLARA√á√ÉO N¬∫ $dado[numero]/$dado[ano]</h1>
+<h1 style='font-size: 2rem'>DECLARA«√O N∫ $dado[numero]/$dado[ano]</h1>
 <p>
   Declaramos para os devidos fins que o(a) professor(a) $dado[nome_prof] orientou os
-  respectivos est√°gios:
+  respectivos est·gios:
 </p>
 
 <table>
@@ -48,8 +50,8 @@ $mpdf->WriteHTML("<header>
     <tr>
       <th>NOME</th>
       <th>EMPRESA</th>
-      <th>PER√çODO DO EST√ÅGIO</th>
-      <th>CH SEMANAL CUMPRIDA NO EST√ÅGIO</th>
+      <th>PERÕODO DO EST¡GIO</th>
+      <th>CH SEMANAL CUMPRIDA NO EST¡GIO</th>
       <th>CURSO</th>
       
     </tr>
@@ -90,15 +92,15 @@ $mpdf->WriteHTML("
 <div class='local-data'><p>LEOPOLDINA, $data </p></div>
 <div class='responsavel'> _________________________________________
 <br />
-Coordena√ß√£o de programas de Est√°gio<br />
+CoordenaÁ„o de programas de Est·gio<br />
 CEFET-MG Campos Leopoldina
 </div>
 <div class='informacoes'>
-<h4>CENTRO FEDERAL DE EDUCA√á√ÉO TECNOL√ìGICA DE MINAS GERAIS</h4>
+<h4>CENTRO FEDERAL DE EDUCA«√O TECNOL”GICA DE MINAS GERAIS</h4>
 <h4>CAMPOS LEOPOLDINA</h4>
 <p>CNPJ: 17.220.203/0001-96</p>
 <p>Diretor do Campus Leopoldina - Prof. Douglas Martins Vieira da Silva</p>
-<p>Rua Jos√© Peres, 558 - Centro - Leopoldina/MG - CEP: 36700-000</p>
+<p>Rua JosÈ Peres, 558 - Centro - Leopoldina/MG - CEP: 36700-000</p>
 <p>Telefone: (32) 3449-2308 - sree@leopoldina.cefetmg.br***</p>
 </div>
 ");
