@@ -129,7 +129,19 @@ session_start();
                         <input class="input100" type="password" id="SENHA" name="SENHA" placeholder="Senha" minlength="5" maxlength="10" required>
                     </div>
                     <div style="" class="wrap-input100 validate-input" data-validate="Enter username">
-                        <span class="input100"> Função: </span><select style="border-radius: 13px;width: 600px;" class="input100" id="FUNCAO" name="FUNCAO">
+                        <style type="text/css">
+                        #input {
+                            border-radius: 13px 0px 0px 13px;
+                            width: 400px;
+                            margin-left: 77px;
+                            outline: none;
+                        }
+                        #input:hover {
+                            outline: none;
+                            border: 1px solid #f08324;
+                        }
+                        </style>
+                        <span class="input100"> Função: </span><select id="input" class="input100" id="FUNCAO" name="FUNCAO">
                             <option value="Professor(a)">Professor Orientador</option>
                             <option value="Chefe de Departamento">Chefe do Departamento</option>
                             <option value="Coordenador">Coordenador</option>
@@ -137,7 +149,7 @@ session_start();
                         </select>
                     </div>
                     <div class="wrap-input100 validate-input" data-validate="Enter username">
-                        <span class="input100"> Departamento: </span><select style="border-radius: 13px;width: 600px;" class="input100" id="DEPARTAMENTO" name="DEPARTAMENTO">
+                        <span class="input100"> Departamento: </span><select id="input" class="input100" id="DEPARTAMENTO" name="DEPARTAMENTO">
                             <option value="eletrica">Elétrica</option>
                             <option value="formacao geral">Formação Geral</option>
                             <option value="computacao e mecanica">Computação e Mecânica</option>
