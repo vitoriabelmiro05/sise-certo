@@ -12,7 +12,24 @@ $dep = mysqli_fetch_row($departamento);
 $declaracao = mysqli_query($conn, "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ");
 $con3 = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ");
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
+function mask($val, $mask)
+{
+    $maskared = '';
+    $k = 0;
+    for ($i = 0; $i <= strlen($mask) - 1; ++$i) {
+        if ($mask[$i] == '#') {
+            if (isset($val[$k])) {
+                $maskared .= $val[$k++];
+            }
+        } else {
+            if (isset($mask[$i])) {
+                $maskared .= $mask[$i];
+            }
+        }
+    }
 
+    return $maskared;
+}
 ?>
 
 <!DOCTYPE HTLM>
@@ -149,11 +166,10 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 
                 <h4> <?php echo $dado["funcao"]; ?><br>
-                    CPF: <?php echo $dado["cpf"]; ?><br>
+                    CPF: <?php echo mask($dado["cpf"], '###.###.###-##') ; ?><br>
                     E-MAIL: <?php echo $dado["email"]; ?><br>
-                    TELEFONE: <?php echo $dado["telefone"]; ?><br>
+                    TELEFONE: <?php echo mask($dado["telefone"], '(##) #####-####') ; ?><br>
                     Departamento: <?php echo $dado["departamento"]; ?>
-
                 </h4>
 
             <?php } ?>
@@ -163,7 +179,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
             <div class="container">
                 <h3>Usuários Cadastrados </h3>
-                <table class="table table-striped">
+                <table class="table table-striped" style="align-items: center; justify-content: center;" >
                     <thead>
                         <tr>
 
@@ -176,8 +192,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                             <th scope="col">FUNÇÃO</th>
                             <th scope="col">DEPARTAMENTO</th>
                             <th scope="col">EDITAR</th>
-
-
+           </tr>
 
                             <?php if ($con3->num_rows > 0) {
                                 while ($dado = $con3->fetch_array()) {
@@ -185,10 +200,9 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                     echo "<tr>";
                                     echo "<td>" . $dado["nome"] . "</td>";
                                     echo "<td>" . $dado["email"] . "</td>";
-
-                                    echo "<td>" . $dado["rg"] . "</td>";
-                                    echo "<td>" . $dado["cpf"] . "</td>";
-                                    echo "<td>" . $dado["telefone"] . "</td>";
+                                    echo "<td>" . mask( $dado["rg"], '##.###.###') . "</td>";
+                                    echo "<td>" . mask( $dado["cpf"], '###.###.###-##') . "</td>";
+                                    echo "<td>" . mask( $dado["telefone"], '(##) #####-####') . "</td>";
                                     echo "<td>" . $dado["funcao"] . "</td>";
                                     echo "<td>" . $dado["departamento"] . "</td>";
 
