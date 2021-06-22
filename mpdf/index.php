@@ -4,7 +4,6 @@ use Mpdf\Mpdf;
 require_once __DIR__.'/vendor/autoload.php';
 
 $mpdf = new Mpdf();
-
 $css = file_get_contents('estilo.css');
 
  session_start();
