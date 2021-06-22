@@ -19,6 +19,8 @@ $dataCD= date('Y-m-d');
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+     <title>SISE- Sistema de estágio</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

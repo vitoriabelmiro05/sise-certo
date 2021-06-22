@@ -11,14 +11,17 @@ $dep = mysqli_fetch_row($departamento);
 
 ?>
 
-<DOCTYPE HTLM>
+<!DOCTYPE HTLM>
     <html lang="pt-br">
 
     <head>
         <meta charset="utf-8">
+        <title>SISE- Sistema de estágio</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon2.png" />
 
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
+       
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
@@ -73,9 +76,6 @@ $dep = mysqli_fetch_row($departamento);
                         <a class="nav-link js-scroll-trigger" href="administrador_incio.php">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_editaperfil.php">Editar Perfil</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">
                             <h7>Cadastrar Estágio</h7>
                         </a>
@@ -84,11 +84,7 @@ $dep = mysqli_fetch_row($departamento);
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="administrador_estagioscadastrados.php">Estágios Cadastrados</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_orientacoespendentes.php">
-                            Orientações Pendentes
-                        </a>
-                    </li>
+                    
 
 
                     <li class="nav-item">

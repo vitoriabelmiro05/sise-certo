@@ -3,7 +3,7 @@ header ('Content-type: text/html; charset=UTF-8');
 session_start();
 include_once("conexao.php");
 
-// = $_POST['CPF'];
+
 
 $result_status = "SELECT funcao FROM usuario WHERE cpf = '$_SESSION[CPF]';";
 $result_status = mysqli_query($conn, $result_status);
@@ -26,5 +26,4 @@ else {
     echo "erro";
 }
 
-//echo $row[0];
 ?>
