@@ -12,24 +12,7 @@ $dep = mysqli_fetch_row($departamento);
 $declaracao = mysqli_query($conn, "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ");
 $con3 = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf != '$_SESSION[CPF]'and visibilidade = '1' and departamento = '$dep[0]'; ");
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
-function mask($val, $mask)
-{
-    $maskared = '';
-    $k = 0;
-    for ($i = 0; $i <= strlen($mask) - 1; ++$i) {
-        if ($mask[$i] == '#') {
-            if (isset($val[$k])) {
-                $maskared .= $val[$k++];
-            }
-        } else {
-            if (isset($mask[$i])) {
-                $maskared .= $mask[$i];
-            }
-        }
-    }
-
-    return $maskared;
-}
+include("Helpers/funcoes.php");
 ?>
 
 <!DOCTYPE HTLM>
@@ -140,7 +123,7 @@ function mask($val, $mask)
                         <a class="nav-link js-scroll-trigger" href="administrador_editaperfil.php">Editar Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">Cadastrar Estágio</a>
+                        <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">Estágios</a>
                     </li>
 
                   
@@ -179,7 +162,7 @@ function mask($val, $mask)
 
             <div class="container">
                 <h3>Usuários Cadastrados </h3>
-                <table class="table table-striped" style="align-items: center; justify-content: center;" >
+                <table class="table table-striped">
                     <thead>
                         <tr>
 

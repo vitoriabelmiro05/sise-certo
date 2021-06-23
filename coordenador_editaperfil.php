@@ -47,7 +47,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         }
     </style>
 
-
+        <script src="Helpers/funcoes.js"></script>
 </head>
 
 <body>
@@ -95,31 +95,32 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
     </nav>
     <div class="container">
-        <div class="w-100">
+            <div class="w-100">
 
-            <form action="alterar.php">
-                <?php while ($dado = $con2->fetch_array()) { ?>
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" name="cpf" value="<?php echo $dado["cpf"]; ?>" />
+                <form action="alterar.php">
 
-                        Nome:<input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>" /> <br />
-                    </div>
+                    <?php while ($dado = $con2->fetch_array()) { ?>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="cpf" id="CPF" value="<?php echo $dado["cpf"]; ?>" />
 
-                    <div class="form-group">
-                        RG: <input type="text" class="form-control" name="rg" value="<?php echo $dado["rg"]; ?>" /> <br />
-                    </div>
-                    <div class="form-group">
-                        Email: <input type="text" class="form-control" name="email" value="<?php echo $dado["email"]; ?>" /> <br />
-                    </div>
-                    <div class="form-group">
-                        Telefone: <input type="text" class="form-control" name="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
-                    </div>
-                    <div class="form-group">
-                        Senha: <input type="password" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
-                    </div>
-                    <input type="submit" value="Alterar" class="btn btn-primary botao" />
-                    <a class="btn btn-primary botao" href="status.php" role="button">Desativar conta</a>
-                <?php  } ?>
+                            Nome:<input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            RG: <input type="text" class="form-control" name="rg" id="RG" value="<?php echo $dado["rg"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            Email: <input type="text" class="form-control" name="email" value="<?php echo $dado["email"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            Telefone: <input type="text" class="form-control" name="telefone" id="TELEFONE" value="<?php echo $dado["telefone"]; ?>" /> <br />
+                        </div>
+                        <div class="form-group">
+                            Senha: <input type="password" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />
+                        </div>
+
+                        <input type="submit" value="Alterar" class="btn btn-primary botao" />
+                        <a class="btn btn-primary botao" href="status.php" role="button">Desativar conta</a>
+                    <?php  } ?>
 
             </form>
 

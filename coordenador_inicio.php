@@ -19,6 +19,7 @@ $con = mysqli_query($conn, $consulta);
 $con2 = mysqli_query($conn, $consulta);
 $con4 = mysqli_query($conn, $consultaeS);
 $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';");
+include("Helpers/funcoes.php");
 ?>
 <!DOCTYPE HTLM>
 <html lang="pt-br">
@@ -119,9 +120,9 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 
 
                 <h4> <?php echo $dado["funcao"]; ?><br>
-                    CPF: <?php echo $dado["cpf"]; ?><br>
+                    CPF: <?php echo mask($dado["cpf"], '###.###.###-##') ; ?><br>
                     E-MAIL: <?php echo $dado["email"]; ?><br>
-                    TELEFONE: <?php echo $dado["telefone"]; ?>
+                    TELEFONE: <?php echo mask($dado["telefone"], '(##) #####-####') ;?>
 
                 </h4>
 
@@ -157,8 +158,8 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                                 echo "<td>" . $dado["curso"] . "</td>";
 
                                 echo "<td>" . $dado["nome_empresa"] . "</td>";
-                                echo "<td>" . $dado["inicio_estagio"] . "</td>";
-                                echo "<td>" . $dado["fim_estagio"] . "</td>";
+                                echo "<td>" . mostraData($dado["inicio_estagio"]) . "</td>";
+                                echo "<td>" . mostraData($dado["fim_estagio"]) . "</td>";
                                 echo "<td>" . $dado["carga_horaria"] . "</td>";
                         ?>
                                 <td><a href="indicaPO.php?idestagio=<?php echo $dado["idestagio"]; ?>" class="btn btn-primary botao" role="button">Indicar</a></td>
@@ -207,9 +208,20 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <style type="text/css">
+                        #professor_orientador {
+                            border-radius: 5px 0px 0px 5px;
+                            width: 400px;
+                            outline: none;
+                        }
+                        #professor_orientador:hover {
+                            outline: none;
+                            border: 1px solid #f08324;
+                        }
+                        </style>
             <div class="modal-body">
                 <form method="POST" action="geraDeclaracao.php" target="_blank">
-                    PROFESSOR ORIENTADOR: <select id="professor_orientador" name="professor_orientador">?>
+                    Professor Orientador: <select class="input100" id="professor_orientador" name="professor_orientador">?>
                         <?php if ($declaracao->num_rows > 0) {
                             while ($dado = $declaracao->fetch_array()) { ?>
                                 <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];
