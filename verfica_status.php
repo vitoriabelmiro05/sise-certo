@@ -43,6 +43,38 @@ if ($row[0] == '1') {
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/styless.css">
 		<!--===============================================================================================-->
+		<style>
+        .botao {
+            background-color: #f08324;
+            padding: 3px;
+            width: 150px;
+            height: 40px;
+            border-radius: 50px;
+            color: white;
+            font-family: Serif;
+            transition: all 0.3s ease;
+        }
+        .botao:hover {
+            background-color: #028c8c;
+            transition: all 0.3s ease;
+        }
+				.caixinha {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					background-color: rgba(0, 0, 0, 0.8);
+						box-shadow: 0px 0px 20px #f08324;
+					border-radius: 10px;
+					padding: 50px;
+					margin: 40px;
+          transition: all 0.3s ease;
+				}
+				.caixinha:hover {
+					box-shadow: 0px 0px 20px #028c8c;
+				}
+
+    </style>
 
 	</head>
 
@@ -70,24 +102,12 @@ if ($row[0] == '1') {
 
 		<div class="limiter">
 			<div class="container-login100" style="background-image: url('imagens/LOGO2.jpg');">
-				<div class="wrap-login100 p-t-30 p-b-50">
+					<div class="caixinha">
 					<span class="login100-form-title p-b-41">
 						Deseja reativar sua conta?
 					</span>
-
-
-
-					<a class="login100-form-btn" href="ativa_status.php">SIM</a>
-
-
-
-
-
-
-
-
-
-				</div>
+					<a href="ativa_status.php"><button class="botao"  >SIM</button><a>
+					</div>
 			</div>
 		</div>
 

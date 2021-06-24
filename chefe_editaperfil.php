@@ -46,7 +46,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             color: #f18322;
         }
     </style>
-
+<script src="Helpers/funcoes.js"></script>
 
 </head>
 
@@ -102,19 +102,19 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
             <form action="alterar.php">
                 <?php while ($dado = $con2->fetch_array()) { ?>
                     <div class="form-group">
-                        <input type="hidden" class="form-control" name="cpf" value="<?php echo $dado["cpf"]; ?>" />
+                        <input type="hidden" class="form-control" name="cpf" id="cpf" value="<?php echo $dado["cpf"]; ?>" />
 
                         Nome:<input type="text" class="form-control" name="nome" value="<?php echo $dado["nome"]; ?>" /> <br />
                     </div>
 
                     <div class="form-group">
-                        RG: <input type="text" class="form-control" name="rg" value="<?php echo $dado["rg"]; ?>" /> <br />
+                        RG: <input type="text" class="form-control" name="rg" id="rg" value="<?php echo $dado["rg"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
                         Email: <input type="text" class="form-control" name="email" value="<?php echo $dado["email"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
-                        Telefone: <input type="text" class="form-control" name="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
+                        Telefone: <input type="text" class="form-control" name="telefone" id="telefone" value="<?php echo $dado["telefone"]; ?>" /> <br />
                     </div>
                     <div class="form-group">
                         Senha: <input type="password" class="form-control" name="senha" value="<?php echo $dado["senha"]; ?>" /> <br />

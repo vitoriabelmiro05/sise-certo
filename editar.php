@@ -65,6 +65,31 @@ $con = mysqli_query($conn, $consulta);
 
         })
     </script>
+    <style type="text/css">
+                        #funcao {
+                            border-radius: 13px 0px 0px 13px;
+                            width: 400px;
+                            outline: none;
+                        }
+                        #funcao:hover {
+                            outline: none;
+                            border: 1px solid #f08324;
+                        }
+                        .botao {
+                            background-color: #f08324;
+                            padding: 3px;
+                            width: 150px;
+                            height: 40px;
+                            border-radius: 50px;
+                            color: white;
+                            font-family: Serif;
+                            transition: all 0.3s ease;
+                        }
+                        .botao:hover {
+                            background-color: #028c8c;
+                            transition: all 0.3s ease;
+                        }
+                        </style>
 </head>
 
 <body>
@@ -94,7 +119,7 @@ $con = mysqli_query($conn, $consulta);
                     Alterar dados do usuário
                 </span>
                 <form class="login100-form validate-form p-b-33 p-t-5" method="POST" enctype="multipart/form-data" action="admin_altera.php">
-
+                <div style="padding-left: 60px; padding-right: 60px;">
                     <?php while ($dado = $con->fetch_array()) { ?>
                         <input type="hidden" name="cpf" value="<?php echo $dado["cpf"]; ?>" /> <br />
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
@@ -106,7 +131,7 @@ $con = mysqli_query($conn, $consulta);
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
                             Telefone: <input class="input100" type="text" name="telefone" id="TELEFONE" value="<?php echo $dado["telefone"]; ?>" /></div> <br />
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
-                            Função: <select id="funcao" name="funcao">
+                            Função: <select class="input100" id="funcao" name="funcao">
                                 <option value="Professor(a)">Professor Orientador</option>
                                 <option value="Chefe de Departamento">Chefe do Departamento</option>
                                 <option value="Coordenador">Coordenador</option>
@@ -119,9 +144,9 @@ $con = mysqli_query($conn, $consulta);
 
                     <?php  } ?>
                     <div class="container-login100-form-btn m-t-32">
-                        <input class="login100-form-btn" type="submit" value="ENVIAR" placeholder="ENVIAR">
+                        <button class="botao" value="ENVIAR" type="submit" >ENVIAR</button>
                     </div>
-
+</div>
                 </form>
                 </p>
             </div>

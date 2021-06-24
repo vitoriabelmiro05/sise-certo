@@ -96,6 +96,7 @@ $con4 = mysqli_query($conn, $query4);
                     Alterar dados de estágio
                 </span>
                 <form class="login100-form validate-form p-b-33 p-t-5" method="POST" enctype="multipart/form-data" action="admin_altera_estagio.php">
+        <div style="padding: 40px;">
 
                     <?php while ($dado = $con4->fetch_array()) { ?>
                         <input type="hidden" name="idestagio" value="<?php echo $dado["idestagio"]; ?>" /> <br />
@@ -117,7 +118,7 @@ $con4 = mysqli_query($conn, $query4);
                             <button class="botao" type="submit">ENVIAR</button>
                         </div>
                     <?php  } ?>
-
+</div>
                 </form>
                 </p>
             </div>

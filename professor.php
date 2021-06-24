@@ -12,6 +12,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
 $con = mysqli_query($conn, $consulta);
 $con2 = mysqli_query($conn, $consulta);
 $con3 = mysqli_query($conn, $consultaeS);
+include("Helpers/funcoes.php");
 ?>
 <!DOCTYPE HTLM>
 <style>
@@ -53,8 +54,17 @@ $con3 = mysqli_query($conn, $consultaeS);
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
-
+    <style>
+            #ano {
+                border-radius: 5px 0px 0px 5px;
+                width: 100px;
+                outline: none;
+            }
+            #ano:hover {
+                outline: none;
+                border: 1px solid #028c8c;
+            }
+        </style>
 </head>
 
 <body>
@@ -109,11 +119,10 @@ $con3 = mysqli_query($conn, $consultaeS);
 
 
 
-
-                <h4> <?php echo $dado["funcao"]; ?><br>
-                    CPF: <?php echo $dado["cpf"]; ?><br>
+            <h4> <?php echo $dado["funcao"]; ?><br>
+                    CPF: <?php echo mask($dado["cpf"], '###.###.###-##') ; ?><br>
                     E-MAIL: <?php echo $dado["email"]; ?><br>
-                    TELEFONE: <?php echo $dado["telefone"]; ?>
+                    TELEFONE: <?php echo mask($dado["telefone"], '(##) #####-####') ;?>
 
                 </h4>
 
@@ -150,8 +159,8 @@ $con3 = mysqli_query($conn, $consultaeS);
                                     echo "<td>" . $dado["matricula"] . "</td>";
                                     echo "<td>" . $dado["nome_orientador"] . "</td>";
                                     echo "<td>" . $dado["nome_empresa"] . "</td>";
-                                    echo "<td>" . $dado["inicio_estagio"] . "</td>";
-                                    echo "<td>" . $dado["fim_estagio"] . "</td>";
+                                    echo "<td>" . mostraData($dado["inicio_estagio"]) . "</td>";
+                                    echo "<td>" . mostraData($dado["fim_estagio"]) . "</td>";
                                     echo "<td>" . $dado["carga_horaria"] . "</td>";
                             ?>
 
@@ -185,6 +194,7 @@ $con3 = mysqli_query($conn, $consultaeS);
 
 
 </body>
+
 <!-- MODAL GERA DECLARAÇÃO -->
 <div class="modal fade" id="lupaModal" tabindex="-1" role="dialog" aria-labelledby="lupaModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -198,7 +208,7 @@ $con3 = mysqli_query($conn, $consultaeS);
             <div class="modal-body">
                 <form method="POST" action="geraDeclaracao.php" target="_blank">
                     <?php if ($declaracao->num_rows > 0) { ?>
-                        ANO: <select id="ano" name="ano">?>
+                        ANO: <select class="input100" id="ano" name="ano">?>
 
                             <?php
                             while ($dado = $declaracao->fetch_array()) {

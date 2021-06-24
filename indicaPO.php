@@ -99,6 +99,20 @@ $cons = mysqli_query($conn, $consul);
                             outline: none;
                             border: 1px solid #f08324;
                         }
+                        .botao {
+                            background-color: #f08324;
+                            padding: 3px;
+                            width: 150px;
+                            height: 40px;
+                            border-radius: 50px;
+                            color: white;
+                            font-family: Serif;
+                            transition: all 0.3s ease;
+                        }
+                        .botao:hover {
+                            background-color: #028c8c;
+                            transition: all 0.3s ease;
+                        }
                         </style>
 
                     <?php while ($dado = $con4->fetch_array()) { ?>
@@ -130,7 +144,7 @@ $cons = mysqli_query($conn, $consul);
 
                         </select>
                         <div class="container-login100-form-btn m-t-32">
-                            <input class="login100-form-btn" type="submit" value="ENVIAR" placeholder="ENVIAR">
+                            <button class="botao" value="ENVIAR" type="submit" >ENVIAR</button>
                         </div>
                     <?php  } ?>
                     </div>

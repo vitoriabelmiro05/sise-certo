@@ -216,7 +216,7 @@ include("Helpers/funcoes.php");
                         }
                         #professor_orientador:hover {
                             outline: none;
-                            border: 1px solid #f08324;
+                            border: 1px solid #028c8c;
                         }
                         </style>
             <div class="modal-body">

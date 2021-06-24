@@ -86,6 +86,20 @@ include("Helpers/funcoes.php");
             .fa-search-plus:hover {
                 color: #f08324 !important;
             }
+            #professor_orientador {
+                border-radius: 5px 0px 0px 5px;
+                width: 200px;
+                outline: none;
+            }
+            #professor_orientador:hover, #ano:hover {
+                outline: none;
+                border: 1px solid #028c8c;
+            }
+            #ano {
+                border-radius: 5px 0px 0px 5px;
+                width: 100px;
+                outline: none;
+            }
         </style>
 
 
@@ -239,7 +253,7 @@ include("Helpers/funcoes.php");
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="geraDeclaracao.php" target="_blank">
-                        PROFESSOR ORIENTADOR: <select id="professor_orientador" name="professor_orientador">?>
+                        Professor Orientador: <select class="input100" id="professor_orientador" name="professor_orientador">?>
                             <?php if ($declaracao->num_rows > 0) {
                                 while ($dado = $declaracao->fetch_array()) { ?>
                                     <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];
@@ -248,7 +262,7 @@ include("Helpers/funcoes.php");
 
                         </select>
                         <br>
-                        ANO: <select id="ano" name="ano">?>
+                        Ano: <select class="input100" id="ano" name="ano">?>
                             <?php
                             $ano = $anoAtual - 10;
 

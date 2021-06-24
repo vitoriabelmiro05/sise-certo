@@ -29,7 +29,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
         <script src="js/jquery.mask.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
-        
+        <script src="Helpers/funcoes.js"></script>
         <style>
             .botao {
                 background-color: #028c8c !important;
@@ -93,7 +93,7 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">Cadastrar Estágio</a>
+                            <a class="nav-link js-scroll-trigger" href="administrador_cadastraestagio.php">Estágios</a>
                         </li>
                         
                         
