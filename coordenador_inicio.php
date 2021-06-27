@@ -11,7 +11,18 @@ $datacortada = explode('/', $dataAtual);
 $anoAtual = $datacortada[2];
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep = mysqli_fetch_row($departamento);
-$declaracao = mysqli_query($conn, "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ");
+$declaracao = mysqli_query($conn, "SELECT 
+nome, cpf
+FROM
+usuario
+WHERE
+cpf NOT IN (SELECT 
+        cpf_usuario
+    FROM
+        estagio) and (funcao = 'Professor(a)'
+            AND visibilidade = '1'
+            AND departamento = '$dep[0]') order by nome;");
+$declaracao2 = mysqli_query($conn, "SELECT * from (SELECT nome_orientador, COUNT(cpf_usuario) as ESTAGIOS FROM estagio WHERE cpf_usuario IN (SELECT cpf FROM usuario WHERE funcao = 'Professor(a)' AND visibilidade = '1' AND departamento = '$dep[0]') GROUP BY cpf_usuario) as estagio_por_professor order by estagio_por_professor.ESTAGIOS asc");
 
 $consulta = "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS = "SELECT * FROM estagio where nome_orientador = 'Pendente'; ";
@@ -203,7 +214,7 @@ include("Helpers/funcoes.php");
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="lupaModalLabel">Consultar declaração de estágio:</h5>
+                <h5 class="modal-title" id="lupaModalLabel">Número de estágios orientados por cada professor:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -220,23 +231,40 @@ include("Helpers/funcoes.php");
                         }
                         </style>
             <div class="modal-body">
-                <form method="POST" action="geraDeclaracao.php" target="_blank">
-                    Professor Orientador: <select class="input100" id="professor_orientador" name="professor_orientador">?>
-                        <?php if ($declaracao->num_rows > 0) {
-                            while ($dado = $declaracao->fetch_array()) { ?>
-                                <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];
-                                                                            }
-                                                                        } ?></option>
+            <table class="table table-striped" >
+                    <thead>
+                        <tr>
 
-                    </select>
-                    <br>
-                    <input type="hidden" name="ano" value="<?php echo $anoAtual; ?>">
-                    <div class="modal-footer">
-                        <input class="btn btn-success botao" type="submit" value="ENVIAR" placeholder="ENVIAR">
+                
+                            <th scope="col">Professor Orientador</th>
+                            <th scope="col" style='display: flex; justify-content: center;'>Número de Estágios</th>
+                            
 
-                    </div>
+                          
+                            <?php if ($declaracao->num_rows > 0) {
 
-                </form>
+                                while ($dado = $declaracao->fetch_array()) {
+
+
+                                    echo "<tr>";
+                                    echo "<td>" . $dado["nome"] . "</td>";
+                                    echo "<td style='display: flex; justify-content: center;'>" . "0" . "</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                            if ($declaracao2->num_rows > 0) {
+
+                                while ($dado = $declaracao2->fetch_array()) {
+
+
+                                    echo "<tr>";
+                                    echo "<td>" . $dado["nome_orientador"] . "</td>";
+                                    echo "<td style='display: flex; justify-content: center;'>" . $dado["ESTAGIOS"] . "</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                                    
+                            ?>
 
             </div>
         </div>
