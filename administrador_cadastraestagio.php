@@ -105,7 +105,7 @@ $dep = mysqli_fetch_row($departamento);
                         <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" minlength="14" maxlength="14" required>
+                        <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" required>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="CURSO" name="CURSO" aria-describedby="emailHelp" placeholder="Curso" required>
