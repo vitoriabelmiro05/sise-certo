@@ -4,7 +4,7 @@ session_start();
 //include('verifica_login.php');
 include('conexao.php');
 
-$declaracao = mysqli_query($conn, "select * FROM declaracao WHERE nome_prof = (SELECT nome FROM usuario where cpf = '$_SESSION[CPF]');");
+$declaracao = mysqli_query($conn, "select * FROM declaracao WHERE nome_prof = (SELECT nome FROM usuario where cpf = '$_SESSION[CPF]') order by ano asc;");
 
 $consulta = "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS = "SELECT * FROM estagio WHERE cpf_usuario = '$_SESSION[CPF]'; ";
@@ -132,6 +132,13 @@ include("Helpers/funcoes.php");
 
         </ul><br>
         <div class="container">
+        
+                    
+                    <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
+                        <h8 style="color: white;">Consultar Declaração</h8>
+                    </a>
+                    <br>
+                    <br>
 
             <div class="w-100">
                 <h3>Estágios Cadastrados </h3>
@@ -140,13 +147,14 @@ include("Helpers/funcoes.php");
                         <tr>
 
                             <th scope="col">Nome do Aluno</th>
-                            <th scope="col">Matricula</th>
+                            <th scope="col">Matricula do Aluno</th>
+                            <th scope="col">Curso do Aluno</th>
                             <th scope="col">Professor Orientador</th>
                             <th scope="col">Nome Empresa</th>
                             <th scope="col">Início Estágio</th>
                             <th scope="col">Fim Estágio</th>
 
-                            <th scope="col">Carga horária</th>
+                            <th scope="col">Carga horária (Semanal)</th>
 
                             <?php if ($con3->num_rows > 0) {
                                 while ($dado = $con3->fetch_array()) {
@@ -157,6 +165,7 @@ include("Helpers/funcoes.php");
                                     echo "<tr>";
                                     echo "<td>" . $dado["nome_aluno"] . "</td>";
                                     echo "<td>" . $dado["matricula"] . "</td>";
+                                    echo "<td>" . $dado["curso"] . "</td>";
                                     echo "<td>" . $dado["nome_orientador"] . "</td>";
                                     echo "<td>" . $dado["nome_empresa"] . "</td>";
                                     echo "<td>" . mostraData($dado["inicio_estagio"]) . "</td>";
@@ -179,17 +188,7 @@ include("Helpers/funcoes.php");
                     </thead>
 
                 </table>
-                <p>
-                <p>
-                    <br>
-                    <br>
-                    <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
-                        <h8 style="color: white;">Consultar Declaração</h8>
-                    </a>
-
-
-
-
+           
             </div>
 
 
@@ -208,7 +207,8 @@ include("Helpers/funcoes.php");
             <div class="modal-body">
                 <form method="POST" action="geraDeclaracao.php" target="_blank">
                     <?php if ($declaracao->num_rows > 0) { ?>
-                        ANO: <select class="input100" id="ano" name="ano">?>
+                        ANO: <select class="input100" id="ano" name="ano" required>?>
+                        <option disabled selected style="display: none;" value="">Selecione...</option>
 
                             <?php
                             while ($dado = $declaracao->fetch_array()) {

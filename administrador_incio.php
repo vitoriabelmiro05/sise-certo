@@ -249,7 +249,8 @@ include("Helpers/funcoes.php");
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="geraDeclaracao.php" target="_blank">
-                        Professor Orientador: <select class="input100" id="professor_orientador" name="professor_orientador">?>
+                        Professor Orientador: <select class="input100" id="professor_orientador" name="professor_orientador" required>?>
+                        <option disabled selected style="display: none;" value="">Selecione...</option>
                             <?php if ($declaracao->num_rows > 0) {
                                 while ($dado = $declaracao->fetch_array()) { ?>
                                     <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];
@@ -258,7 +259,8 @@ include("Helpers/funcoes.php");
 
                         </select>
                         <br>
-                        Ano: <select class="input100" id="ano" name="ano">?>
+                        Ano: <select class="input100" id="ano" name="ano" required>?>
+                        <option disabled selected style="display: none;" value="">Selecione...</option>
                             <?php
                             $ano = $anoAtual - 10;
 
