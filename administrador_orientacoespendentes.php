@@ -166,13 +166,13 @@ $foto = mysqli_query($conn, "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]';
                     <tr>
 
                         <th scope="col">Nome do Aluno</th>
-                        <th scope="col">Matricula</th>
-                        <th scope="col">Curso</th>
+                        <th scope="col">Matricula do Aluno </th>
+                        <th scope="col">Curso do Aluno</th>
                         <th scope="col">Professor Orientador</th>
                         <th scope="col">Nome Empresa</th>
                         <th scope="col">Início Estágio</th>
                         <th scope="col">Fim Estágio</th>
-                        <th scope="col">Carga horária</th>
+                        <th scope="col">Carga horária (Semanal)</th>
                         <th scope="col">Mais</th>
 
                         <?php 

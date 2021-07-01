@@ -105,10 +105,10 @@ $dep = mysqli_fetch_row($departamento);
                         <input type="text" class="form-control" id="NOMEMP" name="NOMEMP" aria-describedby="emailHelp" placeholder="Nome da Empresa" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula" required>
+                        <input type="text" class="form-control" id="MATRICULA" name="MATRICULA" aria-describedby="emailHelp" placeholder="Matricula do Aluno" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="CURSO" name="CURSO" aria-describedby="emailHelp" placeholder="Curso" required>
+                        <input type="text" class="form-control" id="CURSO" name="CURSO" aria-describedby="emailHelp" placeholder="Curso do Aluno" required>
                     </div>
                     <input type="hidden" class="form-control" id="DEPARTAMENTO" name="DEPARTAMENTO" aria-describedby="emailHelp" value="<?php echo $dep[0]; ?>" required>
                     <div class="form-group">
@@ -124,7 +124,7 @@ $dep = mysqli_fetch_row($departamento);
 
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Carga horária</label>
+                        <label for="exampleInputPassword1">Carga horária (semanal)</label>
                         <input type="time" class="form-control" id="exampleInputPassword1" name="CARGA" id="CARGA" min="00:00" max="23:59" required>
                     </div>
 

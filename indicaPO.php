@@ -9,7 +9,7 @@ $query4 = "SELECT * FROM estagio WHERE idestagio = '$id'; ";
 $con4 = mysqli_query($conn, $query4);
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep = mysqli_fetch_row($departamento);
-$consul = "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ";
+$consul = "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]' order by nome asc;; ";
 $cons = mysqli_query($conn, $consul);
 
 ?>
@@ -122,9 +122,9 @@ $cons = mysqli_query($conn, $consul);
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
                             Nome do Aluno: <?php echo $dado["nome_aluno"]; ?> <br />
 
-                            Matricula: <?php echo $dado["matricula"]; ?> <br />
+                            Matricula do Aluno: <?php echo $dado["matricula"]; ?> <br />
 
-                            Curso: <?php echo $dado["curso"]; ?> <br />
+                            Curso do Aluno: <?php echo $dado["curso"]; ?> <br />
 
                             Empresa: <?php echo $dado["nome_empresa"]; ?> <br />
 
@@ -132,10 +132,11 @@ $cons = mysqli_query($conn, $consul);
 
                             Fim do Estágio: <?php echo mostraData($dado["fim_estagio"]); ?> <br />
 
-                            Carga Horária (SEMANAL): <?php echo $dado["carga_horaria"]; ?>
+                            Carga Horária (Semanal): <?php echo $dado["carga_horaria"]; ?>
                         </div><br />
 
-                        Selecione o Professor Orientador: <select class="input100" id="NOMEO" name="NOMEO">?>
+                        Selecione o Professor Orientador: <select class="input100" id="NOMEO" name="NOMEO" required>?>
+                        <option disabled selected style="display: none;" value="">Selecione...</option>
                             <?php if ($cons->num_rows > 0) {
                                 while ($dado = $cons->fetch_array()) { ?>
                                     <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];

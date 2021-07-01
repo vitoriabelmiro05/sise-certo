@@ -3,13 +3,14 @@ header('Content-type: text/html; charset=UTF-8');
 session_start();
 
 include('conexao.php');
+include('Helpers/funcoes.php');
 
 $id = $_GET["idestagio"];
 $query4 = "SELECT * FROM estagio WHERE idestagio = '$id'; ";
 $con4 = mysqli_query($conn, $query4);
 $departamento = mysqli_query($conn, "SELECT departamento FROM usuario WHERE cpf = '$_SESSION[CPF]'; ");
 $dep = mysqli_fetch_row($departamento);
-$consul = "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]'; ";
+$consul = "SELECT * FROM usuario where funcao = 'Professor(a)' and visibilidade = '1' and departamento= '$dep[0]' order by nome asc; ";
 $cons = mysqli_query($conn, $consul);
 
 ?>
@@ -54,23 +55,7 @@ $cons = mysqli_query($conn, $consul);
     <script src="js/jquery.mask.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/bootstrap-notify.min.js" type="text/javascript"></script>
-    <style>
-        .botao {
-            background-color: #f08324;
-            padding: 3px;
-            width: 150px;
-            height: 40px;
-            border-radius: 50px;
-            color: white;
-            font-family: Serif;
-            transition: all 0.3s ease;
-        }
-
-        .botao:hover {
-            background-color: #028c8c;
-            transition: all 0.3s ease;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -101,6 +86,32 @@ $cons = mysqli_query($conn, $consul);
                     Indicar Orientador
                 </span>
                 <form class="login100-form validate-form p-b-33 p-t-5" method="POST" enctype="multipart/form-data" action="aprovaPO2.php">
+                <div style="padding: 40px;">
+                    <style type="text/css">
+                        #NOMEO {
+                            border-radius: 13px 0px 0px 13px;
+                            width: 400px;
+                            outline: none;
+                        }
+                        #NOMEO:hover {
+                            outline: none;
+                            border: 1px solid #f08324;
+                        }
+                        .botao {
+                            background-color: #f08324;
+                            padding: 3px;
+                            width: 150px;
+                            height: 40px;
+                            border-radius: 50px;
+                            color: white;
+                            font-family: Serif;
+                            transition: all 0.3s ease;
+                        }
+                        .botao:hover {
+                            background-color: #028c8c;
+                            transition: all 0.3s ease;
+                        }
+                        </style>
 
 
                     <?php while ($dado = $con4->fetch_array()) { ?>
@@ -108,20 +119,22 @@ $cons = mysqli_query($conn, $consul);
                         <input type="hidden" name="APROVACAO" value="<?php echo $dado["aprovacao"]; ?>" /> <br />
                         <input type="hidden" name="idestagio" value="<?php echo $dado["idestagio"]; ?>" /> <br />
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
-                            NOME DO ALUNO: <?php echo $dado["nome_aluno"]; ?> <br />
+                        Nome do Aluno: <?php echo $dado["nome_aluno"]; ?> <br />
 
-                            MATRICULA: <?php echo $dado["matricula"]; ?> <br />
+                        Matricula do Aluno: <?php echo $dado["matricula"]; ?> <br />
 
-                            EMPRESA: <?php echo $dado["nome_empresa"]; ?> <br />
+                        Curso do Aluno: <?php echo $dado["curso"]; ?> <br />
 
-                            INICIO DO ESTÁGIO: <?php echo $dado["inicio_estagio"]; ?> <br />
+                           Nome Empresa: <?php echo $dado["nome_empresa"]; ?> <br />
 
-                            FIM DO ESTÁGIO:<?php echo $dado["fim_estagio"]; ?> <br />
+                           Início do Estágio: <?php echo mostraData($dado["inicio_estagio"]); ?> <br />
 
-                            CARGA HORÁRIA (SEMANAL):<?php echo $dado["carga_horaria"]; ?>
-                        </div><br />
+                           Fim do Estágio: <?php echo mostraData($dado["fim_estagio"]); ?> <br />
 
-                        SELECIONE O PROFESSOR ORIENTADOR: <select id="NOMEO" name="NOMEO">?>
+                           Carga Horária (Semanal): <?php echo $dado["carga_horaria"]; ?></div><br />
+
+                        Selecione o Professor Orientador: <select class="input100" id="NOMEO" name="NOMEO" required>?>
+                        <option disabled selected style="display: none;" value="">Selecione...</option>
                             <?php if ($cons->num_rows > 0) {
                                 while ($dado = $cons->fetch_array()) { ?>
                                     <option value="<?php echo $dado["nome"]; ?>"><?php echo "Professor (a) " . $dado["nome"];

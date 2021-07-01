@@ -166,6 +166,12 @@ include("Helpers/funcoes.php");
 
             </ul><br>
             <div class="container">
+            <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
+                        <h8 style="color: white;">Tabela de Orientações</h8>
+                    </a>
+            <br>
+                    <br>
+                    
 
 
                 <h3>Aguardando aprovação de orientador </h3>
@@ -174,15 +180,16 @@ include("Helpers/funcoes.php");
                         <tr>
 
                             <th scope="col">Nome do Aluno</th>
-                            <th scope="col">Matricula</th>
+                            <th scope="col">Matricula do Aluno</th>
+                            <th scope="col">Curso do Aluno</th>
                             <th scope="col">Professor Orientador</th>
                             <th scope="col">Nome Empresa</th>
                             <th scope="col">Início Estágio</th>
                             <th scope="col">Fim Estágio</th>
 
-                            <th scope="col">Carga horária</th>
-                            <th scope="col">Editar orientador</th>
-                            <th scope="col">Aprovar orientador</th>
+                            <th scope="col">Carga horária (Semanal)</th>
+                            <th scope="col">Editar Orientador</th>
+                            <th scope="col">Aprovar Orientador</th>
                             <?php if ($con4->num_rows > 0) {
 
                                 while ($dado = $con4->fetch_array()) {
@@ -194,6 +201,7 @@ include("Helpers/funcoes.php");
                                     echo "<tr>";
                                     echo "<td>" . $dado["nome_aluno"] . "</td>";
                                     echo "<td>" . $dado["matricula"] . "</td>";
+                                    echo "<td>" . $dado["curso"] . "</td>";
                                     echo "<td>" . $dado["nome_orientador"] . "</td>";
                                     echo "<td>" . $dado["nome_empresa"] . "</td>";
                                     echo "<td>" . mostraData($dado["inicio_estagio"]) . "</td>";
@@ -222,13 +230,8 @@ include("Helpers/funcoes.php");
                     </thead>
 
                 </table>
-                <p>
-                <p>
-                    <br>
-                    <br>
-                    <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
-                        <h8 style="color: white;">Consultar Declaração</h8>
-                    </a>
+                
+                    
             </div>
 
 

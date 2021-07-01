@@ -175,6 +175,11 @@ include("Helpers/funcoes.php");
             </ul><br>
 
             <div class="container">
+            <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
+                        <h8 style="color: white;">Gerar Declaração</h8>
+                    </a>
+                    <br>
+                    <br>
                 <h3>Usuários Cadastrados </h3>
                 <table class="table table-striped">
                     <thead>
@@ -227,15 +232,6 @@ include("Helpers/funcoes.php");
                     </thead>
 
                 </table>
-
-                <p>
-                <p>
-                    <br>
-                    <br>
-                    <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
-                        <h8 style="color: white;">Gerar Declaração</h8>
-                    </a>
-
 
             </div>
         </div>

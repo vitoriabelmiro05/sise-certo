@@ -141,20 +141,26 @@ include("Helpers/funcoes.php");
             </li>
 
         </ul><br>
-        <div class="container">
+        <div class="container"> 
+        
+                <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
+                    <h8 style="color: white;">Tabela de Orientações</h8>
+                </a>
+                <br>
+                <br>
             <h3>Aguardando indicação de orientador </h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
 
                         <th scope="col">Nome do Aluno</th>
-                        <th scope="col">Matricula</th>
-                        <th scope="col">Curso</th>
+                        <th scope="col">Matricula do Aluno</th>
+                        <th scope="col">Curso do Aluno</th>
                         <th scope="col">Nome Empresa</th>
                         <th scope="col">Início Estágio</th>
                         <th scope="col">Fim Estágio</th>
 
-                        <th scope="col">Carga horária</th>
+                        <th scope="col">Carga horária (Semanal)</th>
                         <th scope="col">Professor Orientador</th>
 
                         <?php if ($con4->num_rows > 0) {
@@ -199,11 +205,7 @@ include("Helpers/funcoes.php");
             </table>
             <p>
             <p>
-                <br>
-                <br>
-                <a class="btn btn-success botao" role="button" data-toggle="modal" data-target="#lupaModal" class="mr-3">
-                    <h8 style="color: white;">Consultar Declaração</h8>
-                </a>
+               
         </div>
 
 
