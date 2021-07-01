@@ -19,10 +19,10 @@ WHERE
 cpf NOT IN (SELECT 
         cpf_usuario
     FROM
-        estagio) and (funcao = 'Professor(a)'
+        estagio WHERE date_format(inicio_estagio, '%Y') = '$anoAtual' or date_format(fim_estagio, '%Y') = '$anoAtual') and (funcao = 'Professor(a)'
             AND visibilidade = '1'
             AND departamento = '$dep[0]') order by nome;");
-$declaracao2 = mysqli_query($conn, "SELECT * from (SELECT nome_orientador, COUNT(cpf_usuario) as ESTAGIOS FROM estagio WHERE cpf_usuario IN (SELECT cpf FROM usuario WHERE funcao = 'Professor(a)' AND visibilidade = '1' AND departamento = '$dep[0]') GROUP BY cpf_usuario) as estagio_por_professor order by estagio_por_professor.ESTAGIOS asc");
+$declaracao2 = mysqli_query($conn, "SELECT * from (SELECT nome_orientador, COUNT(cpf_usuario) as ESTAGIOS FROM estagio WHERE date_format(inicio_estagio, '%Y') = '$anoAtual' or date_format(fim_estagio, '%Y') = '$anoAtual' and cpf_usuario IN (SELECT cpf FROM usuario WHERE funcao = 'Professor(a)' AND visibilidade = '1' AND departamento = '$dep[0]') GROUP BY cpf_usuario) as estagio_por_professor order by estagio_por_professor.ESTAGIOS asc");
 
 $consulta = "SELECT * FROM usuario WHERE cpf = '$_SESSION[CPF]'; ";
 $consultaeS = "SELECT * FROM estagio where nome_orientador = 'Pendente'; ";
@@ -233,6 +233,7 @@ include("Helpers/funcoes.php");
                         }
                         </style>
             <div class="modal-body">
+            
             <table class="table table-striped" >
                     <thead>
                         <tr>
